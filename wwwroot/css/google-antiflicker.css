@@ -1,0 +1,4 @@
+﻿// https://developers.google.com/optimize
+/* Sets the opacity of any element with this class to 0 */
+.async-hide {
+    opacity: 0 !important

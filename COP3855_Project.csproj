@@ -3,9 +3,9 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
-		<Folder Include="wwwroot\css\" />
 		<Folder Include="wwwroot\html\" />
-		<Folder Include="wwwroot\js\" />
+		<Folder Include="wwwroot\lib\" />
+		<Folder Include="wwwroot\img\" />
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />

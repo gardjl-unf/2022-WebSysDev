@@ -1,0 +1,4 @@
+﻿body {
+    background-image: url(../img/car1.jpg), url(../img/car2.jpg), url(../img/car3.jpg), url(../img/car4.jpg);
+    background-size: 20%;
+}
