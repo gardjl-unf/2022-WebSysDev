@@ -7,12 +7,16 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using COP3855_Project.Models;
+
 namespace COP3855_Project
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            //Temporary
+            services.AddTransient<IVehicleRepository, FakeVehicleRepository>();
             services.AddMvc(options => options.EnableEndpointRouting = false);
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -20,7 +24,12 @@ namespace COP3855_Project
             app.UseDeveloperExceptionPage(); // REMOVE FOR DEPLOYMENT
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute();
+            app.UseMvc(routes => {
+                routes.MapRoute(
+                name: "default",
+                template: "{controller=Vehicle}/{action=List}/{id?}");
+            });
+
         }
     }
 }
