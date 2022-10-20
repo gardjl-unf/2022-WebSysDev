@@ -16,16 +16,14 @@ namespace COP3855_Project.Controllers
         {
             repository = repo;
         }
-        public ViewResult List(int page = 1)=> View(new ProductsListViewModel
+        public ViewResult List(int page = 1)=> View(new VehiclesListViewModel
         {
-     Vehicles = repository.Vehicles.OrderBy(p => p.ID).Skip((page - 1) * PageSize).Take(PageSize),
-     PagingInfo = new PagingInfo
-     {
-         CurrentPage = page,
-         ItemsPerPage = PageSize,
-         TotalItems = repository.Vehicles.Count()
-     }
- });
-
+            Vehicles = repository.Vehicles.OrderBy(p => p.ID).Skip((page - 1) * PageSize).Take(PageSize),PagingInfo = new PagingInfo
+             {
+                 CurrentPage = page,
+                 ItemsPerPage = PageSize,
+                 TotalItems = repository.Vehicles.Count()
+             }
+        });
     }
 }
