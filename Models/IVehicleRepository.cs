@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 namespace COP3855_Project.Models
 {
     public interface IVehicleRepository
     {
-        IEnumerable<Vehicle> Products { get; }
+        IEnumerable<Vehicle> Vehicles { get; }
     }
 }
