@@ -3,14 +3,16 @@ using COP3855_Project.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace COP3855_Project.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20221020210509_Inheritance")]
+    partial class Inheritance
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,10 +30,6 @@ namespace COP3855_Project.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("HomeImagePath")
                         .HasColumnType("nvarchar(max)");
 
@@ -44,18 +42,6 @@ namespace COP3855_Project.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Vehicles");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Vehicle");
-                });
-
-            modelBuilder.Entity("COP3855_Project.Models.ModelS", b =>
-                {
-                    b.HasBaseType("COP3855_Project.Models.Vehicle");
-
-                    b.Property<string>("Tires")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasDiscriminator().HasValue("ModelS");
                 });
 #pragma warning restore 612, 618
         }

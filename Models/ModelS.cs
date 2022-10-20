@@ -5,9 +5,10 @@ namespace COP3855_Project.Models
 {
     public class ModelS : Vehicle
     {
+        public string Tires { get; set; }
         public ModelS ()
         {
-            // Inheritance Test
+            
         }
     }
 }

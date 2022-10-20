@@ -8,5 +8,6 @@ namespace COP3855_Project.Models
     public interface IVehicleRepository
     {
         IEnumerable<Vehicle> Vehicles { get; }
+        IEnumerable<ModelS> ModelSs { get; }
     }
 }

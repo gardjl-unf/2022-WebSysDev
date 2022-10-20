@@ -8,9 +8,11 @@ namespace COP3855_Project.Models
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
-       base(options)
-        { }
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+        {
+
+        }
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<ModelS> ModelSs { get; set; }
     }
 }
