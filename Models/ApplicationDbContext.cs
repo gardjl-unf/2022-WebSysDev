@@ -14,5 +14,8 @@ namespace COP3855_Project.Models
         }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<ModelS> ModelSs { get; set; }
+        public DbSet<Model3> Model3s { get; set; }
+        public DbSet<ModelX> ModelXs { get; set; }
+        public DbSet<ModelY> ModelYs { get; set; }
     }
 }

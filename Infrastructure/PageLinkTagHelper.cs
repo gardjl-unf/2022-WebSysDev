@@ -20,7 +20,8 @@ namespace COP3855_Project.Infrastructure
         public ViewContext ViewContext { get; set; }
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
-        public bool PageClassesEnabled { get; set; } = false; public string PageClass { get; set; }
+        public bool PageClassesEnabled { get; set; } = false; 
+        public string PageClass { get; set; }
         public string PageClassNormal { get; set; }
         public string PageClassSelected { get; set; }
         public override void Process(TagHelperContext context,

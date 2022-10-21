@@ -7,5 +7,6 @@ namespace COP3855_Project.Models.ViewModels
     {
         public IEnumerable<Vehicle> Vehicles { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentModel { get; set; }
     }
 }

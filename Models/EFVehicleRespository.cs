@@ -16,5 +16,8 @@ namespace COP3855_Project.Models
         }
         public IEnumerable<Vehicle> Vehicles => context.Vehicles;
         public IEnumerable<ModelS> ModelSs => context.ModelSs;
+        public IEnumerable<Model3> Model3s => context.Model3s;
+        public IEnumerable<ModelX> ModelXs => context.ModelXs;
+        public IEnumerable<ModelY> ModelYs => context.ModelYs;
     }
 }

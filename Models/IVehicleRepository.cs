@@ -9,5 +9,8 @@ namespace COP3855_Project.Models
     {
         IEnumerable<Vehicle> Vehicles { get; }
         IEnumerable<ModelS> ModelSs { get; }
+        IEnumerable<Model3> Model3s { get; }
+        IEnumerable<ModelX> ModelXs { get; }
+        IEnumerable<ModelY> ModelYs { get; }
     }
 }
