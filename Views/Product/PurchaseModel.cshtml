@@ -1,0 +1,125 @@
+﻿@model ProductModelView
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<head>
+    <title>Opening Page of Purchase Car</title>
+    <meta charset="utf-8">
+
+    <style>
+
+        #GFG {
+            text-decoration: none;
+            color: black;
+        }
+
+        #GFG2 {
+            text-decoration: none;
+            color: black;
+            float: right !important;
+        }
+
+        #CFG3 {
+          color: red;
+          position: absolute;
+          bottom: 55px;
+          left: 50%;
+         }
+
+
+        #button1 {
+            background-color: red;
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 55px;
+            left: 50%;
+            margin-left: -104.5px; /*104.5px is half of the button's width*/
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        #button2 {
+            background-color: red;
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 55px;
+            left: 70%;
+            margin-left: -104.5px; /*104.5px is half of the button's width*/
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+
+
+        link {
+            text-decoration: none;
+        }
+
+        ul {
+        color:black;
+        font-size: 25px;
+        padding-left: 0;
+        line-height: 150%;
+        }
+
+  
+
+
+    </style>
+
+    
+
+</head>
+<body>
+
+    
+
+    <div style =  "background-color:red; ">  <h1> <b> <center> Order your @ViewBag.Model Today </center>  </b> </h1> </div> 
+
+    <img src="@ViewBag.Logo"
+         style="object-fit:contain;
+            width:400px;
+      float: left;
+      margin: 5px;
+            height:400px;
+            border: solid 3px #CCC" /> 
+ 
+ 
+<p> <h2>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line1  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line2  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line3  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line4  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line5  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line6  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line7  <br /> <br />
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp @ViewBag.Line8  <br /> 
+ </h2> </p>
+
+ <div>
+
+<ul> <b> Standard options for all Tesla models  
+<li>   - Perl white Paint  </li>
+<li> - Black luxury interior </li>
+<li> - 18" Rims" </li>
+<li> - AutoPilot </li> </b>
+</ul>
+</div>
+    
+
+    <button> <a id="button1" asp-action=@ViewBag.purchaseStd class="btn btn-default"> <h2> @ViewBag.buttonStandard </h2> </a>  </button>
+    <button> <a id="button2" asp-action=@ViewBag.purchasePlaid class="btn btn-default"> <h2> @ViewBag.buttonPlaid    </h2> </a>  </button>
+
+
+
+</body>
+
+
+
+
+

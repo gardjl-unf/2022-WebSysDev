@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace COP3855_Project
+namespace EVehiclesB
 {
     public class Program
     {

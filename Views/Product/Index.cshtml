@@ -1,0 +1,171 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+    <style>
+
+        #GFG {
+            text-decoration: none;
+            color: black;
+        }
+
+        #GFG2 {
+            text-decoration: none;
+            color: black;
+            float: right !important;
+        }
+
+        #CFG3 {
+            line-height: .75;
+        }
+
+        body {
+            background-image: url(@ViewBag.Logo);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-decoration: none;
+        }
+
+        link {
+            text-decoration: none;
+        }
+
+
+
+
+
+        #CFG4 {
+            background-color: red;
+            border-color: red;
+            color: black;
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            border-radius: 14px 14px 14px 14px;
+            margin-left: -104.5px; /*104.5px is half of the button's width*/
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: white;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 30px;
+                color: black;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+        .dropdown {
+            float: right;
+            overflow: hidden;
+            padding: 14px 40px; 
+        }
+
+            .dropdown .dropbtn {
+                font-size: 30px;
+                border: none;
+                outline: none;
+                color: black;
+                padding: 5px 20px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: red;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            font-size: 10px;
+            line-height: .90;
+            padding: 5px;
+        }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px; 
+                text-decoration: none;
+                display: block;
+                text-align: left;
+                font-size: 20px;
+                line-height: .90;
+                padding: 5px;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: red;
+                }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+        button1 {
+            background-color: white;
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 75px;
+            left: 40%;
+ /*           border-radius: 14px 14px 14px 14px; */
+            margin-left: -10.5px; /*104.5px is half of the button's width*/
+            font-size: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a id="GFG" asp-action="IndexModel3" class="btn btn-default"> <b> Model 3&nbsp;&nbsp; </b> </a>
+        <a id="GFG" asp-action="IndexModelY" class="btn btn-default"> <b> Model Y&nbsp;&nbsp; </b> </a>
+        <a id="GFG" asp-action="IndexModelX" class="btn btn-default"> <b> Model X&nbsp;&nbsp; </b> </a>
+        <a id="GFG" asp-action="IndexModelS" class="btn btn-default"> <b> Model S&nbsp;&nbsp; </b> </a>
+        <a id="GFG" asp-action="List" class="btn btn-default"> <b> Merchandise&nbsp;&nbsp; </b> </a>
+
+        <div class="dropdown">
+            <button class="dropbtn">
+                <b> Menu </b>
+                <i class="fa fa-caret-down"></i>
+            </button>
+           <div class="dropdown-content">
+                <a id="GFG3" href="#">Check Customer Order</a>
+                <a id="GFG3" href="#">Company Info</a>
+                <a id="GFG3" href="@Url.Content("c:/Temp/model3.jpg")">Ordering</a>
+                <a href="#">Company Polices</a>
+                <a href="#">Questions</a>
+                <a href="#">Support</a>
+                <a href="#">Admin Menus Below</a>
+                <a> @Html.ActionLink("Create Account", "Create", "Account") </a>
+                <a> @Html.ActionLink("Log In", "Login", "Account") </a>
+                <a> @Html.ActionLink("Ship Orders", "List", "Order") </a>
+                <a> @Html.ActionLink("Add Product", "Create", "Admin") </a>
+                <a> @Html.ActionLink("Edit Product", "Edit", "Admin") </a>
+                <a> @Html.ActionLink("Delete Product", "Delete", "Admin") </a>
+                <a> @Html.ActionLink("Test Link", "IndexModelS", "Product", new { QueryVar = @ViewBag.ModelPurchase, SomeVar = @ViewBag.ModelPurchase }, null) </a>
+
+            </div>
+        </div>
+
+
+        <button1> <h3> <a asp-action=@ViewBag.ModelPurchase class="btn btn-default"> Purchase Now  </a> </h3> </button1>
+</body>
+</html>
