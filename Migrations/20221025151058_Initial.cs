@@ -2,7 +2,7 @@
 
 namespace COP3855_Project.Migrations
 {
-    public partial class Inheritance : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
