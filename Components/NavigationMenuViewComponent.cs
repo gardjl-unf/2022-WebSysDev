@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-namespace SportsStore.Components
+using COP3855_Project.Models;
+
+namespace COP3855_Project.Components
 {
     public class NavigationMenuViewComponent : ViewComponent
     {
-        public string Invoke()
+        private IVehicleRepository repository;
+        public NavigationMenuViewComponent(IVehicleRepository repo)
         {
-            return "Hello from the Nav View Component";
+            repository = repo;
         }
+        public IViewComponentResult Invoke()
+        {
+            ViewBag.SelectedCategory = RouteData?.Values["category"];
+            return View(repository.Products
+            .Select(x => x.Category)
+            .Distinct()
+            .OrderBy(x => x));
+        }
+
     }
 }
