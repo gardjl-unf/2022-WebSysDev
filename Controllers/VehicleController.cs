@@ -26,8 +26,8 @@ namespace COP3855_Project.Controllers
              {
                  CurrentPage = page,
                  ItemsPerPage = PageSize,
-                 TotalItems = repository.Vehicles.Count()
-             },
+                TotalItems = category == null ? repository.Vehicles.Count() : repository.Vehicles.Where(e => e.Category == category).Count()
+            },
             CurrentCategory = category
         });
     }

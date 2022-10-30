@@ -19,5 +19,31 @@ namespace COP3855_Project.Models
         public IEnumerable<Model3> Model3s => context.Model3s;
         public IEnumerable<ModelX> ModelXs => context.ModelXs;
         public IEnumerable<ModelY> ModelYs => context.ModelYs;
+        public void SaveVehicle(Vehicle vehicle)
+        {
+            if (vehicle.ID == 0)
+            {
+                context.Vehicles.Add(vehicle);
+            }
+            else
+            {
+                Vehicle dbEntry = context.Vehicles.FirstOrDefault(v => v.ID == vehicle.ID); 
+                if (dbEntry != null)
+                {
+                    dbEntry.Type = vehicle.Type; dbEntry.Description = vehicle.Description; dbEntry.BasePrice = vehicle.BasePrice; dbEntry.Category = vehicle.Category;
+                }
+            }
+            context.SaveChanges();
+        }
+        public Vehicle DeleteVehicle(int ID)
+        {
+            Vehicle dbEntry = context.Vehicles.FirstOrDefault(v => v.ID == ID);
+            if (dbEntry != null)
+            {
+                context.Vehicles.Remove(dbEntry); 
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
     }
 }

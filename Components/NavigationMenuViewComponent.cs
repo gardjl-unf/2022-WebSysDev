@@ -17,7 +17,7 @@ namespace COP3855_Project.Components
         public IViewComponentResult Invoke()
         {
             ViewBag.SelectedCategory = RouteData?.Values["category"];
-            return View(repository.Products
+            return View(repository.Vehicles
             .Select(x => x.Category)
             .Distinct()
             .OrderBy(x => x));
