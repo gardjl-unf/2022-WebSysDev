@@ -6,6 +6,13 @@ namespace COP3855_Project.Models
 {
     public class Model3 : Vehicle
     {
-        //this.Type = "Model 3";
+        public void Vehicle()
+        {
+            this.Category = "Model 3";
+            this.BasePrice = 48490;
+            this.ThreePerformancePackagePrice = 16390;
+        }
+        public bool ThreePerformancePackage { get; set; }
+        public decimal ThreePerformancePackagePrice { get; set; }
     }
 }

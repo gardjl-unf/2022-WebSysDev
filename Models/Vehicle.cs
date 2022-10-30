@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.Runtime.CompilerServices;
 
 namespace COP3855_Project.Models
 {
@@ -19,12 +20,20 @@ namespace COP3855_Project.Models
         [Range(0.01, double.MaxValue, ErrorMessage = "Please enter a positive price")]
         public decimal BasePrice { get; set; }
         public string ExteriorColor { get; set; }
+        public decimal ExteriorPrice { get; set; }
         public string InteriorColor { get; set; }
+        public decimal InteriorPrice { get; set; }
         public string Wheels { get; set; }
+        public decimal WheelsPrice { get; set; }
         public bool EnhancedAutopilot { get; set; }
+        public decimal EnhancedAutopilotPrice { get; set; }
         public bool FullSelfDriving { get; set; }
+        public decimal FullSelfDrivingPrice { get; set; }
         public string AccWallConnect { get; set; }
+        public decimal AccWallConnectPrice { get; set; }
         public string AccMobileConnect { get; set; }
+        public decimal AcMobileConnectPrice { get; set; }
+        public decimal DestinationFee { get; set; }
         public string ImagePath { get; set; }
     }
 }
