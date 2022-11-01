@@ -2,31 +2,39 @@
 <html lang="en-us">
     <head>
         <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" />
         <meta name="description" content="Car, car, car, car">
         <meta name="keywords" content="Search engine keywords, like car">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="css/google-antiflicker.css" />
-        <link rel="stylesheet" type="text/css" href="css/home.css" />
-        <link rel="stylesheet" type="text/css" href="css/test.css" />
-        <script type="text/javascript" src="js/google-antiflicker.js"></script>
-        <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
-        <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+        <script type="text/javascript" src="~/js/google-antiflicker.js"></script>   
+        <link rel="stylesheet" type="text/css" href="~/css/google-antiflicker.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/home.css" />
+        <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*.min.css" />
+        <link rel="stylesheet" asp-href-include="~/lib/font-awesome/css/*.css" />
         <title>Tuskla - Electric Cars</title>
-        <link rel="icon" type="image/x-icon" href="img/logos/tuskla-logo-2184-2036.png">
+        <link rel="icon" type="image/x-icon" href="~/img/logos/tuskla-logo-2184-2036.png">
     </head>
     <body>
-        <nav class="navbar navbar-inverse row flex-nowrap sticky-top justify-content-between align-items-center">
-            <a class="navbar-brand text-white" href="~"><img src="~/img/logos/tuskla-text-black-1948-264.png" style="height:12px" /></a>
-            <a class"py-2 d-none d-md-inline-block" href"#">Model S</a>
-            <a class"py-2 d-none d-md-inline-block" href"#">Model 3</a>
-            <a class"py-2 d-none d-md-inline-block" href"#">Model X</a>
-            <a class"py-2 d-none d-md-inline-block" href"#">Model Y</a>
-            <div class="float-right">
-                @await Component.InvokeAsync("CartSummary")
-            </div>
-            <a href="" id="menuBtn" class="menu-btn">Menu</a>
-        </nav>
+    <header class="navbar navbar-inverse row flex-nowrap sticky-top justify-content-between align-items-center">
+            <nav>
+                <a href="~">
+                <img class="logo" src="~/img/logos/tuskla-text-black-1948-264.png" />
+                </a>
+            </nav>
+            <nav class="center desktop">
+                <a class="navigation" href"~">Model S</a>
+                <a class="navigation" href"~">Model 3</a>
+                <a class="navigation" href"~">Model X</a>
+                <a class="navigation" href"~">Model Y</a>
+            </nav>
+            <nav class="right">
+                <div class="float-left">
+                    @await Component.InvokeAsync("CartSummary")
+                </div>
+                <a class="navigation" href="">Account</a>
+                <a class="navigation" href="" id="menuButton">Menu</a>
+            </nav>
+        </header>
+
         <!--
         <div class="container">
             <div class="row">
@@ -41,33 +49,25 @@
     <div class="backdrop"></div>
 
     <aside>
-        <button class="close">&times;</button>
-        <a href="">Model 3</a>
-        <a href="">Model Y</a>
-        <a href="">Model S</a>
-        <a href="">Model X</a>
-        <a href="">Existing Inventory</a>
-        <a href="">Used Inventory</a>
-        <a href="">Trade-In</a>
-        <a href="">Test Drive</a>
-        <a href="">Insurance</a>
-        <a href="">Powerwall</a>
-        <a href="">Commercial Energy</a>
-        <a href="">Utilities</a>
-        <a href="">Charging</a>
-        <a href="">Find Us</a>
-        <a href="">Support</a>
-        <a href="">Investor Relations</a>
-        <a href="">Shop</a>
-        <a href="">Account</a>
-        <a href="">More</a>
+        <button class="close fa-window-close"></button>
+        <a class="navigation" href="">Model 3</a>
+        <a class="navigation" href="">Model Y</a>
+        <a class="navigation" href="">Model S</a>
+        <a class="navigation" href="">Model X</a>
+        <a class="navigation" href="">Existing Inventory</a>
+        <a class="navigation" href="">Used Inventory</a>
+        <a class="navigation" href="">Find Us</a>
+        <a class="navigation" href="">Support</a>
+        <a class="navigation" href="">Investor Relations</a>
+        <a class="navigation" href="">Shop</a>
+        <a class="navigation" href="">Account</a>
     </aside>
 
 
     <section class="model-3 active">
         <div class="content">
             <h1>Model 3</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
+            <p>Order Online for <a class="touch" href="">Touchless Delivery</a></p>
             <div class="buttons">
                 <a href="">custom order</a>
                 <a href="">exiting inventory</a>
@@ -77,7 +77,7 @@
     <section class="model-y">
         <div class="content">
             <h1>Model Y</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
+            <p>Order Online for <a class="touch" href="">Touchless Delivery</a></p>
             <div class="buttons">
                 <a href="">custom order</a>
                 <a href="">exiting inventory</a>
@@ -87,7 +87,7 @@
     <section class="model-s">
         <div class="content">
             <h1>Model S</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
+            <p>Order Online for <a class="touch" href="">Touchless Delivery</a></p>
             <div class="buttons">
                 <a href="">custom order</a>
                 <a href="">exiting inventory</a>
@@ -97,17 +97,14 @@
     <section class="model-x">
         <div class="content">
             <h1>Model X</h1>
-            <p>Order Online for <a href="">Touchless Delivery</a></p>
+            <p>Order Online for <a class="touch" href="">Touchless Delivery</a></p>
             <div class="buttons">
                 <a href="">custom order</a>
                 <a href="">exiting inventory</a>
             </div>
         </div>
     </section>
-    
 
-
-
-    <script src="js/navigation.js"></script>
+    <script src="~/js/navigation.js"></script>
     </body>
 </html>

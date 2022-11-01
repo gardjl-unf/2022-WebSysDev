@@ -8,7 +8,7 @@ const closeMenu = () => {
     document.querySelector('aside').className = '';
 }
 
-document.getElementById('menuBtn').onclick = e => {
+document.getElementById('menuButton').onclick = e => {
     e.preventDefault();
     openMenu();
     
