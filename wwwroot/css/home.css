@@ -32,10 +32,13 @@ header {
     display: grid;
     grid-template-columns: auto 1fr auto;
     padding: 5px 20px;
-    position: fixed;
+    /*position: fixed;*/
     top: 0;
     z-index: 2;
-    width: 100%;
+    width: calc(100%);
+    max-width: vw;
+    position: relative;
+    float: inline-start;
 }
 
 .logo {
@@ -200,7 +203,6 @@ aside {
 }
 
 .model-3 {
-    top: 0;
     background-image: url('/img/home/model-3.jpg');
 }
 
