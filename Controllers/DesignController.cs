@@ -1,8 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 
 namespace COP3855_Project.Controllers
 {
-    public class HomeController : Controller
+    public class DesignController : Controller
     {
         public ViewResult Index()
         {

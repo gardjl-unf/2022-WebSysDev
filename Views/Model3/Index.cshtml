@@ -1,0 +1,21 @@
+﻿@model Model3
+
+    @{
+        ViewBag.Title = "Design Your Model 3 | Tuskla"; Layout = "_DesignLayout";
+    }
+
+    <div class="presentation">
+
+    </div>
+    <div class="options">
+        <h1 class="text-loader--content tds-text--center text-loader--subtitle" tabindex="-1">
+        <span>Model 3</span>
+        </h1>
+        <div style="opacity: 1; filter: blur(0px); transition: all 150ms var(--bezier);"><p class="estimated-delivery-date tds-text--center text-loader--BATTERY_AND_DRIVE tds--vertical_padding-bottom--1x" data-id="estimated-delivery-date">Est. Delivery: Nov - Dec 2022</p>
+            </div>
+        <form id="@Model.ID" asp-action="AddToCart" asp-controller="Cart" method="post" class="float-right m-2 p-1">
+            <input type="hidden" asp-for="ID" /> <input type="hidden" name="returnUrl" value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+            <button type="submit" class="btn btn-info btn-sm float-right">
+                Continue to Payment
+            </button>
+        </form>

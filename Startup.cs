@@ -11,6 +11,7 @@ using COP3855_Project.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Routing.Patterns;
 
 namespace COP3855_Project
 {
@@ -62,7 +63,12 @@ namespace COP3855_Project
                     name: null,
                     template: "",
                     defaults: new { controller = "Vehicle", action = "List", page = 1 });
-                    routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");
+                routes.MapRoute(
+                    name: null, 
+                    template: "{controller}/{action}/{id?}");
+                routes.MapRoute(name: null,
+                    template: "{category}/{controller}/{action}",
+                    defaults: new { controller = "Design", action = "View" });
             });
         }
     }

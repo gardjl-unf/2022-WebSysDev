@@ -3,6 +3,10 @@
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 	<ItemGroup>
+		<Folder Include="Views\ModelS\" />
+		<Folder Include="Views\ModelY\" />
+		<Folder Include="Views\ModelX\" />
+		<Folder Include="Views\Shop\" />
 		<Folder Include="wwwroot\html\" />
 		<Folder Include="wwwroot\lib\" />
 	</ItemGroup>
