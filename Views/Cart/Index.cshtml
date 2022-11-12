@@ -24,43 +24,34 @@
                 <td class="text-right">
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
-<td>
- <form asp-action="RemoveFromCart" method="post">
- <input type="hidden" name="ProductID"
- value="@line.Product.ProductID" />
- <input type="hidden" name="returnUrl"
- value="@Model.ReturnUrl" />
- <button type="submit" class="btn btn-sm btn-danger ">
- Remove
- </button>
- </form>
- </td>
- </tr>
- }
+                <td>
+                     <form asp-action="RemoveFromCart" method="post">
+                        <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                        <button type="submit" class="btn btn-sm btn-danger ">Remove</button>
+                    </form>
+                </td>
+            </tr>
+        }
 
-<!-- Need to compute 7% tax and the Shipping Fee
+        <!-- Need to compute 7% tax and the Shipping Fee
 
-For Shipping it could just be $10 on orders under and free otherwise
-Could check the price and if over $40K add a $2500 vehicle dest fee
-The abobe needs to be added into the FAQs
- -->
+        For Shipping it could just be $10 on orders under and free otherwise
+        Could check the price and if over $40K add a $2500 vehicle dest fee
+        The abobe needs to be added into the FAQs
+         -->
 
-</tbody>
- <tfoot>
- <tr>
- <td colspan="3" class="text-right">Total:</td>
- <td class="text-right">
- 
-  @Model.Cart.ComputeTotalValue().ToString("c");
-
- </td>
- </tr>
- </tfoot>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeTotalValue().ToString("c");
+            </td>
+        </tr>
+    </tfoot>
 </table>
 <div class="text-center">
- <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
- <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order"> Checkout </a>
-
-
-
+     <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
+     <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order"> Checkout </a>
 </div>

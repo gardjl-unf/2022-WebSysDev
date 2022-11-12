@@ -28,6 +28,22 @@ Select the one to the left for new query
 I have the insert statements to load the initial file in the EVehiclesB
 main folder named dbo.Products.data.sql.  Open that file with notepad 
 and copy the contents.  Then then paste it into the window. 
-Then simply click the green error to execute.
+Then simply click the green error to execute.  
 
 To see the data just right-click click on the products table and select View Data
+
+There are admin accounts but add a module for customer accounts
+
+Add an email field to orders
+
+Add a lookup text field for email like the one for orderid
+
+Fix the DAMM css on the sub2 dropdown menu on the navbar for background color
+
+The thank you screen has orderid, add the model selected
+
+Fix the logout button that she has to return to the home page
+
+Add a link on the product pages to pop up a display all model stats like Tesla has. Javascript
+
+Add images on the add screens for the products, model, paint, rims, etc. 
