@@ -28,7 +28,18 @@
  <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.3" />
  </ItemGroup>
  <ItemGroup>
-   <Content Update="wwwroot\Docs\BkUp\BootStrapMenu.html">
+   <None Include="wwwroot\fonts\GothamSSm-Bold_Web.woff2" />
+   <None Include="wwwroot\fonts\GothamSSm-Book_Web.woff2" />
+   <None Include="wwwroot\fonts\GothamSSm-Medium_Web.woff2" />
+   <None Include="wwwroot\img\logos\tuskla-logo-2184-2036.xcf" />
+   <None Include="wwwroot\img\logos\tuskla-logo-black-2184-2036.xcf" />
+   <None Include="wwwroot\img\logos\tuskla-logotext-2200x2800.xcf" />
+   <None Include="wwwroot\img\logos\tuskla-logotext-black-2200x2800.xcf" />
+   <None Include="wwwroot\img\logos\tuskla-text-1948-264.xcf" />
+   <None Include="wwwroot\img\logos\tuskla-text-black-1948-264.xcf" />
+ </ItemGroup>
+ <ItemGroup>
+   <Content Update="wwwroot\docs\BkUp\BootStrapMenu.html">
      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
    </Content>

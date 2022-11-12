@@ -1,0 +1,49 @@
+﻿<header class="navbar navbar-inverse row flex-nowrap sticky-top justify-content-between align-items-center">
+    <nav>
+        <a href="../..">
+            <img class="logo" src="~/img/logos/tuskla-text-black-1948-264.png" />
+        </a>
+    </nav>
+    <nav class="center desktop">
+        <span class="navigation">@Html.ActionLink("Model 3", "IndexModel", "Product", new { Model = "Model 3 Plaid" }, null)</span>
+        <span class="navigation">@Html.ActionLink("Model Y", "IndexModel", "Product", new { Model = "Model Y Plaid" }, null)</span>
+        <span class="navigation">@Html.ActionLink("Model X", "IndexModel", "Product", new { Model = "Model X Plaid" }, null)</span>
+        <span class="navigation">@Html.ActionLink("Model S", "IndexModel", "Product", new { Model = "Model S Plaid" }, null)</span>
+        <span class="navigation">@Html.ActionLink("Merchandise", "List", "Product", new { category = "Exterior"}, null)</span>
+    </nav>
+    <nav class="right">
+        <div class="float-left">
+            @await Component.InvokeAsync("CartSummary")
+        </div>
+        <a class="navigation" href="">Account</a>
+        <a class="navigation" href="" id="menuButton">Menu</a>
+    </nav>
+</header>
+
+<div class="backdrop"></div>
+
+<aside>
+    <button class="close">X</button>
+    <div class="navigation">@Html.ActionLink("Check Orders", "List2", "Order")</div>
+    <div class="navigation" href="@Url.Content("../docs/Contact.html")">Contact Us</div>
+    <div class="navigation" href="@Url.Content("../docs/FAQs.html")">FAQs</div>
+    <div class="navigation" href="@Url.Content("../docs/Ordering.html")">Ordering</div>
+    <div class="navigation" href="@Url.Content("../docs/Warranty.html")">Warranty</div>
+    <h4>Charging</h4>
+    <div class="navigation" href="@Url.Content("../docs/Charging.html")">Fast Charging </div>
+    <div class="navigation" href="@Url.Content("../docs/WallCharging.html")">Wall Charging</div>
+    <div class="navigation" href="@Url.Content("../docs/AutoPilot.html")">AutoPilot</div>
+    <h4>Corprate Information</h4>
+    <div class="navigation" href="@Url.Content("../docs/CorporateInfo.html")">Company</div>
+    <div class="navigation" href="@Url.Content("../docs/Financial.html")">Financial Report</div>
+    <div class="navigation" href="@Url.Content("../docs/MasterPlan.html")">Master Plan</div>
+    <h4>Administration</h4>
+    <div class="navigation">@Html.ActionLink("List Users", "Index", "Account")</div>
+    <div class="navigation">@Html.ActionLink("Create Acct", "Create", "Account")</div>
+    <div class="navigation">@Html.ActionLink("Ship Orders", "List", "Order")</div>
+    <div class="navigation">@Html.ActionLink("Add Prod", "Create", "Admin")</div>
+    <div class="navigation">@Html.ActionLink("Edit Prod", "Edit", "Admin")</div>
+    <div class="navigation">@Html.ActionLink("Delete Prod", "Delete", "Admin")</div>
+</aside>
+
+<script src="~/js/navigation.js"></script>
