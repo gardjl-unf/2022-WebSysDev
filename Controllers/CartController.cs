@@ -120,6 +120,15 @@ namespace Tuskla.Controllers
             return RedirectToAction("Index2", "Cart");
 
         }
+        public RedirectToActionResult RemoveFromCart(int productId, string returnUrl)
+        {
+            ProductModelView product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
+            if (product != null)
+            {
+                cart.RemoveLine(product);
+            }
+            return RedirectToAction("Index", new { returnUrl });
+        }
     }
  
 }

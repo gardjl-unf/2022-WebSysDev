@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Tuskla.Models;
+
 namespace Tuskla.Components
 {
     public class CartSummaryViewComponent : ViewComponent
