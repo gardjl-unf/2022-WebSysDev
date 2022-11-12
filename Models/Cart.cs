@@ -39,7 +39,7 @@ namespace Tuskla.Models
                 lineCollection.RemoveAll(l => l.Product.ProductID == product.ProductID);
             }
         }
-public virtual decimal ComputeSubtotalValue() => lineCollection.Sum(e => e.Product.Price * e.Quantity);
+        public virtual decimal ComputeSubtotalValue() => lineCollection.Sum(e => e.Product.Price * e.Quantity);
         public virtual decimal ComputeShippingValue() => ComputeSubtotalValue() > 40000M ? 2500M : ComputeSubtotalValue() > 50M ? 10M : 0;
         public virtual decimal ComputeTaxValue() => ComputeSubtotalValue() * 0.07M;
         public virtual decimal ComputeTotalValue() => ComputeSubtotalValue() * 1.07M + ComputeShippingValue();
