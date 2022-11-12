@@ -6,7 +6,7 @@
         <small class="navbar-text">
         <b>Your cart:</b>
         @Model.Lines.Sum(x => x.Quantity) item(s)
-        @Model.ComputeTotalValue().ToString("c")
+        @Model.ComputeSubtotalValue().ToString("c")
         </small>
     }
     <a class="btn btn-xs btn-dark" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">

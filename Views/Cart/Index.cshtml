@@ -49,25 +49,25 @@
         <tr>
             <td colspan="3" class="text-right">Subtotal:</td>
             <td class="text-right">
-                    @Model.Cart.ComputeTotalValue().ToString("c")
+                @Model.Cart.ComputeSubtotalValue().ToString("c")
             </td>
         </tr>
         <tr>
             <td colspan="3" class="text-right">Tax (7.00%):</td>
             <td class="text-right">
-                @{
-                    decimal Tax = Math.Round(0.07M * @Model.Cart.ComputeTotalValue(), 2);
-                }
-                $@Tax
+                @Model.Cart.ComputeTaxValue().ToString("c")
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">Shipping:</td>
+            <td class="text-right">
+                @Model.Cart.ComputeShippingValue().ToString("c")
             </td>
         </tr>
         <tr>
             <td colspan="3" class="text-right">Total:</td>
             <td class="text-right">
-                @{
-                    decimal Total = Math.Round(@Model.Cart.ComputeTotalValue() + Tax, 2);
-                }
-                $@Total
+                @Model.Cart.ComputeTotalValue().ToString("c")
             </td>
         </tr>
     </tfoot>
