@@ -3,8 +3,8 @@
 }
 
 @font-face {
-    font-family: 'MyWebFont';
-    src: url('/fonts/GothamSSm-Book_Web.woff2'), format('woff2');
+    font-family: 'MyWebFont' !important;
+    src: url('/fonts/GothamSSm-Book_Web.woff2'), format('woff2') !important;
 }
 
 * {
@@ -37,6 +37,11 @@ body {
     height: auto;
     top: 0;
     overflow: hidden auto;
+}
+
+a {
+    text-decoration: none !important;
+    color: inherit;
 }
 
 .desktop {
@@ -74,6 +79,11 @@ body {
     transition-duration: 0.33s;
     transition-timing-function: ease;
     transition-delay: 0s;
+}
+
+.navigation a {
+    text-decoration: none !important;
+    color: inherit !important;
 }
 
 header a {
@@ -205,4 +215,14 @@ aside {
 
 .backdrop.active {
     display: block;
+}
+
+.menu-category {
+    text-decoration:underline;
+    font-weight: bold;
+    padding: 5px !important;
+}
+
+.menu-cart {
+    padding-bottom: 5px;
 }

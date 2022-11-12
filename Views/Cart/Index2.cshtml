@@ -30,12 +30,30 @@
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="3" class="text-right">Total:</td>
+            <td colspan="3" class="text-right">Subtotal:</td>
             <td class="text-right">
                 @Model.Cart.ComputeTotalValue().ToString("c")
             </td>
         </tr>
-     </tfoot>
+        <tr>
+            <td colspan="3" class="text-right">Tax (7.00%):</td>
+            <td class="text-right">
+                @{
+                    decimal Tax = Math.Round(0.07M * @Model.Cart.ComputeTotalValue(), 2);
+                }
+                $@Tax
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" class="text-right">Total:</td>
+            <td class="text-right">
+                @{
+                    decimal Total = Math.Round(@Model.Cart.ComputeTotalValue() + Tax, 2);
+                }
+                $@Total
+            </td>
+        </tr>
+    </tfoot>
 </table>
 <div class="text-center">
     <a class="btn btn-primary" asp-action="CheckoutCar" asp-controller="Order">Checkout</a>
