@@ -1,0 +1,35 @@
+﻿@model IEnumerable<string>
+
+
+
+<!--
+<a original class=" btn btn-outline-dark btn-block m-2"
+   asp-action="List"
+   asp-controller="Product"
+   asp-route-category="Index"> Home
+</a>
+-->
+<!--
+<a class=" btn btn-outline-dark btn-block m-2"
+<a id="GFG" asp-action="IndexModel3" class="btn btn-default" >  <b> Home &nbsp;&nbsp; </b> </a>
+-->
+
+<br />
+<!--
+<a class=" btn btn-outline-dark btn-block  m-2"
+<a asp-action="IndexModel"  class="btn btn-default"  >  <b> Home &nbsp;&nbsp; </b> </a> -->
+
+
+    @foreach (string category in Model)
+    {
+        @if (category != "Car")
+        {
+                <a class="btn btn-block m-2
+ @(category == ViewBag.SelectedCategory ? "btn-primary": "btn-outline-dark")"
+ asp-action="List"
+ asp-controller="Product"
+ asp-route-category="@category"
+ asp-route-page="1">
+                @category
+             </a>
+        }       }
