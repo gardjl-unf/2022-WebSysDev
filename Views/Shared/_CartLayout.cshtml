@@ -1,44 +1,15 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
-    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
-   <link rel="stylesheet" asp-href-include="css/home.css" />
-
-    <title>Tuskla</title>
-    <style>
-
-        .Home {
-            font-size: 25px;
-            font-weight: bold;
-            color: black;
-            text-decoration: none;
-            padding bottom: 5px;
-        }
-
-    </style>
-</head>
-<body>
-
-    <nav class="navbar navbar-light" style="background-color: red;">
-       <a class="navbar-brand text-black" asp-action="DeleteAllCart" asp-controller="Cart"> <strong> Clear Cart </strong> </a>
-        <a class="navbar-brand text-black" href="#"><b> EVehicles </b></a>
-        <div class="float-right>
-            @await Component.InvokeAsync("CartSummary")
-        </div>
- 
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col col-md-3">
-                    @await Component.InvokeAsync("NavigationMenu2")
-            </div>
-            <div class="col col-md-9">
-                    @RenderBody()
-            </div>
-        </div>
-    </div>
-
-</body>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+        <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+        <link rel="stylesheet" asp-href-include="css/home.css" />
+        <title>Your Cart | Tuskla - Electric Cars</title>
+    </head>
+    <body>
+        @Html.Partial("Header")
+        @RenderBody()
+        @Html.Partial("Footer")
+    </body>
 </html>

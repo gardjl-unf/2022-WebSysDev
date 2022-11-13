@@ -24,11 +24,12 @@
 
 <aside>
     <button class="close">X</button>
-    <span class="navigation">@Html.ActionLink("Model 3", "IndexModel", "Product", new { Model = "Model 3 Plaid" }, null)</span>
-        <span class="navigation">@Html.ActionLink("Model Y", "IndexModel", "Product", new { Model = "Model Y Plaid" }, null)</span>
-        <span class="navigation">@Html.ActionLink("Model X", "IndexModel", "Product", new { Model = "Model X Plaid" }, null)</span>
-        <span class="navigation">@Html.ActionLink("Model S", "IndexModel", "Product", new { Model = "Model S Plaid" }, null)</span>
-        <span class="navigation">@Html.ActionLink("Merchandise", "List", "Product", new { category = "Exterior"}, null)</span>
+    <div class="menu-category">Shop</div>
+    <div class="navigation">@Html.ActionLink("Model 3", "IndexModel", "Product", new { Model = "Model 3 Plaid" }, null)</div>
+    <div class="navigation">@Html.ActionLink("Model Y", "IndexModel", "Product", new { Model = "Model Y Plaid" }, null)</div>
+    <div class="navigation">@Html.ActionLink("Model X", "IndexModel", "Product", new { Model = "Model X Plaid" }, null)</div>
+    <div class="navigation">@Html.ActionLink("Model S", "IndexModel", "Product", new { Model = "Model S Plaid" }, null)</div>
+    <div class="navigation">@Html.ActionLink("Merchandise", "List", "Product", new { category = "Exterior"}, null)</div>
     <div class="navigation">
         <a href="@Url.Content("../docs/Contact.html")">Contact Us</a>
     </div>
@@ -51,7 +52,7 @@
     <div class="navigation">
         <a href="@Url.Content("../docs/AutoPilot.html")">AutoPilot</a>
     </div>
-    <div class="menu-category">Corprate Information</div>
+    <div class="menu-category">Corporate Information</div>
     <div class="navigation">
         <a href="@Url.Content("../docs/CorporateInfo.html")">Company</a>
     </div>
@@ -59,7 +60,6 @@
         <a href="@Url.Content("../docs/Financial.html")">Financial Report</a>
     </div>
     <div class="navigation">
-
         <a href="@Url.Content("../docs/MasterPlan.html")">Master Plan</a>
     </div>
     <div class="menu-category">Administration</div>
@@ -70,19 +70,19 @@
         @Html.ActionLink("List Users", "Index", "Account")
     </div>
     <div class="navigation">
-        @Html.ActionLink("Create Acct", "Create", "Account")
+        @Html.ActionLink("Create Account", "Create", "Account")
     </div>
     <div class="navigation">
         @Html.ActionLink("Ship Orders", "List", "Order")
     </div>
     <div class="navigation">
-        @Html.ActionLink("Add Prod", "Create", "Admin")
+        @Html.ActionLink("Add Product", "Create", "Admin")
     </div>
     <div class="navigation">
-        @Html.ActionLink("Edit Prod", "Edit", "Admin")
+        @Html.ActionLink("Edit Product", "Edit", "Admin")
     </div>
     <div class="navigation">
-        @Html.ActionLink("Delete Prod", "Delete", "Admin")
+        @Html.ActionLink("Delete Product", "Delete", "Admin")
     </div>
 </aside>
 
