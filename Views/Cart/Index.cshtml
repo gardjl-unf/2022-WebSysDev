@@ -1,7 +1,7 @@
 ﻿@model CartIndexViewModel
 
 @{
-    Layout = "_Layout2";
+    Layout = "_CartLayout";
 }
 
 <h2>Your cart</h2>
@@ -30,7 +30,7 @@
                         <form asp-action="RemoveFromCart" method="post">
                             <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
                             <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-                            <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                            <button type="submit" class="btn btn-sm btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </form>
                     }
                 </td>
@@ -76,4 +76,101 @@
     <a class="btn btn-primary btn-danger" asp-action="DeleteAllCart" asp-controller="Cart"> <strong> Clear Cart </strong> </a>
      <a class="btn btn-primary" href="@Model.ReturnUrl">Continue shopping</a>
      <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order"> Checkout </a>
+</div>
+
+<div class="container">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Items in your cart</h5>
+                        <span class="pull-right">(<strong>@Model.Cart.CartItems()</strong>) items</span>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="ibox-content">
+                            <div class="table-responsive">
+                                <table class="table shoping-cart-table">
+                                    <tbody>
+                                        @foreach (var line in Model.Cart.Lines)
+                                        {
+                                            <tr>
+                                                <td width="90">
+                                                    <div class="cart-product-imitation">
+                                                        <!-- INSERT IMAGES -->
+                                                    </div>
+                                                </td>
+                                                <td class="desc">
+                                                    <h3>
+                                                        <a href="#" class="text-navy">
+                                                            @line.Product.Name
+                                                        </a>
+                                                    </h3>
+                                                    <p class="small">
+                                                        @line.Product.Description
+                                                    </p>
+                                                    <div class="m-t-sm">
+                                                        @if (line.Product.Category != "Car" || line.Product.Name.Substring(0, 4) == "Mode")
+                                                        {
+                                                            <form asp-action="RemoveFromCart" method="post">
+                                                                <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                                                                <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                                                                <button type="submit" class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i>Remove Item</button>
+                                                            </form>
+                                                        }
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    @line.Product.Price.ToString("c")
+                                                </td>
+                                                <td width="65">
+                                                    <input type="text" class="form-control" placeholder="1">
+                                                </td>
+                                                <td>
+                                                    <h4>
+                                                        @((line.Quantity * line.Product.Price).ToString("c"))
+                                                    </h4>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                        <div class="ibox-content">
+                            <button class="btn btn-primary pull-right"><i class="fa fa fa-shopping-cart"></i> Checkout</button>
+                            <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>Cart Summary</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <span>
+                            Total
+                        </span>
+                        <h2 class="font-bold">
+                            @Model.Cart.ComputeSubtotalValue().ToString("c")
+                        </h2>
+
+                        <hr>
+                        <span class="text-muted small">
+                            Tax Information
+                        </span>
+                        <div class="m-t-sm">
+                            <div class="btn-group">
+                                <a href="#" class="btn btn-primary btn-sm"><i class="fa fa-shopping-cart"></i> Checkout</a>
+                                <a href="#" class="btn btn-white btn-sm"> Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -32,18 +32,21 @@ Then simply click the green error to execute.
 
 To see the data just right-click click on the products table and select View Data
 
-There are admin accounts but add a module for customer accounts
 
-Add an email field to orders
+***************** TODO *******************************
 
-Add a lookup text field for email like the one for orderid
+* There are admin accounts but add a module for customer accounts
 
-Fix the DAMM css on the sub2 dropdown menu on the navbar for background color
+* Add an email field to orders
 
-The thank you screen has orderid, add the model selected
+* Add a lookup text field for email like the one for orderid
 
-Fix the logout button that she has to return to the home page
+* The thank you screen has orderid, add the model selected
 
-Add a link on the product pages to pop up a display all model stats like Tesla has. Javascript
+* Fix the logout button that she has to return to the home page
 
-Add images on the add screens for the products, model, paint, rims, etc. 
+* Add a link on the product pages to pop up a display all model stats like Tesla has. Javascript
+
+* Add images on the add screens for the products, model, paint, rims, etc.
+
+* Fix static pages, move to views

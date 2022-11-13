@@ -147,10 +147,9 @@ namespace Tuskla.Controllers
             return View("PurchaseModel");
         }
 
- //The below is called for general merchandise
+        //The below is called for general merchandise
 
-        public ViewResult List(string category, int page = 1)
-        => View(new ProductsListViewModel
+        public ViewResult List(string category, int page = 1) => View(new ProductsListViewModel
         {
             Products = repository.Products
     .Where(p => category != null
