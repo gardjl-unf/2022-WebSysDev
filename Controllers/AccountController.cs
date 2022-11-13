@@ -12,8 +12,7 @@ namespace Tuskla.Controllers
     {
         private UserManager<AppUser> userManager;
         private SignInManager<AppUser> signInManager;
-        public AccountController(UserManager<AppUser> userMgr,
-        SignInManager<AppUser> signInMgr)
+        public AccountController(UserManager<AppUser> userMgr, SignInManager<AppUser> signInMgr)
         {
             userManager = userMgr;
             signInManager = signInMgr;
@@ -22,10 +21,7 @@ namespace Tuskla.Controllers
         [AllowAnonymous]
         public ViewResult Login(string returnUrl)
         {
-            return View(new LoginModel
-            {
-                ReturnUrl = returnUrl
-            });
+            return View(new LoginModel { ReturnUrl = returnUrl });
         }
 
         [HttpPost]
@@ -54,19 +50,15 @@ namespace Tuskla.Controllers
              public async Task<RedirectResult> Logout(string returnUrl = "/")
                {
                    await signInManager.SignOutAsync();
-
                    return Redirect(returnUrl);
                }
 
         public async Task<RedirectToRouteResult> Logout2()
         {
             await signInManager.SignOutAsync();
-
             return RedirectToRoute(new { controller = "Product", action = "IndexModel2" });
 
         }
-
-        // GET: /<controller>/ 
         [AllowAnonymous]
         public ViewResult Index()
         {
@@ -77,7 +69,6 @@ namespace Tuskla.Controllers
         {
             return View();
         }
-        //POST: Account/Create
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]

@@ -12,6 +12,7 @@ using Tuskla.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+
 namespace Tuskla
 {
     public class Startup
@@ -23,26 +24,24 @@ namespace Tuskla
             .SetBasePath(env.ContentRootPath)
             .AddJsonFile("appsettings.json").Build();
         }
-        // This method gets called by the runtime. Use this method to add services to the container.
-        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddTransient<IProductRepository, FakeProductRepository>();
-            services.AddDbContext<ApplicationDbContext>(options =>
-           options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IProductRepository, EFProductRepository>();
             services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<IOrderRepository, EFOrderRepository>();
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
-            .AddEntityFrameworkStores<ApplicationDbContext>()
-            .AddDefaultTokenProviders();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders()
+                .AddRoles<IdentityRole<Guid>>();
             services.AddMvc(options => options.EnableEndpointRouting = false)
-            .AddNewtonsoftJson();
+                .AddNewtonsoftJson();
             services.AddMemoryCache();
             services.AddSession();
         }
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseDeveloperExceptionPage();
@@ -52,26 +51,30 @@ namespace Tuskla
             app.UseSession();
             app.UseMvc(routes => {
                 routes.MapRoute(
-                name: null,
-                template: "{category}/Page{page:int}",
-                defaults: new { controller = "Product", action = "List" }
+                    name: null,
+                    template: "{category}/Page{page:int}",
+                    defaults: new { controller = "Product", action = "List" } 
                 );
                 routes.MapRoute(
-                name: null,
-               template: "Page{page:int}",
-               defaults: new { controller = "Product", action = "List", page = 1 }
+                    name: null,
+                    template: "Page{page:int}",
+                    defaults: new { controller = "Product", action = "List", page = 1 }
                 );
                 routes.MapRoute(
-                name: null,
-               template: "{category}",
-               defaults: new { controller = "Product", action = "List", page = 1 }
+                    name: null,
+                    template: "{category}",
+                    defaults: new { controller = "Product", action = "List", page = 1 }
                 );
                 routes.MapRoute(
-                name: null,
-               template: "",
-               defaults: new { controller = "Product", action = "IndexModel", Model = "Model 3 Plaid" });
-                routes.MapRoute(name: null, template: "{controller}/{action}/{id?}");}
-               ); 
+                    name: null,
+                    template: "",
+                    defaults: new { controller = "Product", action = "IndexModel", Model = "Model 3 Plaid" });
+                routes.MapRoute(
+                    name: null, 
+                    template: "{controller}/{action}/{id?}"
+                    );
+                }
+            ); 
         }
     }
 }

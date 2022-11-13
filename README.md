@@ -50,3 +50,11 @@ To see the data just right-click click on the products table and select View Dat
 * Add images on the add screens for the products, model, paint, rims, etc.
 
 * Fix static pages, move to views
+
+
+Login:
+	CAN ACCESS /Admin/MainAdmin from a logged out user
+	Delete User gives error "User Not Found"
+	Edit User doesn't fucking do anything
+	Admin/Delete not found (should be in "Edit"?)
+	Edit Product Goes to a Specific Edit Page
