@@ -1,0 +1,105 @@
+﻿@model ProductModelView
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<head>
+
+    <title>Opening Page of Purchase Car</title>
+    <link rel="stylesheet" asp-href-include="css/Css1.css" />
+
+    <style>
+
+        .Home {
+            font-size: 25px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
+            padding bottom: 5px;
+        }
+
+        link {
+            text-decoration: none;
+        }
+
+        #CFG2 {
+            color: black;
+            position: absolute;
+            bottom: 120px;
+            left: 51.2%;
+            font-size: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .btn1 {
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 62px;
+            left: 51%;
+            text-decoration: none;
+            padding-left: 10px;
+            padding-right: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 20px;
+            border-radius: 8px;
+            border: 2px solid black;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<div>
+<nav class="navbar navbar-light" style="background-color: red;">
+        @Html.ActionLink("Home", "IndexModel",  "Product",  new { catagory = "3"}, new { @class = "Home" })
+</nav> </div> <br />
+
+    <img src="@ViewBag.Logo"
+         style="object-fit: fill;
+            width:500px;
+            float: left;
+            margin: 2px;
+            height:450px;
+            border: solid 2px black;" />
+
+
+    <p> 
+        <h2>
+            <span style="padding-left: 50px"> @ViewBag.Delivery  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Price  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Savings  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Range  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Speed  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Acceleration1  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Acceleration2  <br /> <br /> </span>
+            <span style="padding-left: 50px"> @ViewBag.Drive  <br /> </span>
+        </h2>
+    </p>
+
+    <div>
+        <br /> 
+        <ul style="font-weight: bold; font-size: 20px; "> Standard options for all Tesla models 
+            <li>   Pearl White Paint  </li>
+            <li>   Black luxury interior  </li>
+            <li>   18" Rims" </li>
+            <li>   AutoPilot </li>
+            </ul>
+    </div>
+
+    <a id="CFG2"> Order Today </a>
+
+    <a href="@Url.Action("AddVehicleItem", "Product", new { category = ViewBag.Model })" class="btn1 btn-warning" >@ViewBag.Model</a>
+ 
+</body>
+
+
+
+
+

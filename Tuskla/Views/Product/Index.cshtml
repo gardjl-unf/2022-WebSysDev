@@ -1,0 +1,168 @@
+<!-- Part 1 of how to create - https://youtu.be/TmQm-p3wCSU -->
+<!-- Part 2 of how to create - https://youtu.be/T7ayE5AtRUA -->
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cascading Menus</title>
+    <meta charset="utf-8">
+   <link rel="stylesheet" asp-href-include="css/CssMain.css" />
+
+    <style>
+
+
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-image: url(@ViewBag.Logo);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            text-decoration: none;
+            height: auto;
+        }
+
+        h1 {
+            text-align: center;
+            border-bottom: 2px solid #009;
+            margin-bottom: 50px;
+        }
+
+        #navmenu {
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+
+ 
+
+        #CFG1 {
+            color: black;
+            position: absolute;
+            top : 120px;
+            left: 45%;
+            font-size: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #CFG2 {
+            color: black;
+            position: absolute;
+            bottom: 80px;
+            left: 45%;
+            font-size: 25px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    
+        .btn1 {
+            background-color: white;
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 40px;
+            left: 44%;
+            border-radius: 14px 14px 14px 14px; 
+            margin-left: -10.5px; /*104.5px is half of the button's width*/ 
+            font-size: 20px;
+            text-decoration: none;
+            width: 90px;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+        .btn2 {
+            background-color: white;
+            border-color: black;
+            color: black;
+            position: absolute;
+            bottom: 40px;
+            left: 55%;
+            border-radius: 14px 14px 14px 14px;
+            margin-left: -10.5px; /*104.5px is half of the button's width*/
+            font-size: 20px;
+            text-decoration: none;
+            width: 60px;
+            padding-left: 10px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <ul id="navmenu">
+         @Html.ActionLink("Model 3", "IndexModel", "Product", new { Model = "Model 3 Plaid"}, null) 
+         @Html.ActionLink("Model Y", "IndexModel", "Product", new { Model = "Model Y Plaid"}, null) 
+         @Html.ActionLink("Model X", "IndexModel", "Product", new { Model = "Model X Plaid"}, null) 
+         @Html.ActionLink("Model S", "IndexModel", "Product", new { Model = "Model S Plaid"}, null) 
+         @Html.ActionLink("Merchandise", "List", "Product", new { category = "Exterior"}, null) 
+
+
+        <li>
+            <a href="#"> Menu </a>
+            <ul class="sub1">
+                <li> @Html.ActionLink("Check Orders", "List2", "Order")  </li>
+                <li> <a id="GFG3" href="@Url.Content("../Docs/Contact.html")"> Contact Us </a> </li>
+                <li> <a id="GFG3" href="@Url.Content("../Docs/FAQs.html")"> FAQs</a> </li>
+                <li> <a id="GFG3" href="@Url.Content("../Docs/Ordering.html")">Ordering</a> </li>
+                <li> <a id="GFG3" href="@Url.Content("../Docs/Warranty.html")">Warranty</a> </li>
+ 
+                <li>
+                <a href="#"> Charging </a>
+                    <ul class="sub2">
+                        <li> <a id="GFG3" href="@Url.Content("../Docs/Charging.html")">Fast Charging </a> </li>
+                        <li> <a id="GFG3" href="@Url.Content("../Docs/WallCharging.html")">Wall Charging</a> </li>
+                    </ul>
+                </li>
+                
+                <li> <a id="GFG3" href="@Url.Content("../Docs/AutoPilot.html")">AutoPilot</a> </li>
+                <li>
+                    <a href="#"> Corprate Info </a>
+                    <ul class="sub2">
+                        <li> <a id="GFG3" href="@Url.Content("../Docs/CorporateInfo.html")">Company </a> </li>
+                        <li> <a id="GFG3" href="@Url.Content("../Docs/Financial.html")">Financial Rpt </a> </li>
+                        <li> <a id="GFG3" href="@Url.Content("../Docs/MasterPlan.html")">Master Plan </a> </li>
+                    </ul>
+                </li>
+
+                <li> @Html.ActionLink("Main Admin", "MainAdmin", "Admin")  </li>
+ 
+                <li>
+                    <a href="#"> Admin </a>
+                    <ul class="sub2">
+                        <li> <a> @Html.ActionLink("List Users", "Index", "Account") </a> </li>
+                        <li> <a> @Html.ActionLink("Create Acct", "Create", "Account") </a> </li>
+                        <li> <a> @Html.ActionLink("Ship Orders", "List", "Order") </a> </li>
+                        <li> <a> @Html.ActionLink("Add Prod", "Create", "Admin") </a> </li>
+                        <li> <a> @Html.ActionLink("Edit Prod", "Edit", "Admin") </a> </li>
+                        <li> <a> @Html.ActionLink("Delete Prod", "Delete", "Admin") </a> </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+
+       <a id="CFG1"> @ViewBag.ModelType </a>
+    
+       <a id="CFG2"> Purchase Now </a>
+
+    <a> @Html.ActionLink("Standard", "PurchaseModel",  "Product",  new { Model = ViewBag.ModelTypeBtn1}, new { @class = "btn1" }) </a>
+
+    <a> @Html.ActionLink("Plaid", "PurchaseModel",  "Product",  new { Model = ViewBag.ModelTypeBtn2}, new { @class = "btn2" }) </a>
+
+  
+
+
+
+</body>
+</html>
