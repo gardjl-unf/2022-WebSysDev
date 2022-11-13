@@ -42,5 +42,11 @@ namespace Tuskla.Controllers
             }
             return RedirectToAction("Index");
         }
+
+        public ViewResult MainAdmin()
+        {
+            return View("MainAdmin");
+        }
+
     }
 }
