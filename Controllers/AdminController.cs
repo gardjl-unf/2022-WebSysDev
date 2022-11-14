@@ -12,10 +12,36 @@ namespace Tuskla.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index() => View(repository.Products);
+        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+
+        public ViewResult Index2() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+
+        public ViewResult Index3() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+
+        public ViewResult Index4() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+
+
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));
+        
         [HttpPost]
         public IActionResult Edit(ProductModelView product)
+        {
+            if (ModelState.IsValid)
+            {
+                repository.SaveProduct(product);
+                TempData["message"] = $"{product.Name} has been saved";
+                return RedirectToAction("Index3");
+            }
+            else
+            {
+                // there is something wrong with the data values
+                return View(product);
+            }
+        }
+        public ViewResult AddProduct() => View("AddProduct", new ProductModelView());
+
+        [HttpPost]
+        public IActionResult AddProduct(ProductModelView product)
         {
             if (ModelState.IsValid)
             {
@@ -29,7 +55,8 @@ namespace Tuskla.Controllers
                 return View(product);
             }
         }
-        public ViewResult Create() => View("Edit", new ProductModelView());
+
+
         [HttpPost]
         public IActionResult Delete(int productId)
         {

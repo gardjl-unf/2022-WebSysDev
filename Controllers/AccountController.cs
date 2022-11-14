@@ -56,7 +56,7 @@ namespace Tuskla.Controllers
         public async Task<RedirectToRouteResult> Logout2()
         {
             await signInManager.SignOutAsync();
-            return RedirectToRoute(new { controller = "Product", action = "IndexModel2" });
+            return RedirectToRoute(new { controller = "Product", action = "IndexModelStart" });
 
         }
         [AllowAnonymous]

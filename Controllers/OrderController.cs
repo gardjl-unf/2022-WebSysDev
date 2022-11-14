@@ -34,6 +34,10 @@ namespace Tuskla.Controllers
             }
         }
 
+        public ViewResult List3() => View(repository.Orders.Where(o => !o.Name.Contains("Model")));
+
+
+
         [HttpPost]
         [Authorize]
         public IActionResult MarkShipped(int orderID)

@@ -1,7 +1,7 @@
 ﻿@{
-   Layout = null;
+    ViewBag.Title = "Orders";
+    Layout = "_AdminLayout2";
 }
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,10 +45,7 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-light" style="background-color: red;">
-        <a class="navbar-brand text-black" asp-action="IndexModelStart" asp-controller="Product"> <strong> Home </strong> </a>
-        <a  class="navbar-brand text-black mx-auto" href="#"><b> EVehicles </b></a>
-     </nav>
+
  
 <br /> <br />  
 <h2> Admin Menus</h2>
@@ -56,14 +53,14 @@
 <br />
 
 <ul class="ul1">
-   <li> <a> @Html.ActionLink("List/Edit/Delete Admin Users", "Index", "Account") </a> </li> 
+   <li> <a> @Html.ActionLink("List/Create/Edit/Delete Admin Users", "Index", "Account") </a> </li> 
    <li> <a> @Html.ActionLink("Create Admin User", "Create", "Account") </a> </li>
    <li> <a> @Html.ActionLink("List Orders", "List2", "Order") </a> </li>
    <li> <a> @Html.ActionLink("Ship Orders", "List", "Order") </a> </li>
-   <li> <a> @Html.ActionLink("List Products", "Index", "Admin") </a> </li>
-   <li> <a> @Html.ActionLink("Add Products", "Create", "Admin") </a> </li>
-   <li> <a> @Html.ActionLink("Edit Products", "Index", "Admin") </a> </li>
-   <li> <a> @Html.ActionLink("Delete Products", "Index", "Admin") </a> </li>
+   <li> <a> @Html.ActionLink("List Products", "Index2", "Admin") </a> </li>
+   <li> <a> @Html.ActionLink("Add Products", "AddProduct", "Admin") </a> </li>
+   <li> <a> @Html.ActionLink("Edit Products", "Index3", "Admin") </a> </li>
+   <li> <a> @Html.ActionLink("Delete Products", "Index4", "Admin") </a> </li>
 </ul>
 
 
