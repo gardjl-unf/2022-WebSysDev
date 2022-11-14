@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
 namespace Tuskla.Models.ViewModels
 {
     public class LoginModel

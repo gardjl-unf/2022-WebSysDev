@@ -1,10 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Tuskla.Models.ViewModels;
 using Tuskla.Models;
-
 namespace Tuskla.Controllers
 {
     [Authorize]
@@ -46,11 +46,12 @@ namespace Tuskla.Controllers
             ModelState.AddModelError("", "Invalid name or password");
             return View(loginModel);
         }
-        public async Task<RedirectResult> Logout(string returnUrl = "/")
-        {
-            await signInManager.SignOutAsync();
-            return Redirect(returnUrl);
-        }
+
+             public async Task<RedirectResult> Logout(string returnUrl = "/")
+               {
+                   await signInManager.SignOutAsync();
+                   return Redirect(returnUrl);
+               }
 
         public async Task<RedirectToRouteResult> Logout2()
         {

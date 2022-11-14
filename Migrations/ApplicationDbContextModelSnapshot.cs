@@ -254,9 +254,6 @@ namespace Tuskla.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("GiftWrap")
                         .HasColumnType("bit");
 
@@ -289,7 +286,7 @@ namespace Tuskla.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("Tuskla.Models.ProductModelView", b =>
+            modelBuilder.Entity("Tuskla.Models.Product", b =>
                 {
                     b.Property<int>("ProductID")
                         .ValueGeneratedOnAdd()
@@ -370,7 +367,7 @@ namespace Tuskla.Migrations
                         .WithMany("Lines")
                         .HasForeignKey("OrderID");
 
-                    b.HasOne("Tuskla.Models.ProductModelView", "Product")
+                    b.HasOne("Tuskla.Models.Product", "Product")
                         .WithMany()
                         .HasForeignKey("ProductID");
                 });
