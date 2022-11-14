@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    Layout = "_Layout4";
+    var usr = await UserManager.GetUserAsync(User);
+    var email = usr?.Email;
+}
+
+<h2>Check out now</h2>
+<p>Please enter your details, and we'll ship your goods right away!</p>
+<div asp-validation-summary="All" class="text-danger"></div>
+<form asp-action="Checkout" method="post">
+    <h3>Ship to</h3>
+    <div class="form-group">
+        <label>Name:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Email Address:</label>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <input asp-for="Email" class="form-control" value="@email" />
+    }
+    else
+    {
+        <input asp-for="Email" class="form-control" />
+    }
+    </div>

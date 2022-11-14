@@ -51,6 +51,8 @@ To see the data just right-click click on the products table and select View Dat
 
 * Fix static pages, move to views
 
+* Actually use MVC for page names so we're not navigating to Index5.cshtml
+
 
 Login:
 	CAN ACCESS /Admin/MainAdmin from a logged out user

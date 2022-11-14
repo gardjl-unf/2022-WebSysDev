@@ -45,8 +45,7 @@ namespace Tuskla.Controllers
 
         public RedirectToActionResult AddToCartItems(int productId, string returnUrl)
         {
-            ProductModelView product = repository.Products
-            .FirstOrDefault(p => p.ProductID == productId);
+            ProductModelView product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
             if (product != null)
             {
                 cart.AddItem(product, 1);

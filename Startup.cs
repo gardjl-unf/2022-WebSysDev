@@ -35,8 +35,8 @@ namespace Tuskla
             services.AddTransient<IOrderRepository, EFOrderRepository>();
             services.AddIdentity<AppUser, IdentityRole<Guid>>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders()
-                .AddRoles<IdentityRole<Guid>>();
+                .AddDefaultTokenProviders();
+                //.AddRoles<IdentityRole<Guid>>();
             services.AddMvc(options => options.EnableEndpointRouting = false)
                 .AddNewtonsoftJson();
             services.AddMemoryCache();
