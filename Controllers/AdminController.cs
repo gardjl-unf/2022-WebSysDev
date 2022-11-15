@@ -12,13 +12,13 @@ namespace Tuskla.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index2() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+        public ViewResult Index2() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index3() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+        public ViewResult Index3() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index4() => View(repository.Products.Where(p => !p.Category.StartsWith("Car")));
+        public ViewResult Index4() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
 
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));

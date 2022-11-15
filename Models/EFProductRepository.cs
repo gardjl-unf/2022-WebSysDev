@@ -21,7 +21,7 @@ namespace Tuskla.Models
             else
             {
                 ProductModelView dbEntry = context.Products
-                .FirstOrDefault(p => p.ProductID == product.ProductID);
+                    .FirstOrDefault(p => p.ProductID == product.ProductID);
                 if (dbEntry != null)
                 {
                     
@@ -29,6 +29,7 @@ namespace Tuskla.Models
                     dbEntry.Description = product.Description;
                     dbEntry.Price = product.Price;
                     dbEntry.Category = product.Category;
+                    dbEntry.isActive = true;
                 }
             }
             context.SaveChanges();
@@ -36,10 +37,10 @@ namespace Tuskla.Models
         public ProductModelView DeleteProduct(int productID)
         {
             ProductModelView dbEntry = context.Products
-            .FirstOrDefault(p => p.ProductID == productID);
+                .FirstOrDefault(p => p.ProductID == productID);
             if (dbEntry != null)
             {
-                context.Products.Remove(dbEntry);
+                dbEntry.isActive = false;
                 context.SaveChanges();
             }
             return dbEntry;

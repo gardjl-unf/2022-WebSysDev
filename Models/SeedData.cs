@@ -22,7 +22,8 @@ namespace Tuskla.Models
                             Name = "Model 3 Standard",
                             Description = "Model 3 Base $46,000.00",
                             Price = 46000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
                             
                         },
                         new ProductModelView
@@ -31,7 +32,8 @@ namespace Tuskla.Models
                             Name = "Model 3 Plaid",
                             Description = "Model 3 Dual Motor $61,000.00",
                             Price = 61000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -40,7 +42,8 @@ namespace Tuskla.Models
                             Name = "Model Y Standard",
                             Description = "Model Y Long Range $67,900.00",
                             Price = 67900.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -49,7 +52,8 @@ namespace Tuskla.Models
                             Name = "Model Y Plaid",
                             Description = "Model Y Performance $69,990.00",
                             Price = 69900.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -58,7 +62,8 @@ namespace Tuskla.Models
                             Name = "Model X Standard",
                             Description = "Model X Dual Motor $126490.00",
                             Price = 126490.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -67,7 +72,8 @@ namespace Tuskla.Models
                             Name = "Model X Plaid",
                             Description = "Model X Plaid Tri Motor $144,490.00",
                             Price = 144490.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -76,7 +82,8 @@ namespace Tuskla.Models
                             Name = "Model S Standard",
                             Description = "Model S Dual Motor $109,490.00",
                             Price = 109490.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -85,7 +92,8 @@ namespace Tuskla.Models
                             Name = "Model S Plaid",
                             Description = "Model S Plaid Tri Motor $140,490.00",
                             Price = 140490.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -94,7 +102,8 @@ namespace Tuskla.Models
                             Name = "Paint",
                             Description = "Pearl White +$0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -103,7 +112,8 @@ namespace Tuskla.Models
                             Name = "Paint",
                             Description = "Midnight Silver Metallic +$0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -112,7 +122,8 @@ namespace Tuskla.Models
                             Name = "Paint",
                             Description = "Deep Blue Metallic +$1,000.00",
                             Price = 1000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -121,7 +132,8 @@ namespace Tuskla.Models
                             Name = "Paint",
                             Description = "Solid Black +$1,500.00",
                             Price = 1500.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -130,7 +142,8 @@ namespace Tuskla.Models
                             Name = "Paint",
                             Description = "Red Multi-Coat +2,000.00",
                             Price = 2000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -139,7 +152,8 @@ namespace Tuskla.Models
                             Name = "Interior",
                             Description = "Black +$0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -148,7 +162,8 @@ namespace Tuskla.Models
                             Name = "Interior",
                             Description = "Black & White +$1500.00",
                             Price = 1500.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -157,7 +172,8 @@ namespace Tuskla.Models
                             Name = "Rims",
                             Description = "18 Inch + $0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -166,7 +182,8 @@ namespace Tuskla.Models
                             Name = "Rims",
                             Description = "19 Inch + $2,000.00",
                             Price = 2000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -175,7 +192,8 @@ namespace Tuskla.Models
                             Name = "AutoPilot",
                             Description = "Standard AutoPilot +$0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -184,7 +202,8 @@ namespace Tuskla.Models
                             Name = "AutoPilot",
                             Description = "Enhanced AutoPilot + $6,000",
                             Price = 6000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -193,7 +212,8 @@ namespace Tuskla.Models
                             Name = "FullSelfDriving",
                             Description = "Full Self Driving - None +$0.00",
                             Price = 0.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -202,7 +222,8 @@ namespace Tuskla.Models
                             Name = "FullSelfDriving",
                             Description = "Full Self Driving - Included +$15000.00",
                             Price = 15000.00M,
-                            Category = "Car"
+                            Category = "Car",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -211,7 +232,8 @@ namespace Tuskla.Models
                             Name = "FloorMats",
                             Description = "Luxury Floor Mats $95.00",
                             Price = 95.00M,
-                            Category = "Interior"
+                            Category = "Interior",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -220,7 +242,8 @@ namespace Tuskla.Models
                             Name = "DashCover",
                             Description = "Luxury Dash Cover $65.00",
                             Price = 65.00M,
-                            Category = "Interior"
+                            Category = "Interior",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -229,7 +252,8 @@ namespace Tuskla.Models
                             Name = "BabySeat",
                             Description = "Baby Seat $100.00",
                             Price = 100.00M,
-                            Category = "Interior"
+                            Category = "Interior",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -238,7 +262,8 @@ namespace Tuskla.Models
                             Name = "RoofRack",
                             Description = "Roof Rack $750.00",
                             Price = 750.00M,
-                            Category = "Exterior"
+                            Category = "Exterior",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -247,7 +272,8 @@ namespace Tuskla.Models
                             Name = "FrontLicensePlate",
                             Description = "Front License Plate $85.00",
                             Price = 85.00M,
-                            Category = "Exterior"
+                            Category = "Exterior",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -256,7 +282,8 @@ namespace Tuskla.Models
                             Name = "CarSoap",
                             Description = "Premium Car Soap $22.00",
                             Price = 22.00M,
-                            Category = "Maintenance"
+                            Category = "Maintenance",
+                            isActive = true
 
                         },
                         new ProductModelView
@@ -265,7 +292,8 @@ namespace Tuskla.Models
                             Name = "CarWax",
                             Description = "Premium Car Wax $35.00",
                             Price = 35.00M,
-                            Category = "Maintenance"
+                            Category = "Maintenance",
+                            isActive = true
 
                         });
                     }
