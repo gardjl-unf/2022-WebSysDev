@@ -34,8 +34,7 @@ namespace Tuskla.Controllers
             }
         }
 
-        public ViewResult List3() => View(repository.Orders.Where(o => !o.Name.Contains("Model")));
-
+  
         public ViewResult List4(string OrderIdString = "", string OrderEmailString = "")
         {
             if (!string.IsNullOrEmpty(OrderIdString) & !string.IsNullOrEmpty(OrderEmailString))

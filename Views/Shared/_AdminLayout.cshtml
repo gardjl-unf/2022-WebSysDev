@@ -38,28 +38,19 @@
     <script asp-src-include="lib/jquery/**/jquery.min.js"></script>
     <script asp-src-include="lib/jquery-validation/**/jquery.validate.min.js"></script>
     <script asp-src-include="lib/jquery-validation-unobtrusive/**/*.min.js"></script>
-
-
-
 </head>
 <body>
+
+    <div class="navbar">
+        <a href="/"> <b> Home </b> </a>
+        <a class="navbar-brand text-white float-right" asp-action="Logout2" asp-controller="Account"> Log Out</a>
+ 
+    </div>
+
     <div class="container">
-        <header class="navbar navbar-inverse row flex-nowrap sticky-top justify-content-between align-items-center">
-            <nav>
-                <a href="../..">
-                    <img class="logo" src="~/img/logos/tuskla-text-black-1948-264.png" />
-                </a>
-            </nav>
-        <div class="navbar">
-            <a href="/"> <b> Home </b> </a>
-         </div>
-         </header>
+
         <div class="card">
-            <div class="card-header">
-                <h4>@ViewBag.Title</h4>
-                <!--       <a class="btn btn-sm btn-primary float-right" asp-action="Logout" asp-controller="Account">Log Out</a>
-                -->
-            </div>
+ 
             <div class="card-body">
                 @if (TempData["message"] != null)
                 {

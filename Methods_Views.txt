@@ -1,0 +1,43 @@
+Product Controller
+
+  -  IndexModelStart - Used to return home where the method to pass on a Model is unkown
+     (Defaults to Model 3 Plaid)
+
+  -  IndexModel(string Model)  = View Index 
+       View Displays Main Splash Page
+
+  -  PurchaseModel(string Model) - View PurchaseModel
+       View Displays Car Picture, Info and a button to Purchase
+
+  -  AddVehicleItem(string category, int page = 1) View AddVehicleItem
+       View displaus a list an Item to add to the Cart (Model, then Paint, then Interior, etc.
+
+  -  List(string category, int page = 1)  View Index //Her method for merchandise
+
+
+Order Controller
+
+  -  List - View displays orders not shipped with button to ship, called in Admin Menu
+
+  -  List2(string OrderIdString = "") - View displays orders by orderID, called in Admin Menu
+
+  -  List3() - View returns Orders where !o.Name.Contains("Model") NOT USED DELETED
+
+  -  List4(string OrderIdString = "", string OrderEmailString = "") - View for customer Order search
+
+  -  MarkShipped(int orderID) Method to mark shipped an orderId - View returns to List above
+
+  -  Checkout() Saves cart at checkout - View returns to View Completed
+
+  -  CheckoutCar() Same as above but was used for cars.  Returns to View completedCar
+
+  -  Completed() - Finds last Customer OrderId - View thanks showing OrderID
+
+  -  CompletedCar - Same as above but Thanks for Carpurchase
+
+
+Cart 
+
+
+
+

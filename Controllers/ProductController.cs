@@ -21,6 +21,7 @@ namespace Tuskla.Controllers
         {
             repository = repo;
         }
+
         public ViewResult IndexModelStart(string Model)
         {
             Model = "Model 3 Plaid";
@@ -32,7 +33,6 @@ namespace Tuskla.Controllers
             ViewBag.ModelTypeBtn2 = Model.Substring(0, 7) + " Plaid";
             return View("Index");
         }
-
         public ViewResult IndexModel(string Model)
         {
 
