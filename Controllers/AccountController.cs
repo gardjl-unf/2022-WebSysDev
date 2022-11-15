@@ -35,8 +35,7 @@ namespace Tuskla.Controllers
                 if (user != null)
                 {
                     await signInManager.SignOutAsync();
-                    if ((await signInManager.PasswordSignInAsync(user,
-                    loginModel.Password, false, false)).Succeeded)
+                    if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
                         return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
                     }
@@ -76,6 +75,11 @@ namespace Tuskla.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!(await userManager.FindByEmailAsync(model.Email) == null))
+                {
+                    ModelState.AddModelError("", "Email already in use");
+                    return View(model);
+                }
                 AppUser user = new AppUser
                 {
                     UserName = model.UserName,

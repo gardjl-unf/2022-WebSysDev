@@ -28,3 +28,6 @@ INSERT INTO [dbo].[Products] ([ProductID], [Name], [Description], [Price], [Cate
 INSERT INTO [dbo].[Products] ([ProductID], [Name], [Description], [Price], [Category]) VALUES (27, N'CarSoap', N'Premium Car Soap', CAST(22.00 AS Decimal(18, 2)), N'Maintenance')
 INSERT INTO [dbo].[Products] ([ProductID], [Name], [Description], [Price], [Category]) VALUES (28, N'CarWax', N'Premium Car WAx', CAST(35.00 AS Decimal(18, 2)), N'Maintenance')
 SET IDENTITY_INSERT [dbo].[Products] OFF
+SET IDENTITY_INSERT [dbo].[AspNetUsers] ON
+INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], [AccessFailedCount]) VALUES (N'f70230f5-aae7-4357-96b3-08dac66fa512', N'admin', N'ADMIN', N'admin@evehicles.com', N'ADMIN@EVEHICLES.COM', 0, N'AQAAAAEAACcQAAAAELmEcW2NLu61UhgG/X6uZQcThxGmkN0ySoVt3+O/rkizpw6UGJrknH6/UeOrcxpyKw==', N'JP7FUQ5ZKICTBGHF5GHZW5TGXO2GY7AO', N'f6d3c77a-cbda-4518-b64c-22e30b62a428', NULL, 0, 0, NULL, 1, 0)
+SET IDENTITY_INSERT [dbo].[AspNetUsers] OFF
