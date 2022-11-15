@@ -3,6 +3,12 @@
  <TargetFramework>netcoreapp3.1</TargetFramework>
  </PropertyGroup>
  <ItemGroup>
+   <Content Remove="wwwroot\img\logos\tuskla-logo-2184-2036.xcf" />
+   <Content Remove="wwwroot\img\logos\tuskla-logo-black-2184-2036.xcf" />
+   <Content Remove="wwwroot\img\logos\tuskla-logotext-2200x2800.xcf" />
+   <Content Remove="wwwroot\img\logos\tuskla-logotext-black-2200x2800.xcf" />
+   <Content Remove="wwwroot\img\logos\tuskla-text-1948-264.xcf" />
+   <Content Remove="wwwroot\img\logos\tuskla-text-black-1948-264.xcf" />
    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css" />
    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.css.map" />
    <Content Remove="wwwroot\lib\bootstrap\dist\css\bootstrap.min.css" />
@@ -34,21 +40,15 @@
    <None Include="wwwroot\img\fonts\GothamSSm-Bold_Web.woff2" />
    <None Include="wwwroot\img\fonts\GothamSSm-Book_Web.woff2" />
    <None Include="wwwroot\img\fonts\GothamSSm-Medium_Web.woff2" />
-   <None Include="wwwroot\img\img\interior\black.avif" />
-   <None Include="wwwroot\img\img\interior\white.avif" />
-   <None Include="wwwroot\img\img\logos\tuskla-logo-2184-2036.xcf" />
-   <None Include="wwwroot\img\img\logos\tuskla-logo-black-2184-2036.xcf" />
-   <None Include="wwwroot\img\img\logos\tuskla-logotext-2200x2800.xcf" />
-   <None Include="wwwroot\img\img\logos\tuskla-logotext-black-2200x2800.xcf" />
-   <None Include="wwwroot\img\img\logos\tuskla-text-1948-264.xcf" />
-   <None Include="wwwroot\img\img\logos\tuskla-text-black-1948-264.xcf" />
-   <None Include="wwwroot\img\img\paint\black.avif" />
-   <None Include="wwwroot\img\img\paint\blue.avif" />
-   <None Include="wwwroot\img\img\paint\midnight-silver.avif" />
-   <None Include="wwwroot\img\img\paint\red.avif" />
-   <None Include="wwwroot\img\img\paint\white.avif" />
-   <None Include="wwwroot\img\img\wheels\18-aero.avif" />
-   <None Include="wwwroot\img\img\wheels\19-sport.avif" />
+   <None Include="wwwroot\img\interior\black.avif" />
+   <None Include="wwwroot\img\interior\white.avif" />
+   <None Include="wwwroot\img\paint\black.avif" />
+   <None Include="wwwroot\img\paint\blue.avif" />
+   <None Include="wwwroot\img\paint\midnight-silver.avif" />
+   <None Include="wwwroot\img\paint\red.avif" />
+   <None Include="wwwroot\img\paint\white.avif" />
+   <None Include="wwwroot\img\wheels\18-aero.avif" />
+   <None Include="wwwroot\img\wheels\19-sport.avif" />
    <None Include="wwwroot\img\logos\tuskla-logo-2184-2036.xcf" />
    <None Include="wwwroot\img\logos\tuskla-logo-black-2184-2036.xcf" />
    <None Include="wwwroot\img\logos\tuskla-logotext-2200x2800.xcf" />
@@ -61,10 +61,42 @@
      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
    </Content>
+   <Content Update="wwwroot\img\logos\tesla-logotext-2200x2800.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-logo-2184-2036.ico">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-logo-2184-2036.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-logo-black-2184-2036.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-logotext-2200x2800.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-logotext-black-2200x2800.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-text-1948-264.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
+   <Content Update="wwwroot\img\logos\tuskla-text-black-1948-264.png">
+     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+   </Content>
  </ItemGroup>
  <ItemGroup>
-   <Folder Include="wwwroot\img\img\s\info\" />
-   <Folder Include="wwwroot\img\img\x\info\" />
-   <Folder Include="wwwroot\img\img\y\info\" />
+   <Folder Include="wwwroot\img\s\info\" />
+   <Folder Include="wwwroot\img\x\info\" />
+   <Folder Include="wwwroot\img\y\info\" />
  </ItemGroup>
 </Project>

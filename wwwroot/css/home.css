@@ -184,6 +184,7 @@ aside {
     padding: 80px 40px;
     z-index: 4;
     height: 100vh;
+    overflow: hidden hidden;
 }
 
     aside.active {
