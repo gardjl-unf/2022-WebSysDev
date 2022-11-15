@@ -185,11 +185,12 @@ aside {
     z-index: 4;
     height: 100vh;
     overflow: hidden hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
     aside.active {
         right: 0;
-        overflow: scroll;
     }
 
     aside a {
