@@ -14,15 +14,16 @@
     <style>
 
         .navbar {
-            background-color: red;
+            background-color: black;
             top: 0;
             width: 100%;
+            color: white:
         }
 
             .navbar a {
                 float: left;
                 display: block;
-                color: black;
+                color: white;
                 text-align: center;
                 padding: 5px 8px;
                 text-decoration: none;
@@ -43,11 +44,16 @@
 </head>
 <body>
     <div class="container">
-
+        <header class="navbar navbar-inverse row flex-nowrap sticky-top justify-content-between align-items-center">
+            <nav>
+                <a href="../..">
+                    <img class="logo" src="~/img/logos/tuskla-text-black-1948-264.png" />
+                </a>
+            </nav>
         <div class="navbar">
             <a href="/"> <b> Home </b> </a>
          </div>
-
+         </header>
         <div class="card">
             <div class="card-header">
                 <h4>@ViewBag.Title</h4>
