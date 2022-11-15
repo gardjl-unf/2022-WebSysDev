@@ -25,13 +25,14 @@
 <body>
     @Html.Partial("Header")
     <br />
+    <br />
     <section class="model-3 active">
         <div class="content">
             <h1>@ViewBag.ModelType</h1>
             <h2>Purchase Now</h2>
             <div class="buttons">
-                @Html.ActionLink("Standard", "Design",  "Vehicle",  new { Model = ViewBag.ModelTypeBtn1}, new { class = "@btn1" })
-                @Html.ActionLink("Plaid", "Design",  "Vehicle",  new { Model = ViewBag.ModelTypeBtn2}, new { class = "@btn2" })
+                @Html.ActionLink("Standard", "Design",  "Vehicle",  new { Model = ViewBag.ModelTypeBtn1}, new { @class = "btn1" })
+                @Html.ActionLink("Plaid", "Design",  "Vehicle",  new { Model = ViewBag.ModelTypeBtn2}, new { @class = "btn2" })
             </div>
         </div>
     </section>
