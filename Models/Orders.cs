@@ -23,8 +23,9 @@ namespace Tuskla.Models
         public string State { get; set; }
         public string Zip { get; set; }
         [Required(ErrorMessage = "Please enter a country name")]
-
- public string Country { get; set; }
+        public string Country { get; set; }
+        [Required(ErrorMessage = "Please enter an E-Mail address")]
+        public string Email { get; set; }
         public bool GiftWrap { get; set; }
     }
 }

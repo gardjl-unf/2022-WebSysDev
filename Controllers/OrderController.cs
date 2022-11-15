@@ -34,6 +34,31 @@ namespace Tuskla.Controllers
             }
         }
 
+        public ViewResult List3() => View(repository.Orders.Where(o => !o.Name.Contains("Model")));
+
+        public ViewResult List4(string OrderIdString = "", string OrderEmailString = "")
+        {
+            if (!string.IsNullOrEmpty(OrderIdString) & !string.IsNullOrEmpty(OrderEmailString))
+            {
+                int OrderIdInt = Int16.Parse(OrderIdString);
+                /* If count = 0 need to fix to show all or send message */
+                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt
+                & o.Email.ToLower() == (OrderEmailString.ToLower())));
+            }
+
+            else if (!string.IsNullOrEmpty(OrderEmailString))
+            {
+                return View(repository.Orders.Where(o => o.Email.ToLower() == (OrderEmailString.ToLower())));
+            }
+
+            else
+
+            {
+                return View(repository.Orders.Where(o => o.OrderID < 0));
+            }
+
+        }
+
         [HttpPost]
         [Authorize]
         public IActionResult MarkShipped(int orderID)

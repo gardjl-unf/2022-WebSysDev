@@ -9,7 +9,7 @@
 {
     <table class="table table-bordered table-striped">
         <tr>
-            <th>Name</th>
+            <th>E-Mail</th>
             <th>Zip</th>
             <th colspan="2">Details</th>
             <th></th>
@@ -17,9 +17,9 @@
      @foreach (Order o in Model)
      {
          <tr>
-             <td>@o.Name</td>
+             <td>@o.Email</td>
              <td>@o.Zip</td>
-             <th>Product</th>
+             <th>Description</th>
              <th>Quantity</th>
             <td>
                 <form asp-action="MarkShipped" method="post">
@@ -32,7 +32,7 @@
          {
              <tr>
                  <td colspan="2"></td>
-                 <td>@line.Product.Name</td>
+                 <td>@line.Product.Description</td>
                  <td>@line.Quantity</td>
                  <td></td>
              </tr>

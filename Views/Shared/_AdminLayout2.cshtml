@@ -42,15 +42,14 @@
 
     <div class="navbar">
         <a href="/"> <b> Home </b> </a>
+        <a class="btn btn-sm btn-primary float-right" asp-action="Logout2" asp-controller="Account">Log Out</a>
+
     </div>
 
     <div class="container">
 
         <div class="card">
-            <div class="card-header">
-                <h4>@ViewBag.Title</h4>
-                <a class="btn btn-sm btn-primary float-right" asp-action="Logout" aspcontroller="Account">Log Out</a>
-            </div>
+ 
             <div class="card-body">
                 @if (TempData["message"] != null)
                 {

@@ -5,9 +5,16 @@
     Layout = "_AdminLayout2";
 }
 
-<form asp-controller="Order" asp-action="List2" method="get">
+<form asp-controller="Order" asp-action="List4" method="get">
     <p>
         Order Number: <input type="text" name="OrderIdString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<form asp-controller="Order" asp-action="List4" method="get">
+    <p>
+        E-Mail Address: <input type="text" name="OrderEMailString" />
         <input type="submit" value="Filter" />
     </p>
 </form>

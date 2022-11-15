@@ -20,6 +20,7 @@ namespace Tuskla.Migrations
                     State = table.Column<string>(nullable: false),
                     Zip = table.Column<string>(nullable: true),
                     Country = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: false),
                     GiftWrap = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
