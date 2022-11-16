@@ -42,7 +42,7 @@ namespace Tuskla.Controllers
         public ViewResult Order(string Model)
         {
             Cart.AddItem(repository.Products.Where(p => p.Name == Model), 1);
-            foreach (int productID in Request.Query.ToArray)
+            foreach (int productID in Request.Query.ToArray())
             {
                 foreach (Product product in repository.Products.Where(p => p.ProductID == productID))
                 {
