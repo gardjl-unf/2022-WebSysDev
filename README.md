@@ -99,3 +99,109 @@ Then went into View\Order\List and List2 and changed name to email.
 Note(List and List2 are not displaying correctly)
 
   
+
+
+
+
+
+
+
+
+
+Controller and Methods
+
+Product Controller
+
+  -  IndexModelStart - Used to return home when syntax for returning Model is unknown
+       Returns View Products/Index with "Model 3 Plaid" chosen (Home page)
+
+  -  IndexModel(string Model) - Displays main page with model selected.
+       Returns View Product/Index displaying home page with model chosen
+
+  -  PurchaseModel(string Model) - View PurchaseModel
+       Returns View Product/PurchaseModel displaying Car Picture, Info and a button to Purchase
+
+  -  AddVehicleItem(string category, int page = 1) -  Shows next item in vehicle to add
+       Return View Product/AddVehicleItem showing a list of Item to add to the Cart (Model, then Paint, then Interior, etc.
+
+  -  List(string category, int page = 1)  //Her method for merchandise
+       Return View Product/List showing a list of Merchandise that can be ordered
+
+Order Controller
+
+  -  List 
+       Returns View Order/List displaying orders not shipped with button to ship, called in Admin Menu
+
+  -  List2(string OrderIdString = "") 
+       Returns View Ordwes/List2 displaying orders by orderID, called in Admin Menu
+
+  -  List4(string OrderIdString = "", string OrderEmailString = "") 
+       Return View Orders/List4 with button to mark shipped
+
+  -  MarkShipped(int orderID) Method to mark shipped an orderId 
+       Returns View Order/List 
+
+  -  Checkout() Saves cart at checkout 
+       Returns View Order/Completed
+
+  -  CheckoutCar() Same as above but was used for cars.  
+       Returns View Order/completedCar
+
+  -  Completed() - Finds last Customer OrderId - View thanks showing OrderID
+       Return View Order/CompletedCar which shows OrderId and thanks for purchase
+
+  -  CompletedCar - Same as above but for Car
+       Return View Order/CompletedCar which shows OrderId and thanks for Car purchase
+
+
+Cart 
+
+ -  Index(string returnUrl) returns new CartIndexViewModel Cart = cart
+      Return Cart/View which displays cart with buttons to clear, continue shopping, or checkout
+
+ -  Index2(string returnUrl) returns new CartIndexViewModel Cart = cart
+      Return View Cart/Index2 which displays cart with buttons to clear or checkout
+
+ -  DeleteAllCart() - Deletes all iems in cart 
+      Return View Product/IndexModelStart which displays home page
+
+ -  AddToCartItems(int productId, string returnUrl) - Add merchandise 
+      Return View Cart/Index which displays cart with buttons to clear, continue shopping, or checkout
+
+ -  AddToCartVehicleItem(int productId, string returnUrl) - Add Car items 
+      Return View Cart/Index2 which displays cart with buttons to clear or checkout
+
+ -  RemoveFromCart(int productId, string returnUrl) - Removes item from cart
+      Returns View Cart/Index which displays cart with buttons to clear, continue shopping, or checkou
+
+Admin
+
+ -  Index()
+      Return View Admin/Index which displays a list of products
+
+ -  Index2() (POSSIBLE DUPLICATE OF ABOVE)
+      Return View Admin/Index2 which displays a list of products
+      
+ -  Index3() 
+      Return View Admin/Index3 which displays a list of products with an Admin/Edit button
+
+ -  Index4()
+      Returns View Admin/Index4 which displays products with a delete button to delete products
+
+ -  Edit(int productId) - Has [HttpPost] method to save product change from form
+      Return View Admin/Idex3 which shows a product info form with an edit button.
+
+ -  AddProduct() - Adds a product to the product table
+      Return View Admin/AddProduct which has a form for new product info and a save button
+
+ -  Delete(int productId) - [HttpPost] Sets product availability to false
+      Return View Admin/Index
+
+ -  MainAdmin()
+      Return View Admin/MainAdmin showing admin functions to select.
+
+Admin Controller (Many methods.  The only one added is below)
+
+ -  Logout2() - Logs out user
+      Return View Product/IndexModel with Model set to "Model 3 Plaid"
+ 
