@@ -1,1 +1,90 @@
-﻿
+﻿@model ProductsListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta name="description" content="Car, car, car, car">
+    <meta name="keywords" content="Search engine keywords, like car">
+    <script type="text/javascript" src="~/js/google-antiflicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/google-antiflicker.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/home.css" />
+    <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="~/lib/font-awesome/css/*.css" />
+    <title>Tuskla - Electric Cars</title>
+    <link rel="icon" type="image/x-icon" href="~/img/logos/tuskla-logo-2184-2036.png">
+    <style>
+        body {
+            background-image: url(@ViewBag.Logo)
+        }
+    </style>
+</head>
+<body>
+    @Html.Partial("Header")
+    <br />
+    <br />
+    <section class="model-3 active">
+        <div class="content">
+            <img src="@ViewBag.ModelImage" style="object-fit: fill;
+            width:500px;
+            float: left;
+            margin: 2px;
+            height:450px;
+            border: solid 2px black;" />
+
+            <p>
+                <h2>
+                    <span style="padding-left: 50px"> @ViewBag.Delivery  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Price  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Savings  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Range  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Speed  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Acceleration1  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Acceleration2  <br /> <br /> </span>
+                    <span style="padding-left: 50px"> @ViewBag.Drive  <br /> </span>
+                </h2>
+            </p>
+            <p>
+                <h2>
+                    <select name="combo-paint">
+                        @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "Paint")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                    <select name="combo-interior"></select>
+                    <select name="combo-rims"></select>
+                    <select name="combo-autopilot"></select>
+                    <select name="combo-fullselfdriving"></select>
+                </h2>
+            </p>
+
+            <div>
+                <br />
+                <ul style="font-weight: bold; font-size: 20px; ">
+                    Standard options for all Tesla models
+                    <li>   Pearl White Paint  </li>
+                    <li>   Black luxury interior  </li>
+                    <li>   18" Rims" </li>
+                    <li>   AutoPilot </li>
+                </ul>
+            </div>
+
+            <a id="CFG2"> Order Today </a>
+
+            <a href="@Url.Action("AddVehicleItem", "Product", new { category = ViewBag.Model })" class="btn1 btn-warning">@ViewBag.Model</a>
+        </div>
+    </section>
+    @Html.Partial("Footer")
+</body>
+</html>
+

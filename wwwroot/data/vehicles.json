@@ -1,0 +1,50 @@
+﻿{
+  "Model 3 Standard": {
+    "delivery": "Nov 2022 - Dec 2022",
+    "price": 46500.00,
+    "speed": 140,
+    "acceleration": 5.8
+  },
+  "Model 3 Plaid": {
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 61600.00,
+    "speed": 160,
+    "acceleration": 3.1
+  },
+  "Model Y Standard": {
+    "delivery": "Nov 2022 - Dec 2022",
+    "price": 61300.00,
+    "speed": 140,
+    "acceleration": 5.8
+  },
+  "Model Y Plaid": {
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 85600.00,
+    "speed": 160,
+    "acceleration": 3.1
+  },
+  "Model X Standard": {
+    "delivery": "Nov 2022 - Dec 2022",
+    "price": 120500.00,
+    "speed": 160,
+    "acceleration": 5.8
+  },
+  "Model X Plaid": {
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 145600.00,
+    "speed": 160,
+    "acceleration": 3.1
+  },
+  "Model S Standard": {
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 120100.00,
+    "speed": 160,
+    "acceleration": 5.8
+  },
+  "Model S Plaid": {
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 141700.00,
+    "speed": 160,
+    "acceleration": 2.9
+  }
+}
