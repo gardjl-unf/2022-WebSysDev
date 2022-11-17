@@ -1,1 +1,111 @@
-﻿
+﻿@model ProductsListViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <meta charset="utf-8" />
+        <meta name="description" content="Car, car, car, car">
+        <meta name="keywords" content="Search engine keywords, like car">
+        <script type="text/javascript" src="~/js/google-antiflicker.js"></script>
+        <link rel="stylesheet" type="text/css" href="~/css/google-antiflicker.css" />
+        <link rel="stylesheet" type="text/css" href="~/css/home.css" />
+        <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*.min.css" />
+        <link rel="stylesheet" asp-href-include="~/lib/font-awesome/css/*.css" />
+        <title>Tuskla - Electric Cars</title>
+        <link rel="icon" type="image/x-icon" href="~/img/logos/tuskla-logo-2184-2036.png">
+    </head>
+    <body>
+        @Html.Partial("Header")
+        <br />
+        <br />
+        <section class="model-@ViewBag.ModelType active">
+            <div class="content">
+                <img src="@ViewBag.ModelImage" style="height:50%;width:auto;" />
+
+                <p>
+                        <div style="padding-left: 50px"> Expected Delivery Date</div>
+                        <div style="padding-left: 50px"> @ViewBag.Price</div>
+                        <div style="padding-left: 50px"> @ViewBag.Savings</div>
+                        <div style="padding-left: 50px"> @ViewBag.Range</div>
+                        <div style="padding-left: 50px"> @ViewBag.Speed</div>
+                        <div style="padding-left: 50px"> @ViewBag.Acceleration1</div>
+                        <div style="padding-left: 50px"> @ViewBag.Acceleration2</div>
+                        <div style="padding-left: 50px"> @ViewBag.Drive</div>
+                </p>
+                <p>
+                    <form asp-action="Order" asp-controller="Vehicle" method="post" class="float-right m-2 p-1">
+                    <select name="vehiclePaint">
+                        @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "Paint")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                    <select name="vehicleInterior">
+                    @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "Interior")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                    <select name="vehicleRims">
+                        @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "Rims")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                    <select name="vehicleAutopilot">
+                        @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "AutoPilot")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                    <select name="vehicleFullSelfDriving">
+                        @foreach (var p in Model.Products)
+                        {
+                            @if (p.Name == "FullSelfDriving")
+                            {
+                                <option value="@p.ProductID">@p.Description</option>
+                            }
+
+                        }
+                    </select>
+                <!--<a href="Url.Action("Order", "Vehicle", new { category = ViewBag.Model })" class="btn btn-warning"><i class="fa fa-cart"></i> Order Your ViewBag.ModelName</a>-->
+                <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info float-right"><i class="fa fa-car"></i> Order @ViewBag.ModelName</button>
+            </form>
+            </p>
+            </div>
+        <div>
+            <br />
+            <ul style="font-weight: bold; font-size: 20px;">
+                Standard options for all Tesla models
+                <li>   Pearl White Paint  </li>
+                <li>   Black luxury interior  </li>
+                <li>   18" Rims" </li>
+                <li>   AutoPilot </li>
+            </ul>
+        </div>
+        </section>
+        @Html.Partial("Footer")
+    </body>
+</html>
+

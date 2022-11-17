@@ -12,8 +12,8 @@ namespace Tuskla.Models
         public virtual void AddItem(ProductModelView product, int quantity)
         {
             CartLine line = lineCollection
-            .Where(p => p.Product.ProductID == product.ProductID)
-            .FirstOrDefault();
+                .Where(p => p.Product.ProductID == product.ProductID)
+                .FirstOrDefault();
             if (line == null)
             {
                 lineCollection.Add(new CartLine
@@ -28,7 +28,7 @@ namespace Tuskla.Models
             }
         }
 
-        public virtual void RemoveLine(ProductModelView product)
+        public virtual void RemoveItem(ProductModelView product)
         {
             if (product.Category == "Car")
             {

@@ -65,10 +65,14 @@ namespace Tuskla
                     template: "{category}",
                     defaults: new { controller = "Product", action = "List", page = 1 }
                 );
+                /*routes.MapRoute(
+                    name: null,
+                    template: "",
+                    defaults: new { controller = "Product", action = "IndexModel", Model = "Model 3 Plaid" });*/
                 routes.MapRoute(
                     name: null,
                     template: "",
-                    defaults: new { controller = "Product", action = "IndexModel", Model = "Model 3 Plaid" });
+                    defaults: new { controller = "Vehicle", action = "Index", model = "Model 3 Standard" });
                 routes.MapRoute(
                     name: null, 
                     template: "{controller}/{action}/{id?}"

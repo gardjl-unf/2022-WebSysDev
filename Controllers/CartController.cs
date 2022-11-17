@@ -126,7 +126,7 @@ namespace Tuskla.Controllers
             ProductModelView product = repository.Products.FirstOrDefault(p => p.ProductID == productId);
             if (product != null)
             {
-                cart.RemoveLine(product);
+                cart.RemoveItem(product);
             }
             return RedirectToAction("Index", new { returnUrl });
         }
