@@ -16,47 +16,35 @@ namespace Tuskla.Controllers
             repository = repoService;
             cart = cartService;
         }
-        [Authorize]
-        public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
-
-        public ViewResult List2(string OrderIdString = "")
+  /*      public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
+  */
+        public ViewResult ListOrders(string OrderIdString = "", string EmailString = "") 
         {
-            if (!string.IsNullOrEmpty(OrderIdString))
-            {
+            if (!string.IsNullOrEmpty(OrderIdString) && !string.IsNullOrEmpty(EmailString))
+                {
                 int OrderIdInt = Int16.Parse(OrderIdString);
                 /* If count = 0 need to fix to show all or send message */
-                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt));
+                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt && o.Email.ToLower() == EmailString.ToLower()));
             }
 
-            else
+            else if (!string.IsNullOrEmpty(EmailString))
             {
-                return View(repository.Orders);
+                return View(repository.Orders.Where(o =>  o.Email.ToLower() == EmailString.ToLower()));
             }
-        }
-
-  
-        public ViewResult List4(string OrderIdString = "", string OrderEmailString = "")
-        {
-            if (!string.IsNullOrEmpty(OrderIdString) & !string.IsNullOrEmpty(OrderEmailString))
-            {
-                int OrderIdInt = Int16.Parse(OrderIdString);
-                /* If count = 0 need to fix to show all or send message */
-                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt
-                & o.Email.ToLower() == (OrderEmailString.ToLower())));
-            }
-
-            else if (!string.IsNullOrEmpty(OrderEmailString))
-            {
-                return View(repository.Orders.Where(o => o.Email.ToLower() == (OrderEmailString.ToLower())));
-            }
-
+           
             else
 
             {
+
                 return View(repository.Orders.Where(o => o.OrderID < 0));
             }
-
         }
+
+
+        public ViewResult ListOrdersAdmin() => View(repository.Orders.Where(o => !o.Shipped));
+
+        public ViewResult ShipOrders() => View(repository.Orders.Where(o => !o.Shipped));
+
 
         [HttpPost]
         [Authorize]
@@ -69,7 +57,7 @@ namespace Tuskla.Controllers
                 order.Shipped = true;
                 repository.SaveOrder(order);
             }
-            return RedirectToAction(nameof(List));
+            return RedirectToAction(nameof(ShipOrders));
         }
 
         public ViewResult Checkout() => View(new Order());

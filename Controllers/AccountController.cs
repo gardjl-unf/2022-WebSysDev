@@ -37,7 +37,7 @@ namespace Tuskla.Controllers
                     await signInManager.SignOutAsync();
                     if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/Index");
+                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/ListAllProducts");
                     }
                     
                 }

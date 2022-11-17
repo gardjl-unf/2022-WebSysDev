@@ -58,8 +58,8 @@
 <ul class="ul1">
    <li> <a> @Html.ActionLink("List/Edit/Delete Admin Users", "Index", "Account") </a> </li> 
    <li> <a> @Html.ActionLink("Create Admin User", "Create", "Account") </a> </li>
-   <li> <a> @Html.ActionLink("List Orders", "List2", "Order") </a> </li>
-   <li> <a> @Html.ActionLink("Ship Orders", "List", "Order") </a> </li>
+   <li> <a> @Html.ActionLink("List Orders", "ListOrders", "Order") </a> </li>
+   <li> <a> @Html.ActionLink("Ship Orders", "ShipOrders", "Order") </a> </li>
    <li> <a> @Html.ActionLink("List Products", "Index", "Admin") </a> </li>
    <li> <a> @Html.ActionLink("Add Products", "Create", "Admin") </a> </li>
    <li> <a> @Html.ActionLink("Edit Products", "Index", "Admin") </a> </li>

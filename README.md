@@ -94,9 +94,9 @@ At that point there was no Admin User.
 This can just be addded with the SQL scripts and loaded with the initial SQL.  
 Deleted the one in the database and then ran the above and it loaded it
 
-Then went into View\Order\List and List2 and changed name to email.
+Then went into View\Order\List and ListOrders and changed name to email.
 
-Note(List and List2 are not displaying correctly)
+Note(List and ListOrders are not displaying correctly)
 
   
 
@@ -124,22 +124,20 @@ Product Controller
   -  AddVehicleItem(string category, int page = 1) -  Shows next item in vehicle to add
        Return View Product/AddVehicleItem showing a list of Item to add to the Cart (Model, then Paint, then Interior, etc.
 
-  -  List(string category, int page = 1)  //Her method for merchandise
-       Return View Product/List showing a list of Merchandise that can be ordered
+  -  ListMerchandise(string category, int page = 1)  //Her method for merchandise
+       Return View Product/ListMerchandise showing a list of Merchandise that can be ordered
 
 Order Controller
 
-  -  List 
-       Returns View Order/List displaying orders not shipped with button to ship, called in Admin Menu
 
-  -  List2(string OrderIdString = "") 
-       Returns View Ordwes/List2 displaying orders by orderID, called in Admin Menu
+  -  ListOrder(string OrderIdString = "") 
+       Returns View Order/ListOrder displaying orders by orderID, called in Admin Menu
 
-  -  List4(string OrderIdString = "", string OrderEmailString = "") 
-       Return View Orders/List4 with button to mark shipped
+  -  ShipOrders(string OrderIdString = "", string OrderEmailString = "") 
+       Return View Orders/ShipOrders with button to mark shipped
 
   -  MarkShipped(int orderID) Method to mark shipped an orderId 
-       Returns View Order/List 
+       Returns View Order/ShipOrders 
 
   -  Checkout() Saves cart at checkout 
        Returns View Order/Completed
@@ -157,10 +155,11 @@ Order Controller
 Cart 
 
  -  Index(string returnUrl) returns new CartIndexViewModel Cart = cart
-      Return Cart/View which displays cart with buttons to clear, continue shopping, or checkout
+      Return Cart/Index which displays cart with buttons to clear, continue shopping, or checkout
+      Tried to rename but cart stopped working
 
- -  Index2(string returnUrl) returns new CartIndexViewModel Cart = cart
-      Return View Cart/Index2 which displays cart with buttons to clear or checkout
+ -  DisplayCarCart(string returnUrl) returns new CartIndexViewModel Cart = cart
+      Return View Cart/DisplayCarCart which displays cart with buttons to clear or checkout
 
  -  DeleteAllCart() - Deletes all iems in cart 
       Return View Product/IndexModelStart which displays home page
@@ -176,32 +175,41 @@ Cart
 
 Admin
 
- -  Index()
-      Return View Admin/Index which displays a list of products
-
- -  Index2() (POSSIBLE DUPLICATE OF ABOVE)
-      Return View Admin/Index2 which displays a list of products
+ -  ListAllProducts()
+      Return View Admin/ListAllProducts which displays a list of products
       
- -  Index3() 
-      Return View Admin/Index3 which displays a list of products with an Admin/Edit button
+ -  ProductToEdit() 
+      Return View Admin/ProductToEdit which displays a list of products with an Admin/Edit button
 
- -  Index4()
-      Returns View Admin/Index4 which displays products with a delete button to delete products
+ -  DeleteProduct()
+      Returns View Admin/DeleteProduct which displays products with a delete button to delete products
+      For products not in Category Car or IsAvailable false
 
  -  Edit(int productId) - Has [HttpPost] method to save product change from form
-      Return View Admin/Idex3 which shows a product info form with an edit button.
+      Return View Admin/ProductToEdit which shows a product info form with an edit button.
 
  -  AddProduct() - Adds a product to the product table
       Return View Admin/AddProduct which has a form for new product info and a save button
 
- -  Delete(int productId) - [HttpPost] Sets product availability to false
-      Return View Admin/Index
+ -  Delete(int productId) - Sets product availability to false
+      Return View Admin/DeleteProduct
 
  -  MainAdmin()
       Return View Admin/MainAdmin showing admin functions to select.
 
-Admin Controller (Many methods.  The only one added is below)
+Account Controller (Many methods.  The only one added is below)
 
  -  Logout2() - Logs out user
       Return View Product/IndexModel with Model set to "Model 3 Plaid"
+ 
+ -  Index()
+      Returns a list of users with buttons to add or delete
+
+ -  Create() - Creates a user
+      Return Account/Create showing form to create user
+
+ -  Edit() No return View Account/Edit currently broken
+
+ -  Delete - Deletes users
+      Return View Account/Index showing all users
  

@@ -16,6 +16,7 @@ namespace Tuskla.Controllers
             repository = repo;
             cart = cartService;
         }
+
         public ViewResult Index(string returnUrl)
         {
             return View(new CartIndexViewModel
@@ -25,7 +26,16 @@ namespace Tuskla.Controllers
             });
         }
 
-        public ViewResult Index2(string returnUrl)
+        public ViewResult DisplayCart(string returnUrl)
+        {
+            return View(new CartIndexViewModel
+            {
+                Cart = cart,
+                ReturnUrl = returnUrl
+            });
+        }
+
+        public ViewResult DisplayCarCart(string returnUrl)
         {
             return View(new CartIndexViewModel
             {
@@ -51,7 +61,7 @@ namespace Tuskla.Controllers
             {
                 cart.AddItem(product, 1);
             }
-            return RedirectToAction("Index", new { returnUrl });
+            return RedirectToAction("DisplayCart", new { returnUrl });
         }
 
 
@@ -109,7 +119,7 @@ namespace Tuskla.Controllers
 
 
                     case "FullSelfDriving":
-                        return RedirectToAction("Index2", "Cart");
+                        return RedirectToAction("DisplayCarCart", "Cart");
                         break;
 
 
@@ -118,7 +128,7 @@ namespace Tuskla.Controllers
                 return RedirectToAction("AddVehicleItem", "Product", new { category = category });
 
             }
-            return RedirectToAction("Index2", "Cart");
+            return RedirectToAction("DisplayCarCart", "Cart");
 
         }
         public RedirectToActionResult RemoveFromCart(int productId, string returnUrl)
@@ -128,7 +138,7 @@ namespace Tuskla.Controllers
             {
                 cart.RemoveItem(product);
             }
-            return RedirectToAction("Index", new { returnUrl });
+            return RedirectToAction("DisplayCart", new { returnUrl });
         }
     }
  
