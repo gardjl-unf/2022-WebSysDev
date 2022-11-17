@@ -2,19 +2,16 @@
 
 @{
  ViewBag.Title = "Orders";
-    Layout = "_AdminLayout";
+    Layout = "_Layout2";
 }
 
-<form asp-controller="Order" asp-action="List4" method="get">
+<form asp-controller="Order" asp-action="ListOrders" method="get">
     <p>
         Order Number: <input type="text" name="OrderIdString" />
-        <input type="submit" value="Filter" />
-    </p>
-</form>
+  
+        &nbsp;&nbsp;
 
-<form asp-controller="Order" asp-action="List4" method="get">
-    <p>
-        E-Mail Address: <input type="text" name="OrderEMailString" />
+        E-Mail: <input type="text" name="EmailString" />
         <input type="submit" value="Filter" />
     </p>
 </form>

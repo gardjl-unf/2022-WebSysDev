@@ -9,6 +9,7 @@
 {
     <table class="table table-bordered table-striped">
         <tr>
+            <th>Order Id</th>
             <th>E-Mail</th>
             <th>Zip</th>
             <th colspan="2">Details</th>
@@ -17,6 +18,7 @@
      @foreach (Order o in Model)
      {
          <tr>
+             <td>@o.OrderID</td>
              <td>@o.Email</td>
              <td>@o.Zip</td>
              <th>Description</th>

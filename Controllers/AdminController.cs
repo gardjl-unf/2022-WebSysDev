@@ -2,6 +2,8 @@
 using Tuskla.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using System;
+
 namespace Tuskla.Controllers
 {
     [Authorize]
@@ -12,13 +14,12 @@ namespace Tuskla.Controllers
         {
             repository = repo;
         }
-        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index2() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
+        public ViewResult ListAllProducts() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index3() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
+        public ViewResult ProductToEdit() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
-        public ViewResult Index4() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
+        public ViewResult DeleteProduct() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
 
 
         public ViewResult Edit(int productId) => View(repository.Products.FirstOrDefault(p => p.ProductID == productId));
@@ -30,7 +31,7 @@ namespace Tuskla.Controllers
             {
                 repository.SaveProduct(product);
                 TempData["message"] = $"{product.Name} has been saved";
-                return RedirectToAction("Index3");
+                return RedirectToAction("ProductToEdit");
             }
             else
             {
@@ -44,10 +45,12 @@ namespace Tuskla.Controllers
         public IActionResult AddProduct(ProductModelView product)
         {
             if (ModelState.IsValid)
+
             {
+                
                 repository.SaveProduct(product);
                 TempData["message"] = $"{product.Name} has been saved";
-                return RedirectToAction("Index");
+                return RedirectToAction("ListAllProducts");
             }
             else
             {
@@ -65,7 +68,7 @@ namespace Tuskla.Controllers
             {
                 TempData["message"] = $"{deletedProduct.Name} was deleted";
             }
-            return RedirectToAction("Index");
+            return RedirectToAction("DeleteProduct");
         }
 
         public ViewResult MainAdmin()
