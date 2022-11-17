@@ -20,22 +20,16 @@
         <link rel="icon" type="image/x-icon" href="~/img/logos/tuskla-logo-2184-2036.png">
     </head>
     <body>
-        @Html.Partial("Header")
+        @Html.Partial("_Header")
         <br />
         <br />
         <section class="model-@ViewBag.ModelType active">
             <div class="content">
-                <img src="@ViewBag.ModelImage" style="height:50%;width:auto;" />
-
+                <div class="design-images">
+                    <img src="@ViewBag.ModelImage" style="height:50%;width:auto;" />
+                </div>
                 <p>
-                        <div style="padding-left: 50px"> Expected Delivery Date</div>
-                        <div style="padding-left: 50px"> @ViewBag.Price</div>
-                        <div style="padding-left: 50px"> @ViewBag.Savings</div>
-                        <div style="padding-left: 50px"> @ViewBag.Range</div>
-                        <div style="padding-left: 50px"> @ViewBag.Speed</div>
-                        <div style="padding-left: 50px"> @ViewBag.Acceleration1</div>
-                        <div style="padding-left: 50px"> @ViewBag.Acceleration2</div>
-                        <div style="padding-left: 50px"> @ViewBag.Drive</div>
+                @Html.Partial("_VehicleData", new VehicleData { name = ViewBag.name, acceleration = ViewBag.acceleration, delivery = ViewBag.delivery, price = ViewBag.price, speed = ViewBag.speed})
                 </p>
                 <p>
                     <form asp-action="Order" asp-controller="Vehicle" method="post" class="float-right m-2 p-1">
@@ -105,7 +99,7 @@
             </ul>
         </div>
         </section>
-        @Html.Partial("Footer")
+    @Html.Partial("_Footer")
     </body>
 </html>
 
