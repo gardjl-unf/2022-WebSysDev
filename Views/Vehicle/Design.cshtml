@@ -25,7 +25,7 @@
         <br />
         <section class="model-@ViewBag.ModelType active">
             <div class="content">
-                <img src="@ViewBag.ModelImage" style="object-fit: fill; float: left;" />
+                <img src="@ViewBag.ModelImage" style="height:50%;width:auto;" />
 
                 <p>
                         <div style="padding-left: 50px"> Expected Delivery Date</div>
@@ -79,7 +79,7 @@
 
                         }
                     </select>
-                    <select name="vehicleFullselfdriving">
+                    <select name="vehicleFullSelfDriving">
                         @foreach (var p in Model.Products)
                         {
                             @if (p.Name == "FullSelfDriving")
@@ -90,7 +90,7 @@
                         }
                     </select>
                 <!--<a href="Url.Action("Order", "Vehicle", new { category = ViewBag.Model })" class="btn btn-warning"><i class="fa fa-cart"></i> Order Your ViewBag.ModelName</a>-->
-                <button type="submit" class="btn btn-info btn-sm float-right btn-danger "><i class="fa fa-car"></i> Order @ViewBag.ModelType</button>
+                <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info float-right"><i class="fa fa-car"></i> Order @ViewBag.ModelName</button>
             </form>
             </p>
             </div>

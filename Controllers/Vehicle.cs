@@ -1,34 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using System.Collections;
+using System.Data;
 using Tuskla.Models;
 using Tuskla.Models.ViewModels;
-using System.Data.Common;
+using System;
 
 namespace Tuskla.Controllers
 {
     public class VehicleController : Controller
     {
         private IProductRepository repository;
-        public VehicleController(IProductRepository repo)
+        private Cart cart;
+        public static string currentModel;
+        public VehicleController(IProductRepository repo, Cart cartService)
         {
             repository = repo;
+            cart = cartService;
         }
         public ViewResult Index(string Model)
         {
-            ViewBag.Logo = "../img/home/model-" + Model.Substring(6, 1).ToLower() + ".jpg";
-            ViewBag.ModelType = Model.Substring(0, 7);
+            currentModel = Model;
+            ViewBag.Logo = "../img/home/model-" + currentModel.Substring(6, 1).ToLower() + ".jpg";
+            ViewBag.ModelType = currentModel.Substring(0, 7);
             ViewBag.ModelStandard = ViewBag.ModelType + " Standard";
             ViewBag.ModelPlaid = ViewBag.ModelType + " Plaid";
 
             return View("Index");
         }
-        public ViewResult Design(string Model)
+        public ViewResult Design()
         {
-            ViewBag.ModelImage = "../img/" + Model.Substring(6, 1).ToLower() + "/ext/18/white/front.jpg";
-            ViewBag.ModelType = Model.Substring(0, 7);
-            ViewBag.ModelButtonText = Model.Split(' ').Last();
-            ViewBag.ModelName = Model;
+            ViewBag.ModelImage = "../img/" + currentModel.Substring(6, 1).ToLower() + "/ext/18/white/front.jpg";
+            ViewBag.ModelType = currentModel.Substring(0, 7);
+            ViewBag.ModelName = currentModel;
 
 
             return View(new ProductsListViewModel
@@ -39,18 +42,26 @@ namespace Tuskla.Controllers
             });
         }
         [HttpPost]
-        public ViewResult Order(string Model)
+        public ActionResult Order()
         {
-            Cart.AddItem(repository.Products.Where(p => p.Name == Model), 1);
-            foreach (int productID in Request.Query.ToArray())
+            ProductModelView product = new ProductModelView();
+
+            cart.AddItem(product = repository.Products
+                .FirstOrDefault(p => p.Name == currentModel), 1);
+            int[] products = new int[] { 
+                Int32.Parse(Request.Form["vehiclePaint"]), 
+                Int32.Parse(Request.Form["vehicleInterior"]), 
+                Int32.Parse(Request.Form["vehicleRims"]), 
+                Int32.Parse(Request.Form["vehicleAutopilot"]), 
+                Int32.Parse(Request.Form["vehicleFullSelfDriving"]) 
+            };
+            foreach (int productID in products)
             {
-                foreach (Product product in repository.Products.Where(p => p.ProductID == productID))
-                {
-                    Cart.AddItem(product, 1);
-                }
+                cart.AddItem(product = repository.Products
+                    .FirstOrDefault(p => p.ProductID == productID), 1);
             }
 
-            return View(Design(Model));
+            return RedirectToAction("Index", "Vehicle", new { Model = currentModel });
         }
     }
 }

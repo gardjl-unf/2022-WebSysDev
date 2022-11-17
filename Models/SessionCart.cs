@@ -23,9 +23,9 @@ namespace Tuskla.Models
             base.AddItem(product, quantity);
             Session.SetJson("Cart", this);
         }
-        public override void RemoveLine(ProductModelView product)
+        public override void RemoveItem(ProductModelView product)
         {
-            base.RemoveLine(product);
+            base.RemoveItem(product);
             Session.SetJson("Cart", this);
         }
         public override void Clear()
