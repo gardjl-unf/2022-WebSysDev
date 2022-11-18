@@ -12,6 +12,7 @@ namespace Tuskla.Models
         public decimal price { get; set; }
         public int speed { get; set; }
         public decimal acceleration { get; set; }
+        public decimal range { get; set; }
         public VehicleData()
         {
             
@@ -25,6 +26,7 @@ namespace Tuskla.Models
             price = vehicle.price;
             speed = vehicle.speed;
             acceleration = vehicle.acceleration;
+            range = vehicle.range;
 
             return this;
         }

@@ -1,9 +1,9 @@
 ﻿:root {
-    font-family: 'MyWebFont', Fallback, sans-serif !important;
+    font-family: "Gotham SSm", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
 }
 
 @font-face {
-    font-family: 'MyWebFont' !important;
+    font-family: 'GothamSSm' !important;
     src: url('/fonts/GothamSSm-Book_Web.woff2'), format('woff2') !important;
 }
 
@@ -14,7 +14,7 @@
 }
 
 html {
-    font-family: 'MyWebFont', Fallback, sans-serif;
+    font-family: "Gotham SSm", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     scroll-behavior: smooth;
 }
 
@@ -37,7 +37,8 @@ body {
     height: auto;
     top: 0;
     overflow: hidden auto;
-    font-family: 'MyWebFont', Fallback, sans-serif !important;
+    font-family: "Gotham SSm", -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color: #171a20;
 }
 
 a {
@@ -312,11 +313,11 @@ table.shoping-cart-table {
 }
 
 .order-summary {
-    -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,.16);
     box-shadow: 0 8px 16px 0 rgba(0,0,0,.16);
     border-radius: 4px;
     margin-left: auto;
-    max-width: 432px;
+    max-width: 332px;
+    width: 300px;
     padding: 32px;
 }
 
@@ -361,4 +362,149 @@ table.shoping-cart-table {
 button.text-muted {
     border: 0px;
     background-color: transparent;
+}
+
+.design {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+.design-images {
+    width:700px;
+    height:auto;
+    float: left;
+    left: -100px;
+}
+
+.design-content {
+
+}
+
+.swatch {
+    height: 40px !important;
+    width: auto !important;
+    margin: 5px 5px 5px 5px;
+}
+
+.name {
+    outline: none;
+    margin-inline-end: auto;
+    margin-inline-start: auto;
+    box-sizing: border-box;
+    text-align: center !important;
+    letter-spacing: -0.6px;
+    font-size: 40px;
+    line-height: 48px;
+    color: #171a20;
+}
+
+.delivery {
+    opacity: 1;
+    filter: blur(0px);
+    transition: all 150ms cubic-bezier(0.5,0,0,0.75);
+    text-align: center;
+}
+
+    .delivery span {
+        margin-inline-end: auto;
+        margin-inline-start: auto;
+        text-align: center !important;
+        padding-block-end: 16px !important;
+        padding-bottom: 16px !important;
+    }
+
+.specs {
+    display: flex;
+    flex-direction: column;
+    padding-block-start: 16px !important;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-weight: 400;
+}
+
+    .specs ol {
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+        margin: 8px 0;
+        display: flex;
+        align-items: baseline;
+        flex: 1;
+        overflow-x: auto;
+        justify-content: space-around;
+        text-align: center;
+        width: 100%;
+        justify-content: space-evenly;
+        margin-block-start: 1em;
+        margin-block-end: 1em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 40px;
+    }
+
+        .specs ol li {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            max-width: min-content;
+            min-width: 32%;
+            text-align: center;
+            margin-block-end: 0;
+            display: inline-block;
+            position: relative;
+            max-inline-size: 75ch;
+        }
+
+.specs-text {
+    margin-bottom: 0;
+    padding-block-end: 0;
+    padding: 0 !important;
+    letter-spacing: -0.6px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+    font-size: 24px;
+    color: #393c41;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    text-align: center;
+}
+
+.specs-label {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.6px;
+}
+
+.specs-caption {
+    color: #5c5e62;
+    font-size: 12px;
+    line-height: 18px;
+}
+
+select {
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    width: 20em;
+    height: 3em;
+    padding: 0 4em 0 1em;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    margin-bottom: 50px;
+}
+
+.stats {
+    width:fit-content;
+}
+
+.list-left {
+    left:100px;
+}
+
+.choose {
+    font-variant: small-caps;
+    font-weight:bolder;
 }

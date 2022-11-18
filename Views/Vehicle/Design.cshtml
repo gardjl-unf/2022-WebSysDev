@@ -21,85 +21,120 @@
     </head>
     <body>
         @Html.Partial("_Header")
-        <br />
-        <br />
-        <section class="model-@ViewBag.ModelType active">
+        <div class="model-@ViewBag.Model active">
             <div class="content">
-                <div class="design-images">
-                    <img src="@ViewBag.ModelImage" style="height:50%;width:auto;" />
-                </div>
-                <p>
-                @Html.Partial("_VehicleData", new VehicleData { name = ViewBag.name, acceleration = ViewBag.acceleration, delivery = ViewBag.delivery, price = ViewBag.price, speed = ViewBag.speed})
-                </p>
-                <p>
-                    <form asp-action="Order" asp-controller="Vehicle" method="post" class="float-right m-2 p-1">
-                    <select name="vehiclePaint">
-                        @foreach (var p in Model.Products)
-                        {
-                            @if (p.Name == "Paint")
-                            {
-                                <option value="@p.ProductID">@p.Description</option>
-                            }
+                <table class="ibox float-right design">
+                    <tr class="ibox-content">
+                        <td class="ibox-content float-left design-images">
+                            <img class="design-images" src="@ViewBag.ModelImageLocation/ext/18/white/front.jpg" />
+                        </td>
+                        <td class="ibox-content stats">
+                            @Html.Partial("_VehicleData", new VehicleData { name = ViewBag.name, acceleration = ViewBag.acceleration, range = ViewBag.range, delivery = ViewBag.delivery, price = ViewBag.price, speed = ViewBag.speed})
+                        </td>
+                        <td class="ibox-content float-right">
+                            <form asp-action="Order" asp-controller="Vehicle" method="post">
+                                <img class="swatch" src="~/img/paint/white.png" />
+                                <img class="swatch" src="~/img/paint/midnight-silver.png" />
+                                <img class="swatch" src="~/img/paint/blue.png" />
+                                <img class="swatch" src="~/img/paint/black.png" />
+                                <img class="swatch" src="~/img/paint/red.png" />
+                                <br />
+                                <span class="choose">Paint Color</span>
+                                <br />
+                                <select name="vehiclePaint">
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        @if (p.Name == "Paint")
+                                        {
+                                            <option value="@p.ProductID">@p.Description</option>
+                                        }
 
-                        }
-                    </select>
-                    <select name="vehicleInterior">
-                    @foreach (var p in Model.Products)
-                        {
-                            @if (p.Name == "Interior")
-                            {
-                                <option value="@p.ProductID">@p.Description</option>
-                            }
+                                    }
+                                </select>
+                                <br />
+                                <img class="swatch" src="@ViewBag.ModelImageLocation/ext/18/wheels.png" />
+                                <img class="swatch" src="@ViewBag.ModelImageLocation/ext/19/wheels.png" />
+                                <br />
+                                <span class="choose">Rims</span>
+                                <br />
+                                <select name="vehicleRims">
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        @if (p.Name == "Rims")
+                                        {
+                                            <option value="@p.ProductID">@p.Description</option>
+                                        }
 
-                        }
-                    </select>
-                    <select name="vehicleRims">
-                        @foreach (var p in Model.Products)
-                        {
-                            @if (p.Name == "Rims")
-                            {
-                                <option value="@p.ProductID">@p.Description</option>
-                            }
+                                    }
+                                </select>
+                                <br />
+                                <img class="swatch" src="~/img/interior/black.png" />
+                                <img class="swatch" src="~/img/interior/white.png" />
+                                <br />
+                                <span class="choose">Interior</span>
+                                <br />
+                                <select name="vehicleInterior">
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        @if (p.Name == "Interior")
+                                        {
+                                            <option value="@p.ProductID">@p.Description</option>
+                                        }
 
-                        }
-                    </select>
-                    <select name="vehicleAutopilot">
-                        @foreach (var p in Model.Products)
-                        {
-                            @if (p.Name == "AutoPilot")
-                            {
-                                <option value="@p.ProductID">@p.Description</option>
-                            }
+                                    }
+                                </select>
+                                <br />
+                                <span class="choose">Autopilot</span>
+                                <ul>
+                                    <li>Navigate on Autopilot</li>
+                                    <li>Auto Lane Change</li>
+                                    <li>Autopark</li>
+                                    <li>Summon</li>
+                                    <li>Smart Summon</li>
+                                </ul>
+                                <select name="vehicleAutopilot">
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        @if (p.Name == "AutoPilot")
+                                        {
+                                            <option value="@p.ProductID">@p.Description</option>
+                                        }
 
-                        }
-                    </select>
-                    <select name="vehicleFullSelfDriving">
-                        @foreach (var p in Model.Products)
-                        {
-                            @if (p.Name == "FullSelfDriving")
-                            {
-                                <option value="@p.ProductID">@p.Description</option>
-                            }
+                                    }
+                                </select>
+                                <br />
+                                <span class="choose">Full Self-Driving Capability</span>
+                                </br />
+                                <select name="vehicleFullSelfDriving">
+                                    @foreach (var p in Model.Products)
+                                    {
+                                        @if (p.Name == "FullSelfDriving")
+                                        {
+                                            <option value="@p.ProductID">@p.Description</option>
+                                        }
 
-                        }
-                    </select>
-                <!--<a href="Url.Action("Order", "Vehicle", new { category = ViewBag.Model })" class="btn btn-warning"><i class="fa fa-cart"></i> Order Your ViewBag.ModelName</a>-->
-                <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info float-right"><i class="fa fa-car"></i> Order @ViewBag.ModelName</button>
-            </form>
-            </p>
+                                    }
+                                </select>
+                                <br />
+                                <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info float-right"><i class="fa fa-car"></i> Order @ViewBag.ModelName</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span class="choose">Standard Options for All Tesla Models</span>
+                            <ul class="list-left">
+                                <li>Pearl White Paint</li>
+                                <li>Black luxury interior</li>
+                                <li>18" Rims"</li>
+                                <li>Standard AutoPilot</li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        <div>
-            <br />
-            <ul style="font-weight: bold; font-size: 20px;">
-                Standard options for all Tesla models
-                <li>   Pearl White Paint  </li>
-                <li>   Black luxury interior  </li>
-                <li>   18" Rims" </li>
-                <li>   AutoPilot </li>
-            </ul>
         </div>
-        </section>
-    @Html.Partial("_Footer")
+        @Html.Partial("_Footer")
     </body>
 </html>
 

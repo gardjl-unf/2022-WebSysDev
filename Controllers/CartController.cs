@@ -49,7 +49,7 @@ namespace Tuskla.Controllers
 
             cart.Clear();
 
-            return RedirectToAction("IndexModelStart", "Product");
+            return RedirectToAction("Index", "Vehicle");
 
         }
 

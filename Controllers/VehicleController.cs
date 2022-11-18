@@ -32,14 +32,17 @@ namespace Tuskla.Controllers
             currentModel = Model;
             VehicleData vehicle = new VehicleData().GetData(currentModel);
 
-            ViewBag.ModelImage = "../img/" + currentModel.Substring(6, 1).ToLower() + "/ext/18/white/front.jpg";
+            ViewBag.ModelImageLocation = "../img/" + currentModel.Substring(6, 1).ToLower();
+            ViewBag.Model = currentModel.Substring(6, 1).ToLower();
             ViewBag.ModelType = currentModel.Substring(0, 7);
             ViewBag.ModelName = currentModel;
 
+            ViewBag.name = vehicle.name;
             ViewBag.delivery = vehicle.delivery;
             ViewBag.price = vehicle.price;
             ViewBag.speed = vehicle.speed;
             ViewBag.acceleration = vehicle.acceleration;
+            ViewBag.range = vehicle.range;
 
 
             return View(new ProductsListViewModel

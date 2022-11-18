@@ -3,54 +3,64 @@
     "name" : "Model 3 Standard",
     "delivery": "Nov 2022 - Dec 2022",
     "price": 46500.00,
+    "range" : 272,
     "speed": 140,
     "acceleration": 5.8
   },
   {
-    "name" : "Model 3 Plaid",
-    "delivery": "Nov 2022 - Jan 2023",
+    "name": "Model 3 Plaid",
+    "delivery": "Nov 2022 - Dec 2022",
     "price": 61600.00,
-    "speed": 160,
+    "range": 315,
+    "speed": 162,
     "acceleration": 3.1
   },
   {
-    "name" : "Model Y Standard",
+    "name": "Model Y Standard",
     "delivery": "Nov 2022 - Dec 2022",
     "price": 61300.00,
-    "speed": 140,
-    "acceleration": 5.8
+    "range": 330,
+    "speed": 135,
+    "acceleration": 4.8
   },
   {
-    "name" : "Model Y Plaid",
+    "name": "Model Y Plaid",
     "delivery": "Nov 2022 - Jan 2023",
     "price": 85600.00,
-    "speed": 160,
-    "acceleration": 3.1
+    "range": 303,
+    "speed": 155,
+    "acceleration": 3.5
   },
   {
-    "name" : "Model X Standard",
+    "name": "Model X Standard",
     "delivery": "Nov 2022 - Dec 2022",
     "price": 120500.00,
-    "speed": 160,
-    "acceleration": 5.8
-  },
-  { "name" : "Model X Plaid",
-    "delivery": "Nov 2022 - Jan 2023",
-    "price": 145600.00,
-    "speed": 160,
-    "acceleration": 3.1
-  },
-  { "name" : "Model S Standard",
-    "delivery": "Nov 2022 - Jan 2023",
-    "price": 120100.00,
-    "speed": 160,
-    "acceleration": 5.8
+    "range": 351,
+    "speed": 149,
+    "acceleration": 3.8
   },
   {
-    "name" : "Model S Plaid",
+    "name": "Model X Plaid",
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 145600.00,
+    "range": 333,
+    "speed": 149,
+    "acceleration": 2.5
+  },
+  {
+    "name": "Model S Standard",
+    "delivery": "Nov 2022 - Jan 2023",
+    "price": 120100.00,
+    "range": 405,
+    "speed": 149,
+    "acceleration": 3.1
+  },
+  {
+    "name": "Model S Plaid",
     "delivery": "Nov 2022 - Jan 2023",
     "price": 141700.00,
-    "speed": 160,
-    "acceleration": 2.9
+    "range": 396,
+    "speed": 200,
+    "acceleration": 1.99
   }
 ]

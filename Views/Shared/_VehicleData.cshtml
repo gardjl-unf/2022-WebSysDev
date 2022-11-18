@@ -1,16 +1,45 @@
 ﻿@model VehicleData
 
-@{
-    ViewBag.Title = "Vehicle Data";
-}
+<h1 class="name" tabindex="-1">
+    <span>@Model.name</span>
+</h1>
 
-@Model.name
-<br />
-@Model.delivery
-<br />
-@Model.price
-<br />
-@Model.speed
-<br />
-@Model.acceleration
-<br />
+<div class="delivery">
+    <span>Est. Delivery: @Model.delivery</span>
+</div>
+
+<div class="specs">
+    <ol>
+        <li>
+            <div class="specs-text">
+                <span>@Model.range</span>
+                <span class="specs-label">mi</span>
+            </div>
+            <span class="specs-caption">
+                <span>Range (EPA est.)</span>
+            </span>
+        </li>
+        <li>
+            <div class="specs-text">
+                <span>@Model.speed</span>
+                <span class="specs-label">mph</span>
+            </div>
+            <span class="specs-caption" data-id="top-speed-label">Top Speed</span>
+        </li>
+        <li>
+            <div class="specs-text">
+                <span>@Model.acceleration</span>
+                <span class="specs-label">sec</span>
+            </div>
+            <span class="specs-caption" data-id="acceleration-label">
+                <span>0-60 mph</span>
+            </span>
+        </li>
+    </ol>
+</div>
+<div class="name">
+    Base Price
+    <div class="specs-text">
+        @Model.price.ToString("c")
+    </div>
+</div>
