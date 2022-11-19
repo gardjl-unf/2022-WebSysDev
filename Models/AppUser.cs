@@ -5,5 +5,6 @@ namespace Tuskla.Models
     public class AppUser : IdentityUser<Guid>
     {
 
+
     }
 }
