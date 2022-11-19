@@ -370,14 +370,17 @@ button.text-muted {
 }
 
 .design-images {
-    width:700px;
-    height:auto;
+    width: 1000px;
+    height: auto;
     float: left;
-    left: -100px;
+    position: relative;
+    display:table-cell;
+    left: -50px !important;
 }
 
-.design-content {
-
+.configure {
+    position: relative;
+    left: -250px;
 }
 
 .swatch {
@@ -493,15 +496,28 @@ select {
     cursor: pointer;
     color: black;
     background-color: white;
-    margin-bottom: 50px;
+    margin-bottom: 25px !important;
 }
 
 .stats {
     width:fit-content;
+    position: relative;
+    left: -300px;
 }
 
-.list-left {
-    left:100px;
+.list-options {
+    width: 150px;
+    float: left;
+    position: relative;
+    display: table-cell;
+    left: 50px !important;
+    top: 25px !important;
+    list-style-type: square !important;
+}
+
+.list-autopilot {
+    position: relative;
+    left: 18px !important;
 }
 
 .choose {

@@ -24,16 +24,20 @@
       "library": "font-awesome@6.2.0",
       "destination": "wwwroot/lib/font-awesome/"
     },
- {
- "library": "jquery-validate@1.19.5",
- "destination": "wwwroot/lib/jquery-validation",
- "files": [ "jquery.validate.min.js" ]
- },
- {
- "library": "jquery-validation-unobtrusive@3.2.11",
- "destination": "wwwroot/lib/jquery-validation-unobtrusive",
- "files": [ "jquery.validate.unobtrusive.min.js" ]
- }
-
+    {
+      "library": "jquery-validate@1.19.5",
+      "destination": "wwwroot/lib/jquery-validation",
+      "files": [ "jquery.validate.min.js" ]
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "wwwroot/lib/jquery-validation-unobtrusive",
+      "files": [ "jquery.validate.unobtrusive.min.js" ]
+    },
+    {
+      "library": "topcoat@0.8.0",
+      "destination": "wwwroot/lib/topcoat",
+      "files": [ "css/topcoat-desktop-light.min.css" ]
+    }
   ]
 }

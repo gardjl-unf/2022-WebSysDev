@@ -1,38 +1,19 @@
 ﻿@model IEnumerable<string>
 
+<link rel="stylesheet" asp-href-include="~/lib/topcoat/css/topcoat-desktop-light.min.css" />
+<br />
+<ul class="topcoat-button-bar full">
     @foreach (string category in Model)
     {
         @if (category != "Car")
         {
-            <a class="btn btn-block m-2 @(category == ViewBag.SelectedCategory ? "btn-primary": "btn-outline-dark")"
-                asp-action="List"
-                asp-controller="Product"
-                asp-route-category="@category"
-                asp-route-page="1">
-                    @category
-             </a>
-        }       
+        <li class="topcoat-button-bar__item">
+            <a class="topcoat-button-bar__button full" asp-action="List" asp-controller="Product" asp-route-category="@category" asp-route-page="1">
+                @category
+            </a>
+        </li>
+        }
     }
-
-
-
-
-
-
-
-<!--
-<a original class=" btn btn-outline-dark btn-block m-2"
-   asp-action="List"
-   asp-controller="Product"
-   asp-route-category="Index"> Home
-</a>
--->
-<!--
-<a class=" btn btn-outline-dark btn-block m-2"
-<a id="GFG" asp-action="IndexModel3" class="btn btn-default" >  <b> Home &nbsp;&nbsp; </b> </a>
--->
-
+</ul>
 <br />
-<!--
-<a class=" btn btn-outline-dark btn-block  m-2"
-<a asp-action="IndexModel"  class="btn btn-default"  >  <b> Home &nbsp;&nbsp; </b> </a> -->
+<br />
