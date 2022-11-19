@@ -41,8 +41,33 @@ namespace Tuskla.Controllers
         }
 
 
-        public ViewResult ListOrdersAdmin() => View(repository.Orders.Where(o => !o.Shipped));
+        public ViewResult ListOrdersAdmin(string OrderIdString = "", string EmailString = "")
+        {
+            if (!string.IsNullOrEmpty(OrderIdString) && !string.IsNullOrEmpty(EmailString))
+            {
+                int OrderIdInt = Int16.Parse(OrderIdString);
+                /* If count = 0 need to fix to show all or send message */
+                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt && o.Email.ToLower() == EmailString.ToLower()));
+            }
 
+            else if (!string.IsNullOrEmpty(EmailString))
+            {
+                return View(repository.Orders.Where(o => o.Email.ToLower() == EmailString.ToLower()));
+            }
+
+            else if (!string.IsNullOrEmpty(OrderIdString))
+            {
+                int OrderIdInt = Int16.Parse(OrderIdString);
+                return View(repository.Orders.Where(o => o.OrderID == OrderIdInt));
+            }
+
+            else
+
+            {
+
+                return View(repository.Orders.Where(o => o.OrderID > 0));
+            }
+        }
         public ViewResult ShipOrders() => View(repository.Orders.Where(o => !o.Shipped));
 
 

@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<Order>
 
 @{
- ViewBag.Title = "Orders";
+    ViewBag.Title = "Orders";
     Layout = "_AdminLayout2";
 }
 
 <form asp-controller="Order" asp-action="ListOrdersAdmin" method="get">
     <p>
         Order Number: <input type="text" name="OrderIdString" />
+
+        &nbsp;&nbsp;
+
+        E-Mail: <input type="text" name="EmailString" />
         <input type="submit" value="Filter" />
     </p>
 </form>
@@ -24,14 +28,14 @@
         </tr>
         @foreach (Order o in Model)
         {
-            <tr> 
+            <tr>
                 <td>@o.OrderID</td>
                 <td>@o.Email</td>
                 <td>@o.Zip</td>
 
             </tr>
 
-            <tr> 
+            <tr>
                 <th>Product</th>
                 <th>Description</th>
                 <th>Quantity</th>
@@ -40,10 +44,10 @@
             @foreach (CartLine line in o.Lines)
             {
                 <tr>
-                <td>@line.Product.Name</td>
-                <td>@line.Product.Description</td>
-                 <td>@line.Quantity</td>
-                </tr> 
+                    <td>@line.Product.Name</td>
+                    <td>@line.Product.Description</td>
+                    <td>@line.Quantity</td>
+                </tr>
             }
         }
     </table>
