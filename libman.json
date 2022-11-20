@@ -38,6 +38,11 @@
       "library": "topcoat@0.8.0",
       "destination": "wwwroot/lib/topcoat",
       "files": [ "css/topcoat-desktop-light.min.css" ]
+    },
+    {
+      "library": "country-region-selector@0.5.1",
+      "destination": "wwwroot/lib/country-region-selector",
+      "files": ["crs.min.js"]
     }
   ]
 }

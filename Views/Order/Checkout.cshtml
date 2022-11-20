@@ -4,6 +4,8 @@
     Layout = "_Layout3";
 }
 
+<script type="text/javascript" src="~/lib/country-region-selector/crs.min.js"></script>
+
 <h2>Check out now</h2>
 <p>Please enter your details, and we'll ship your goods right away!</p>
 <div asp-validation-summary="All" class="text-danger"></div>
@@ -32,7 +34,10 @@
     </div>
     <div class="form-group">
         <label>State:</label>
+        <!--
         <input asp-for="State" class="form-control" />
+        -->
+        <select asp-for="State" class="form-control" id="crs-region" data-default-value="Alabama" data-value="shortcode"></select>
     </div>
     <div class="form-group">
         <label>Zip:</label>
@@ -40,7 +45,10 @@
     </div>
     <div class="form-group">
         <label>Country:</label>
+        <!--
         <input asp-for="Country" class="form-control" />
+        -->
+        <select asp-for="Country" class="form-control crs-country" data-region-id="crs-region" data-preferred="CA,US,MX" data-default-value="United States" data-value="shortcode"></select>
     </div>
     <div class="form-group">
         <label>E-Mail:</label>
