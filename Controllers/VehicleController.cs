@@ -72,7 +72,7 @@ namespace Tuskla.Controllers
                     .FirstOrDefault(p => p.ProductID == productID), 1);
             }
 
-            return RedirectToAction("Index", "Vehicle", new { Model = currentModel });
+            return RedirectToAction("DisplayCart", "Cart");
         }
     }
 }
