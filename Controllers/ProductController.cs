@@ -20,21 +20,46 @@ namespace Tuskla.Controllers
         {
             repository = repo;
         }
-        public ViewResult List(string category, int page = 1) => View(new ProductsListViewModel
+        public ViewResult List(string category, int page = 1)
         {
-            Products = repository.Products
-                .Where(p => (category == null || p.Category == category) && !p.Category.StartsWith("Cars") && p.isActive == true)
-                .OrderBy(p => p.ProductID)
-                .Skip((page - 1) * PageSize)
-                .Take(PageSize),
-            PagingInfo = new PagingInfo
-            {
-                CurrentPage = page,
-                ItemsPerPage = PageSize,
-                TotalItems = category == null ? repository.Products.Count() : repository.Products.Where(e => e.Category == category).Count()
-            },
-            CurrentCategory = category
-        });
+            if (category != null) {
+                return View(
+                    new ProductsListViewModel
+                    {
+                        Products = repository.Products
+                            .Where(p => p.Category == category && p.isActive == true)
+                            .OrderBy(p => p.ProductID)
+                            .Skip((page - 1) * PageSize)
+                            .Take(PageSize),
+                        PagingInfo = new PagingInfo
+                        {
+                            CurrentPage = page,
+                            ItemsPerPage = PageSize,
+                            TotalItems = repository.Products
+                                .Where(p => p.Category == category && p.isActive).Count()
+                        },
+                        CurrentCategory = category
+                    });
+            }
+            else {
+                return View(
+                    new ProductsListViewModel
+                    {
+                        Products = repository.Products
+                            .Where(p => !p.Category.StartsWith("Car") && p.isActive == true)
+                            .OrderBy(p => p.ProductID)
+                            .Skip((page - 1) * PageSize)
+                            .Take(PageSize),
+                        PagingInfo = new PagingInfo
+                        {
+                            CurrentPage = page,
+                            ItemsPerPage = PageSize,
+                            TotalItems = repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true).Count()
+                        },
+                        CurrentCategory = category
+                    });
+            }
+        }
     }
 }
 
