@@ -1,8 +1,9 @@
 ﻿@model IEnumerable<string>
 
-<link rel="stylesheet" asp-href-include="~/lib/topcoat/css/topcoat-desktop-light.min.css" />
-<br />
-<ul class="topcoat-button-bar full">
+<ul class="topcoat-button-bar w50">
+    <li class="topcoat-button-bar__item">
+        <a class="topcoat-button-bar__button full" asp-action="List" asp-controller="Product" asp-route-category=@null asp-route-page="1">All</a>
+        </li>
     @foreach (string category in Model)
     {
         @if (category != "Car")
@@ -15,5 +16,3 @@
         }
     }
 </ul>
-<br />
-<br />

@@ -1,7 +1,7 @@
 ﻿@model Order
 
 @{
-    Layout = "_Layout3";
+    Layout = "_Layout";
 }
 
 <script type="text/javascript" src="~/lib/country-region-selector/crs.min.js"></script>
@@ -13,48 +13,42 @@
     <h3>Ship to</h3>
     <div class="form-group">
         <label>Name:</label>
-        <input asp-for="Name" class="form-control" />
+        <input asp-for="Name" class="form-control topcoat-text-input--large" />
     </div>
     <h3>Address</h3>
     <div class="form-group">
         <label>Line 1:</label>
-        <input asp-for="Line1" class="form-control" />
+        <input asp-for="Line1" class="form-control topcoat-text-input--large" />
     </div>
     <div class="form-group">
         <label>Line 2:</label>
-        <input asp-for="Line2" class="form-control" />
+        <input asp-for="Line2" class="form-control topcoat-text-input--large" />
     </div>
     <div class="form-group">
         <label>Line 3:</label>
-        <input asp-for="Line3" class="form-control" />
+        <input asp-for="Line3" class="form-control topcoat-text-input--large" />
     </div>
     <div class="form-group">
         <label>City:</label>
-        <input asp-for="City" class="form-control" />
+        <input asp-for="City" class="form-control topcoat-text-input--large" />
     </div>
     <div class="form-group">
         <label>State:</label>
-        <select asp-for="State" class="form-control" id="crs-region" data-default-value="Alabama" data-value="shortcode"></select>
+        <select asp-for="State" class="form-control topcoat-text-input--large" id="crs-region" data-default-value="AL" data-value="shortcode"></select>
     </div>
     <div class="form-group">
         <label>Zip:</label>
-        <input asp-for="Zip" class="form-control" />
+        <input asp-for="Zip" class="form-control topcoat-text-input--large" />
     </div>
     <div class="form-group">
         <label>Country:</label>
-        <select asp-for="Country" class="form-control crs-country" data-region-id="crs-region" data-preferred="CA,US,MX" data-default-value="United States" data-value="shortcode"></select>
+        <select asp-for="Country" class="form-control crs-country topcoat-text-input--large" data-region-id="crs-region" data-preferred="US,CA,MX" data-default-value="US" data-value="shortcode"></select>
     </div>
     <div class="form-group">
         <label>E-Mail:</label>
-        <input asp-for="Email" class="form-control" />
-    </div>
-    <h3>Options</h3>
-    <div class="checkbox">
-        <label>
-            <input asp-for="GiftWrap" /> Gift wrap these items
-        </label>
+        <input asp-for="Email" class="form-control topcoat-text-input--large" />
     </div>
     <div class="text-center">
-        <input class="btn btn-primary" type="submit" value="Complete Order" />
+        <input class="btn btn-primary" type="submit" value=" Complete Order" />
     </div>
 </form>
