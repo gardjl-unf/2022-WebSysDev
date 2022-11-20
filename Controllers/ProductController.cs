@@ -15,7 +15,7 @@ namespace Tuskla.Controllers
     public class ProductController : Controller
     {
         private IProductRepository repository;
-        public int PageSize = 14;
+        public int PageSize = 4;
         public ProductController(IProductRepository repo)
         {
             repository = repo;

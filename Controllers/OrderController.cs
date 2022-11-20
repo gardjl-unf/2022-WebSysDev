@@ -18,10 +18,10 @@ namespace Tuskla.Controllers
         }
   /*      public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
   */
-        public ViewResult ListOrders(string OrderIdString = "", string EmailString = "") 
+        public ViewResult ListOrders(string OrderIdString = "", string EmailString = "")
         {
             if (!string.IsNullOrEmpty(OrderIdString) && !string.IsNullOrEmpty(EmailString))
-                {
+            {
                 int OrderIdInt = Int16.Parse(OrderIdString);
                 /* If count = 0 need to fix to show all or send message */
                 return View(repository.Orders.Where(o => o.OrderID == OrderIdInt && o.Email.ToLower() == EmailString.ToLower()));
@@ -29,9 +29,9 @@ namespace Tuskla.Controllers
 
             else if (!string.IsNullOrEmpty(EmailString))
             {
-                return View(repository.Orders.Where(o =>  o.Email.ToLower() == EmailString.ToLower()));
+                return View(repository.Orders.Where(o => o.Email.ToLower() == EmailString.ToLower()));
             }
-           
+
             else
 
             {
