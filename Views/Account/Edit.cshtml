@@ -1,13 +1,13 @@
 ﻿@model AppUser
 
 @{
-     ViewBag.Title = "Edit User Account";
+     ViewBag.Title = "Edit User Account | Administrator View | Tuskla Motors";
      Layout = "_Layout";
 }
 
 
     <div asp-validation-summary="All" class="text-danger"></div>
-<form method="post" id="ChangeEmail" asp-action="ChangeEmail" asp-controller="Admin" asp-antiforgery="true" class="form-horizontal">
+<form method="post" id="ChangeEmail" asp-action="ChangeEmail" asp-controller="Account" asp-antiforgery="true" class="form-horizontal">
         <div class="form-group">
             <label class="control-label" asp-for="UserName">Account User Name:</label>
             @Model.UserName
@@ -19,7 +19,7 @@
         <button class="btn btn-primary" type="submit"><i class="fa fa-pen"></i> Change User Email</button>
         </div>
     </form>
-    <form id="ChangePassword" method="post" asp-action="ChangePassword" asp-controller="Admin" asp-antiforgery="true">
+    <form id="ChangePassword" method="post" asp-action="ChangePassword" asp-controller="Account" asp-antiforgery="true">
         <div class="form-group">
             <div class="col-sm-offset-2">               
                 <br />

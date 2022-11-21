@@ -80,7 +80,7 @@ Then re-added the data
 
 At that point there was no Admin User.  
   - Just went back to an old solution and created one
-  - Below is the create statement for it in users and created admin@evhicles.com password Temp01# 
+  - Below is the create statement for it in users and created admin@evehicles.com password Temp01# 
   
   INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], 
   [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], 

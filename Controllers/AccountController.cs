@@ -46,17 +46,10 @@ namespace Tuskla.Controllers
             return View(loginModel);
         }
 
-             public async Task<RedirectResult> Logout(string returnUrl = "/")
-               {
-                   await signInManager.SignOutAsync();
-                   return Redirect(returnUrl);
-               }
-
-        public async Task<RedirectToRouteResult> Logout2()
+        public async Task<RedirectToRouteResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToRoute(new { controller = "Product", action = "IndexModel", Model = "Model 3 Plaid" });
-
+            return RedirectToRoute(new { controller = "Vehicle", action = "Index", Model = "Model 3 Standard" });
         }
         [AllowAnonymous]
         public ViewResult Index()
@@ -141,6 +134,57 @@ namespace Tuskla.Controllers
             {
                 return RedirectToAction("Index");
             }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(string email, string password)
+        {
+            AppUser user = await userManager.FindByEmailAsync(email);
+            if (password == null)
+            {
+                TempData["error"] = $"Cannot set {user.UserName}'s password to a blank password!";
+                return RedirectToAction("Edit", "Account");
+            }
+
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            var status = await userManager.ResetPasswordAsync(user, token, password);
+
+            if (status.Succeeded)
+            {
+                TempData["message"] = $"{user.UserName}'s password has been changed";
+                return RedirectToAction("Index", "Account");
+            }
+            foreach (IdentityError error in status.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+            return RedirectToAction("Index", "Account");
+    }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangeEmail(string email, string newEmail)
+        {
+            AppUser user = await userManager.FindByEmailAsync(email);
+            if (newEmail == null)
+            {
+                TempData["error"] = $"Cannot set {user.UserName}'s email address to a blank email address!";
+                return RedirectToAction("Index", "Account");
+            }
+
+            var token = await userManager.GenerateChangeEmailTokenAsync(user, newEmail);
+            var status = await userManager.ChangeEmailAsync(user, email, token);
+            await userManager.UpdateNormalizedEmailAsync(user);
+
+            if (status.Succeeded)
+            {
+                TempData["message"] = $"{user.UserName}'s email address has been changed from {email} to {newEmail}";
+                return RedirectToAction("Index", "Account");
+            }
+            foreach (IdentityError error in status.Errors)
+            {
+                ModelState.AddModelError("", error.Description);
+            }
+            return RedirectToAction("Index", "Account");
         }
     }
 }
