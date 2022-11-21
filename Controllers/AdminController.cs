@@ -3,6 +3,8 @@ using Tuskla.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using System;
+using Microsoft.AspNetCore.Identity;
+using Tuskla.Models.ViewModels;
 
 namespace Tuskla.Controllers
 {
@@ -10,9 +12,11 @@ namespace Tuskla.Controllers
     public class AdminController : Controller
     {
         private IProductRepository repository;
-        public AdminController(IProductRepository repo)
+        UserManager<AppUser> userManager;
+        public AdminController(IProductRepository repo, UserManager<AppUser> userMgr )
         {
             repository = repo;
+            userManager = userMgr;
         }
 
         public ViewResult ListAllProducts() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
@@ -70,11 +74,27 @@ namespace Tuskla.Controllers
             }
             return RedirectToAction("DeleteProduct");
         }
-
         public ViewResult MainAdmin()
         {
             return View("MainAdmin");
         }
-
+        [HttpPost]
+        public async void ChangePassword(string email, string password)
+        {
+            AppUser user = await userManager.FindByEmailAsync(email);
+            var token = await userManager.GeneratePasswordResetTokenAsync(user);
+            await userManager.ResetPasswordAsync(user, token, password);
+        }
+        [HttpPost]
+        public async void ChangeEmail(string email, string newEmail)
+        {
+            AppUser user = await userManager.FindByEmailAsync(email);
+            if (user != null)
+            {
+                var token = await userManager.GenerateChangeEmailTokenAsync(user, newEmail);
+                await userManager.ChangeEmailAsync(user, email, token);
+                await userManager.UpdateNormalizedEmailAsync(user);
+            }
+        }
     }
 }
