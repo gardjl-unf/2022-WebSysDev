@@ -63,10 +63,13 @@
     <div class="navigation">
         <a href="@Url.Content("../docs/MasterPlan.html")">Master Plan</a>
     </div>
-     <div class="menu-category">Administration</div>
-    <div class="navigation">
-        @Html.ActionLink("Admin Menus", "MainAdmin", "Admin")
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="menu-category">Administration</div>
+        <div class="navigation">
+            @Html.ActionLink("Admin Menus", "MainAdmin", "Admin")
+        </div>
+    }
      
 
 </aside>
