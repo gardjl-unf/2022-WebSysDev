@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Tuskla.Models.ViewModels;
 using Tuskla.Models;
+
 namespace Tuskla.Controllers
 {
     [Authorize]
@@ -142,7 +143,7 @@ namespace Tuskla.Controllers
             AppUser user = await userManager.FindByEmailAsync(email);
             if (password == null)
             {
-                TempData["error"] = $"Cannot set {user.UserName}'s password to a blank password!";
+                TempData["message"] = $"Cannot set {user.UserName}'s password to a blank password!";
                 return RedirectToAction("Edit", "Account");
             }
 
@@ -167,12 +168,12 @@ namespace Tuskla.Controllers
             AppUser user = await userManager.FindByEmailAsync(email);
             if (newEmail == null)
             {
-                TempData["error"] = $"Cannot set {user.UserName}'s email address to a blank email address!";
+                TempData["message"] = $"Cannot set {user.UserName}'s email address to a blank email address!";
                 return RedirectToAction("Index", "Account");
             }
 
             var token = await userManager.GenerateChangeEmailTokenAsync(user, newEmail);
-            var status = await userManager.ChangeEmailAsync(user, email, token);
+            var status = await userManager.ChangeEmailAsync(user, newEmail, token);
             await userManager.UpdateNormalizedEmailAsync(user);
 
             if (status.Succeeded)
