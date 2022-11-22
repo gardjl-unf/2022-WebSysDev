@@ -11,14 +11,16 @@ namespace Tuskla.Controllers
     {
         private IOrderRepository repository;
         private Cart cart;
-        public OrderController(IOrderRepository repoService, Cart cartService)
+        public OrderController(IOrderRepository repo, Cart cartService)
+
         {
-            repository = repoService;
+            repository = repo;
             cart = cartService;
         }
-  /*      public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
-  */
-        public ViewResult ListOrders(string OrderIdString = "", string EmailString = "")
+        /*      public ViewResult List() => View(repository.Orders.Where(o => !o.Shipped));
+        */
+        [HttpGet]
+        public IActionResult Find(string OrderIdString = "", string EmailString = "")
         {
             if (!string.IsNullOrEmpty(OrderIdString) && !string.IsNullOrEmpty(EmailString))
             {
@@ -39,9 +41,8 @@ namespace Tuskla.Controllers
                 return View(repository.Orders.Where(o => o.OrderID < 0));
             }
         }
-
-
-        public ViewResult ListOrdersAdmin(string OrderIdString = "", string EmailString = "")
+        [Authorize]
+        public ViewResult Manage(string OrderIdString = "", string EmailString = "")
         {
             if (!string.IsNullOrEmpty(OrderIdString) && !string.IsNullOrEmpty(EmailString))
             {
@@ -68,9 +69,8 @@ namespace Tuskla.Controllers
                 return View(repository.Orders.Where(o => o.OrderID > 0));
             }
         }
+        [Authorize]
         public ViewResult ShipOrders() => View(repository.Orders.Where(o => !o.Shipped));
-
-
         [HttpPost]
         [Authorize]
         public IActionResult MarkShipped(int orderID)
@@ -84,7 +84,6 @@ namespace Tuskla.Controllers
             }
             return RedirectToAction(nameof(ShipOrders));
         }
-
         public ViewResult Checkout() => View(new Order());
         [HttpPost]
         public IActionResult Checkout(Order order)
@@ -98,26 +97,6 @@ namespace Tuskla.Controllers
                 order.Lines = cart.Lines.ToArray();
                 repository.SaveOrder(order);
                 return RedirectToAction(nameof(Completed));
-            }
-            else
-            {
-                return View(order);
-            }
-        }
-
-        public ViewResult CheckoutCar() => View(new Order());
-        [HttpPost]
-        public IActionResult CheckoutCar(Order order)
-        {
-            if (cart.Lines.Count() == 0)
-            {
-                ModelState.AddModelError("", "Sorry, your cart is empty!");
-            }
-            if (ModelState.IsValid)
-            {
-                order.Lines = cart.Lines.ToArray();
-                repository.SaveOrder(order);
-                return RedirectToAction(nameof(CompletedCar));
             }
             else
             {

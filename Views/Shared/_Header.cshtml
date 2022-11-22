@@ -12,7 +12,7 @@
         <span class="navigation">@Html.ActionLink("Merchandise", "List", "Product", null, null)</span>
         @if (User.Identity.IsAuthenticated)
         {
-            <span class="navigation">@Html.ActionLink("Administration", "MainAdmin", "Admin")</span>
+            <span class="navigation">@Html.ActionLink("Administration", "Index", "Admin")</span>
         }
     </nav>
     <nav class="right">
@@ -34,7 +34,7 @@
     <div class="navigation">@Html.ActionLink("Model X", "Index", "Vehicle", new { Model = "Model X Plaid" }, null)</div>
     <div class="navigation">@Html.ActionLink("Model S", "Index", "Vehicle", new { Model = "Model S Plaid" }, null)</div>
     <div class="navigation">@Html.ActionLink("Merchandise", "List", "Product", null, null)</div>
-    <div class="navigation">@Html.ActionLink("Check Orders", "ListOrders", "Order") </div>
+    <div class="navigation">@Html.ActionLink("Check Orders", "Find", "Order") </div>
     <div class="navigation">
         <a href="@Url.Content("../docs/Contact.html")">Contact Us</a>
     </div>
@@ -71,7 +71,7 @@
     {
         <div class="menu-category">Administration</div>
         <div class="navigation">
-            @Html.ActionLink("Admin Menus", "MainAdmin", "Admin")
+            @Html.ActionLink("Admin Menus", "Index", "Admin")
         </div>
     }
      

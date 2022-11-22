@@ -1,7 +1,8 @@
 ﻿@model CartIndexViewModel
 
 @{
-    Layout = "_CartLayout";
+    ViewBag.Title = "Your Cart | Tuskla - Electric Cars";
+    Layout = "_Layout";
 }
 
 <body>
@@ -78,7 +79,7 @@
                                     <a class="btn btn-primary btn-danger buttons float-right" asp-action="DeleteAllCart" asp-controller="Cart">
                                         <i class="fa fa-remove"></i><strong> Clear Cart</strong>
                                     </a>
-                                    <a class="btn btn-white btn-primary button float-left" href="/Page1?category=Exterior">
+                                    <a class="btn btn-white btn-primary button float-left" asp-controller="Product" asp-action="List">
                                         <i class="fa fa-arrow-left"></i> Continue Shopping
                                     </a>
                                 </div>

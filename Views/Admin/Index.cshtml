@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Administrator | Tuskla Motors";
+    Layout = "_Layout";
+}
+
+<table>
+    <thead>
+        Administrator Functions
+    </thead>
+    <tr>
+        <td>
+            <a class="btn btn-primary" asp-controller="Account"><i class="fa fa-user"></i> Manage Users</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="btn btn-primary" asp-controller="Order" asp-action="Manage"><i class="fa fa-truck"></i> Manage Orders</a>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a class="btn btn-primary" asp-controller="Product"><i class="fa fa-shopping-basket"></i> Manage Products</a>
+        </td>
+    </tr>
+</table>

@@ -1,33 +1,33 @@
 ﻿@model AppUser
 
 @{
-     ViewBag.Title = "Manage User Accounts | Administrator View | Tuskla Motors";
-     Layout = "_Layout";
+    ViewBag.Title = "Edit User Account | Administrator | Tuskla Motors";
+    Layout = "_Layout";
 }
 
 
-    <div asp-validation-summary="All" class="text-danger"></div>
+<div asp-validation-summary="All" class="text-danger"></div>
 <form method="post" id="ChangeEmail" asp-action="ChangeEmail" asp-controller="Account" asp-antiforgery="true" class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label" asp-for="UserName">Account User Name:</label>
-            @Model.UserName
+    <div class="form-group">
+        <label class="control-label" asp-for="UserName">Account User Name:</label>
+        @Model.UserName
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="email" value=@Model.Email />
+        <label class="control-label" asp-for="Email">Email:</label>
+        <input class="form-control" asp-for="Email" name="newEmail" />
+    <button class="btn btn-primary" type="submit"><i class="fa fa-pen"></i> Change User Email</button>
+    </div>
+</form>
+<form id="ChangePassword" method="post" asp-action="ChangePassword" asp-controller="Account" asp-antiforgery="true">
+    <div class="form-group">
+        <div class="col-sm-offset-2">               
+            <br />
+                <input type="hidden" name="email" value=@Model.Email />
+                <input class="form-control" name="password"/>
+                <label>New Password:</label>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-disk"></i> Save</button>
+            <button asp-action="Index" class="btn btn-primary"> Cancel</button>
         </div>
-        <div class="form-group">
-            <input type="hidden" name="email" value=@Model.Email />
-            <label class="control-label" asp-for="Email">Email:</label>
-            <input class="form-control" asp-for="Email" name="newEmail" />
-        <button class="btn btn-primary" type="submit"><i class="fa fa-pen"></i> Change User Email</button>
-        </div>
-    </form>
-    <form id="ChangePassword" method="post" asp-action="ChangePassword" asp-controller="Account" asp-antiforgery="true">
-        <div class="form-group">
-            <div class="col-sm-offset-2">               
-                <br />
-                    <input type="hidden" name="email" value=@Model.Email />
-                    <input class="form-control" name="password"/>
-                    <label>New Password:</label>
-                    <button class="btn btn-primary" type="submit"><i class="fa fa-floppy-disk"></i> Save</button>
-                <button asp-action="Index" class="btn btn-primary"> Cancel</button>
-            </div>
-        </div>
-    </form>
+    </div>
+</form>

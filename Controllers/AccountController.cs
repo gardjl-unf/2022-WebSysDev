@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Tuskla.Models.ViewModels;
 using Tuskla.Models;
@@ -38,7 +37,7 @@ namespace Tuskla.Controllers
                     await signInManager.SignOutAsync();
                     if ((await signInManager.PasswordSignInAsync(user, loginModel.Password, false, false)).Succeeded)
                     {
-                        return Redirect(loginModel?.ReturnUrl ?? "/Admin/ListAllProducts");
+                        return RedirectToRoute(new { controller = "Admin", action = "Index"  });
                     }
                     
                 }
@@ -52,7 +51,7 @@ namespace Tuskla.Controllers
             await signInManager.SignOutAsync();
             return RedirectToRoute(new { controller = "Vehicle", action = "Index", Model = "Model 3 Standard" });
         }
-        [AllowAnonymous]
+        [Authorize]
         public ViewResult Index()
         {
             return View(userManager.Users);
@@ -103,6 +102,7 @@ namespace Tuskla.Controllers
                 ModelState.TryAddModelError("", error.Description);
             }
         }
+        [Authorize]
         public async Task<IActionResult> Delete(string id)
         {
             AppUser user = await userManager.FindByIdAsync(id);
@@ -124,6 +124,7 @@ namespace Tuskla.Controllers
             }
             return View("Index", userManager.Users);
         }
+        [Authorize]
         public async Task<IActionResult> Edit(string id)
         {
             AppUser user = await userManager.FindByIdAsync(id);
@@ -137,6 +138,7 @@ namespace Tuskla.Controllers
             }
         }
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangePassword(string email, string password)
         {
@@ -162,6 +164,7 @@ namespace Tuskla.Controllers
             return RedirectToAction("Index", "Account");
     }
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> ChangeEmail(string email, string newEmail)
         {

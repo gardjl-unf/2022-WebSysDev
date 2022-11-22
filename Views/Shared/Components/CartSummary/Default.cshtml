@@ -9,7 +9,7 @@
         @Model.ComputeSubtotalValue().ToString("c")
         </small>
     }
-    <a class="btn btn-xs btn-dark" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
+    <a class="float-left" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart fa-xs"></i>
     </a>
 </div>

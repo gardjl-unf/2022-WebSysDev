@@ -1,9 +1,7 @@
 ﻿@{
-    ViewBag.Title = "Orders";
-    Layout = "_AdminLayout2";
+    ViewBag.Title = "Manage Products | Administrator | Tuskla Motors";
+    Layout = "_Layout";
 }
-
-
 
 <table class="table table-striped table-bordered table-condensed">
      <tr>
@@ -26,8 +24,18 @@
                             Delete
                         </button>
                     </form>
+
+                    <a asp-action="Edit" class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
                 </td>
             </tr>
          }
 </table>
+<form asp-action="Create" method="post">
+    <button type="submit" class="btn btn-warning btn-sm">
+        Create
+    </button>
+</form>
 

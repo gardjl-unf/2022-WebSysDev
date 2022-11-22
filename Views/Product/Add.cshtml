@@ -1,8 +1,8 @@
 ﻿@model ProductModelView
 
 @{
-     ViewBag.Title = "Create Product";
-     Layout = "_AdminLayout2";
+    ViewBag.Title = "Add Product | Administrator View | Tuskla Motors";
+    Layout = "_Layout";
 }
 <form asp-action="AddProduct" method="post">
      <input type="hidden" asp-for="ProductID" />
@@ -18,11 +18,11 @@
     Category <br />
     @Html.DropDownList("Category", new List<SelectListItem>
     {
-    new SelectListItem {Text = "Apparel", Value = "Apparel"},
-    new SelectListItem {Text = "Interior", Value = "Interior", Selected = true },
-    new SelectListItem {Text = "Exterior", Value = "Exterior" },
-    new SelectListItem {Text = "Maintenance", Value = "Maintenance"},
-    new SelectListItem {Text = "General", Value = "Merchandise", Selected = true },
+        new SelectListItem {Text = "Apparel", Value = "Apparel"},
+        new SelectListItem {Text = "Interior", Value = "Interior"},
+        new SelectListItem {Text = "Exterior", Value = "Exterior" },
+        new SelectListItem {Text = "Maintenance", Value = "Maintenance"},
+        new SelectListItem {Text = "General", Value = "Merchandise", Selected = true },
     })
     </div>
     <div class="form-group">
@@ -41,6 +41,6 @@
     </div>
     <div class="text-center">
         <button class="btn btn-primary" type="submit">Save</button>
-        <a asp-action="MainAdmin" class="btn btn-default">Cancel</a>
+        <a asp-action="Index" class="btn btn-default">Cancel</a>
     </div>
 </form>
