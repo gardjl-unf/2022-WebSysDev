@@ -1,18 +1,29 @@
 ﻿@model IEnumerable<string>
 
-<ul class="topcoat-button-bar w50">
-    <li class="topcoat-button-bar__item">
-        <a class="topcoat-button-bar__button full" asp-action="List" asp-controller="Product" asp-route-category=@null asp-route-page="1">All</a>
-        </li>
-    @foreach (string category in Model)
-    {
-        @if (category != "Car")
-        {
-        <li class="topcoat-button-bar__item">
-            <a class="topcoat-button-bar__button full" asp-action="List" asp-controller="Product" asp-route-category="@category" asp-route-page="1">
-                @category
-            </a>
-        </li>
+<center>
+    <div class="float-left">
+        Current Category:  
+        @if (ViewBag.SelectedCategory == null) 
+        { 
+            <span>None</span>
+        } else 
+        { 
+            @ViewBag.SelectedCategory
         }
-    }
-</ul>
+    </div>
+    <div class="topcoat-button-bar">
+        <div class="topcoat-button-bar__item">
+            <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category=@null asp-route-page="1">All</a>
+        </div>
+        @foreach (string category in Model)
+        {
+            @if (category != "Car")
+            {
+                <div class="topcoat-button-bar__item">
+                    <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category="@category" asp-route-page="1">
+                        @category
+                    </a>
+                </div>
+            }
+        }
+</center>
