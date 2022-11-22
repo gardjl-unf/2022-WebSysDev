@@ -10,6 +10,10 @@
         <span class="navigation">@Html.ActionLink("Model X", "Index", "Vehicle", new { Model = "Model X Plaid" }, null)</span>
         <span class="navigation">@Html.ActionLink("Model S", "Index", "Vehicle", new { Model = "Model S Plaid" }, null)</span>
         <span class="navigation">@Html.ActionLink("Merchandise", "List", "Product", null, null)</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <span class="navigation">@Html.ActionLink("Administration", "MainAdmin", "Admin")</span>
+        }
     </nav>
     <nav class="right">
         <div class="float-left menu-cart">
