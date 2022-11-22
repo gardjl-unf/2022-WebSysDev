@@ -15,7 +15,7 @@
         <div class="float-left menu-cart">
             @await Component.InvokeAsync("CartSummary")
         </div>
-        <a class="navigation" href="">Account</a>
+        @await Component.InvokeAsync("AccountMenu")
         <a class="navigation" href="" id="menuButton">Menu</a>
     </nav>
 </header>
