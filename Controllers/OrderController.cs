@@ -3,6 +3,7 @@ using Tuskla.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using System;
+using Tuskla.Models.ViewModels;
 
 namespace Tuskla.Controllers
 {
@@ -105,10 +106,10 @@ namespace Tuskla.Controllers
         }
         public ViewResult Completed()
         {
-            cart.Clear();
+
             ViewBag.orderid = repository.Orders.Max(o => o.OrderID);
             
-            return View();
+            return View(new CartIndexViewModel { Cart = cart, ReturnUrl = "/" });
         }
 
         public ViewResult CompletedCar()

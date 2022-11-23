@@ -5,5 +5,6 @@ namespace Tuskla.Models.ViewModels
     {
         public Cart Cart { get; set; }
         public string ReturnUrl { get; set; }
+        public virtual void ClearCart() => Cart.Clear();
     }
 }
