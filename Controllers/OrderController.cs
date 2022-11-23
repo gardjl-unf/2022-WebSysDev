@@ -108,6 +108,7 @@ namespace Tuskla.Controllers
         {
 
             ViewBag.orderid = repository.Orders.Max(o => o.OrderID);
+            ViewBag.email = repository.Orders.Last().Email;
             
             return View(new CartIndexViewModel { Cart = cart, ReturnUrl = "/" });
         }
