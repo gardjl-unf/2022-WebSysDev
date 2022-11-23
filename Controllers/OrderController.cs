@@ -107,7 +107,7 @@ namespace Tuskla.Controllers
         {
             cart.Clear();
             ViewBag.orderid = repository.Orders.Max(o => o.OrderID);
-            
+
             return View();
         }
 
