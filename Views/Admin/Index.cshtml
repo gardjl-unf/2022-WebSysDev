@@ -3,23 +3,14 @@
     Layout = "_Layout";
 }
 
-<table>
-    <thead>
-        Administrator Functions
-    </thead>
-    <tr>
-        <td>
-            <a class="btn btn-primary" asp-controller="Account"><i class="fa fa-user"></i> Manage Users</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a class="btn btn-primary" asp-controller="Order" asp-action="Manage"><i class="fa fa-truck"></i> Manage Orders</a>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <a class="btn btn-primary" asp-controller="Product"><i class="fa fa-shopping-basket"></i> Manage Products</a>
-        </td>
-    </tr>
-</table>
+<h1 class="center mt-5">Administrator Functions</h1>
+<div class="center mt-2">
+    <a class="btn btn-primary w-25" asp-controller="Account"><i class="fa fa-user"></i> Manage Users</a>
+</div>
+<div class="center mt-2">
+    <a class="btn btn-primary w-25" asp-controller="Order" asp-action="Manage"><i class="fa fa-truck"></i> Manage Orders</a>
+</div>
+<div class="center mt-2">
+    <a class="btn btn-primary w-25" asp-controller="Product"><i class="fa fa-shopping-basket"></i> Manage Products</a>
+</div>
+

@@ -5,134 +5,110 @@
     Layout = "_Layout";
 }
 
-<body>
-    <div class="container">
-        <div class="wrapper wrapper-content animated fadeInRight">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <span class="float-left">Cart</span>
-                            <span class="float-right">(<strong>@Model.Cart.CartItems()</strong>) items</span>
-                        </div>
-                        @if (Model.Cart.CartItems() != 0)
-                        {
-                            <div class="ibox-content">
-                                <div class="ibox-content">
-                                    <div class="table-responsive">
-                                        <table class="table shoping-cart-table">
-                                            <tr>
-                                                <th class="text-left" colspan="2">Item</th>
-                                                <th class ="text-center">Price</th>
-                                                <th class="text-center">Quantity</th>
-                                                <th class="text-center">Total</th>
-                                            </tr>
-                                            <tbody>
-                                                @foreach (var line in Model.Cart.Lines)
-                                                {
-                                                    <tr>
-                                                        <td width="90">
-                                                            <div class="cart-product-imitation">
-                                                                <!-- INSERT IMAGES -->
-                                                            </div>
-                                                        </td>
-                                                        <td class="desc">
-                                                            <h3>
-                                                                <a href="#" class="text-navy">
-                                                                    @line.Product.Name
-                                                                </a>
-                                                            </h3>
-                                                            <p class="small">
-                                                                @line.Product.Description
-                                                            </p>
-                                                            <div class="m-t-sm">
-                                                                @if (line.Product.Category != "Car" || line.Product.Name.StartsWith("Model"))
-                                                                {
-                                                                    <form asp-action="RemoveFromCart" method="post">
-                                                                        <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
-                                                                        <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-                                                                        <button type="submit" class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
-                                                                    </form>
-                                                                }
-                                                            </div>
-                                                        </td>
-                                                        <td class="center">
-                                                            @line.Product.Price.ToString("c")
-                                                        </td>
-                                                        <td width="65">
-                                                            @line.Quantity
-                                                        </td>
-                                                        <td>
-                                                            <h4>
-                                                                @(
-                                                            (line.Quantity * line.Product.Price).ToString("c"))
-                                                            </h4>
-                                                        </td>
-                                                    </tr>
-                                                }
-                                            </tbody>
-                                        </table>
+<div class="container">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-10 col-md-10 col-lg-10">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <span class="float-left">Your Cart</span>
+                        <span class="float-right"><strong>@Model.Cart.CartItems()</strong> item(s)</span>
+                    </div>
+                    @if (Model.Cart.CartItems() != 0)
+                    {
+                        <div class="ibox-content">
+                            <div class="table table-responsive shoping-cart-table col-sm-12 col-md-12 col-lg-12">
+                                <div class="row">
+                                    <div class="text-left col-sm-6 col-md-6 col-lg-6">Item</div>
+                                    <div class="text-center col-sm-2 col-md-2 col-lg-2">Price</div>
+                                    <div class="text-center col-sm-2 col-md-2 col-lg-2">Quantity</div>
+                                    <div class="text-center col-sm-2 col-md-2 col-lg-2">Total</div>
+                                </div>
+                                @foreach (var line in Model.Cart.Lines)
+                                {
+                                    <div class="row">
+                                        <div class="col-sm-2 col-md-2 col-lg-2">
+                                            <div class="cart-product-imitation">
+                                                <!-- INSERT IMAGES -->
+                                            </div>
+                                        </div>
+                                        <div class="text-center desc col-sm-4 col-md-4 col-lg-4"><h3><a href="#" class="text-navy">@line.Product.Name</a></h3></div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Product.Price.ToString("c")</div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Quantity</div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2"><h4>@((line.Quantity * line.Product.Price).ToString("c"))</h4></div>
                                     </div>
-
-                                </div>
-                                <div class="ibox-content">
-                                    <a class="btn btn-primary btn-danger buttons float-right" asp-action="DeleteAllCart" asp-controller="Cart">
-                                        <i class="fa fa-remove"></i><strong> Clear Cart</strong>
-                                    </a>
-                                    <a class="btn btn-white btn-primary button float-left" asp-controller="Product" asp-action="List">
-                                        <i class="fa fa-arrow-left"></i> Continue Shopping
-                                    </a>
-                                </div>
+                                    <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
+                                        <div class="small col-sm-8 col-md-8 col-lg-8">Product Description: @line.Product.Description</div>
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            @if (line.Product.Category != "Car" || line.Product.Name.StartsWith("Model"))
+                                            {
+                                                <form asp-action="RemoveFromCart" method="post">
+                                                    <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
+                                                    <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
+                                                    <button type="submit" class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                                                </form>
+                                            }
+                                        </div>
+                                    </div>
+                                }
                             </div>
-                        }
+                    </div>
+                <div class="ibox-content">
+                    <a class="btn btn-danger float-right" asp-action="DeleteAllCart" asp-controller="Cart">
+                        <i class="fa fa-remove"></i><strong> Clear Cart</strong>
+                    </a>
+                    <a class="btn btn-white btn-primary float-left" asp-controller="Product" asp-action="List">
+                        <i class="fa fa-arrow-left"></i> Continue Shopping
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+        @if (Model.Cart.CartItems() != 0)
+        {
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                <div class="order-summary">
+                    <div class="ibox-title">
+                        <h5>Order Summary</h5>
+                    </div>
+                    <div class="ibox-content">
+                        <span class="float-left">
+                            Subtotal
+                        </span>
+                        <span class="font-bold float-right">
+                            @Model.Cart.ComputeSubtotalValue().ToString("c")
+                        </span>
+                        <br />
+                        <span class="float-left">
+                            Tax (7.00%)
+                        </span>
+                        <span class="font-bold float-right">
+                            @Model.Cart.ComputeTaxValue().ToString("c")
+                        </span>
+                        <br />
+                        <span class="float-left">
+                            Shipping
+                        </span>
+                        <span class="font-bold float-right">
+                            @Model.Cart.ComputeShippingValue().ToString("c")
+                        </span>
+                        <br />
+                        <span class="float-left">
+                            Total
+                        </span>
+                        <span class="font-bold float-right">
+                            @Model.Cart.ComputeTotalValue().ToString("c")
+                        </span>
+                        <br />
+                        <hr />
+                        <div class="m-t-sm center">
+                            <a class="btn btn-primary" asp-action="Checkout" asp-controller="Order">
+                            <i class="fa fa-shopping-cart"></i> Checkout</a>
+                        </div>
                     </div>
                 </div>
-            @if (Model.Cart.CartItems() != 0)
-            {
-                <div class="col-md-3">
-                    <div class="order-summary">
-                        <div class="ibox-title">
-                            <h5>Order Summary</h5>
-                        </div>
-                        <div class="ibox-content">
-                            <span class="float-left">
-                                Subtotal
-                            </span>
-                            <span class="font-bold float-right">
-                                @Model.Cart.ComputeSubtotalValue().ToString("c")
-                            </span>
-                            <br />
-                            <span class="float-left">
-                                Tax (7.00%)
-                            </span>
-                            <span class="font-bold float-right">
-                                @Model.Cart.ComputeTaxValue().ToString("c")
-                            </span>
-                            <br />
-                            <span class="float-left">
-                                Shipping
-                            </span>
-                            <span class="font-bold float-right">
-                                @Model.Cart.ComputeShippingValue().ToString("c")
-                            </span>
-                            <br />
-                            <span class="float-left">
-                                Total
-                            </span>
-                            <span class="font-bold float-right">
-                                @Model.Cart.ComputeTotalValue().ToString("c")
-                            </span>
-                            <br />
-                            <hr />
-                            <div class="m-t-sm center">
-                                <a class="btn btn-primary button" asp-action="Checkout" asp-controller="Order">
-                                <i class="fa fa-shopping-cart"></i> Checkout</a>
-                            </div>
-                        </div>
-                    </div>
-                </div> 
-                }
-            </div>
-        </div>    
-    </div>
-</body>
+            </div> 
+            }
+        </div>
+    </div>    
+</div>

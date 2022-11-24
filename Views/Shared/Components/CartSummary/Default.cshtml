@@ -1,6 +1,6 @@
 ﻿@model Cart
 
-<div class="cart-widget">
+<span class="navbar-content">
     @if (Model.Lines.Count() > 0)
     {
         <small class="navbar-text">
@@ -12,4 +12,4 @@
     <a class="float-left" asp-controller="Cart" asp-action="Index" asp-route-returnurl="@ViewContext.HttpContext.Request.PathAndQuery()">
         <i class="fa fa-shopping-cart fa-xs"></i>
     </a>
-</div>
+</span>

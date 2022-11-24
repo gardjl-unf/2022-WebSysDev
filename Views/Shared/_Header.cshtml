@@ -15,19 +15,23 @@
             <span class="navigation">@Html.ActionLink("Administration", "Index", "Admin")</span>
         }
     </nav>
-    <nav class="right">
-        <div class="float-left menu-cart">
+    <nav class="float-right right">
+        <span class="float-left navigation">
             @await Component.InvokeAsync("CartSummary")
-        </div>
-        @await Component.InvokeAsync("AccountMenu")
-        <a class="navigation" href="" id="menuButton">Menu</a>
+        </span>
+        <span class="navigation">
+            @await Component.InvokeAsync("AccountMenu")
+        </span>
+        <span class="float-right navigation">
+            <a class="navbar-content" href="" id="menuButton">Menu</a>
+        </span>
     </nav>
 </header>
 
 <div class="backdrop"></div>
 
 <aside>
-    <button class="close">X</button>
+    <button class="close">&times;</button>
     <div class="menu-category">Shop</div>
     <div class="navigation">@Html.ActionLink("Model 3", "Index", "Vehicle", new { Model = "Model 3 Plaid" }, null)</div>
     <div class="navigation">@Html.ActionLink("Model Y", "Index", "Vehicle", new { Model = "Model Y Plaid" }, null)</div>
@@ -74,8 +78,6 @@
             @Html.ActionLink("Admin Menus", "Index", "Admin")
         </div>
     }
-     
-
 </aside>
 
 <script src="~/js/navigation.js"></script>

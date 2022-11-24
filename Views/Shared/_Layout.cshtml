@@ -7,7 +7,7 @@
     <meta name="keywords" content="Search engine keywords, like car">
     <script type="text/javascript" src="~/js/google-antiflicker.js"></script>
     <link rel="stylesheet" type="text/css" href="~/css/google-antiflicker.css" />
-    <link rel="stylesheet" type="text/css" href="~/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/site.css" />
     <link rel="stylesheet" asp-href-include="~/lib/bootstrap/dist/css/*.min.css" />
     <link rel="stylesheet" asp-href-include="~/lib/font-awesome/css/*.css" />
     <link rel="stylesheet" asp-href-include="~/lib/jquery/jquery.min.js" />
@@ -16,8 +16,10 @@
     <title>@ViewBag.Title</title>
     </head>
     <body>
-    @Html.Partial("_Header")
-        @RenderBody()
-    @Html.Partial("_Footer")
+        <section class="content">
+            @Html.Partial("_Header")
+            @RenderBody()
+        </section>
+        @Html.Partial("_Footer")
     </body>
 </html>
