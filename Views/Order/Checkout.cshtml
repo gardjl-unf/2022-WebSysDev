@@ -3,6 +3,25 @@
 @{
     Layout = "_Layout";
 }
+<script type="text/javascript" src="~/lib/country-region-selector/crs.min.js"></script>
+
+<div class="container center">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <h1 class="center">Checkout</h1>
+        </div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <form asp-action="Checkout" method="post">
+            <div class="row col-sm-12 col-md-12 col-lg-12">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <span>Name: </span><input asp-for="Name" class="form-control topcoat-text-input--large" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
 
 
 <h2>Check out now</h2>
