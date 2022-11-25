@@ -6,4 +6,7 @@
         $(".box").not(targetBox).hide();
         $(targetBox).show();
     });
+    $('input[type="checkbox"]').click(function () {
+        
+    })
 });

@@ -3,17 +3,33 @@
 <link rel="stylesheet" asp-href-include="~/lib/jquery/jquery.min.js" />
 <script type="text/javascript" src="~/js/pay.js"></script>
 
-<h4 class="mb-3">Payment</h4>
+@{
+    ViewBag.paymentAmount = Model.ComputeTotalValue();
+    ViewBag.shortAmount = Model.ComputePaymentOption()[0];
+    ViewBag.PaymentAmount = ViewBag.paymentAmount.ToString("c");
+    ViewBag.ShortAmount = ViewBag.shortAmount.ToString("c");
+    ViewBag.ShortRemaining = Model.ComputePaymentOption()[1].ToString("c");
+}
 
+<h4 class="mb-3">Payment</h4>
 <div class="d-block my-3">
-    <div class="custom-control custom-radio">
-        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value="ccPayment" checked="">
-        <label class="custom-control-label" for="credit">Credit Card</label>
-    </div>
-    <!-- IF VEHICLE, add some text for Deposit, Amnt, Pay in full -->
-    <div class="custom-control custom-radio">
-        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" value="bankPayment">
-        <label class="custom-control-label" for="bank">Bank Transfer</label>
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <div class="custom-control custom-radio">
+                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value="ccPayment" checked="">
+                <label class="custom-control-label" for="credit">Credit Card <i class="fa fa-cc-visa"></i><i class="fa fa-cc-mastercard"></i><i class="fa fa-cc-amex"></i></label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" value="bankPayment">
+                <label class="custom-control-label" for="bank">Bank Transfer</label>
+            </div>
+        </div>
+        <div class="col-md-6 mb-3">
+            <div class="custom-control custom-checkbox">
+                <label class="custom-control-label" for="Deposit">Pay a Deposit</label>
+                <small class="text-muted">Pay $250.00 now, and pay @ViewBag.ShortRemaining on delivery.</small>
+            </div>
+        </div>
     </div>
 </div>
 <div class="ccPayment box">
@@ -97,6 +113,4 @@
     ViewBag.ShortRemaining = Model.ComputePaymentOption()[1].ToString("c");
 }
     <button class="btn btn-primary btn-lg btn-block" type="submit"><i class="fa fa-money-bill"></i> Pay @ViewBag.PaymentAmount</button>
-    Amount for Deposit @ViewBag.ShortAmount
-    Amount for Rest @ViewBag.ShortRemaining
 <hr class="mb-4">
