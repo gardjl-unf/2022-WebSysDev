@@ -486,14 +486,10 @@ select {
     outline: 0;
     font: inherit;
     width: 20em;
-    height: 3em;
-    padding: 0 4em 0 1em;
-    border-radius: 0.25em;
-    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
     cursor: pointer;
     color: black;
     background-color: white;
-    margin-bottom: 25px !important;
+
 }
 
 .stats {
@@ -505,6 +501,7 @@ select {
 .list-options {
     width: 150px;
     float: left;
+    text-align: left;
     position: relative;
     display: table-cell;
     left: 50px !important;
@@ -514,6 +511,7 @@ select {
 
 .list-autopilot {
     position: relative;
+    text-align: left;
     left: 18px !important;
 }
 

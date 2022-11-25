@@ -25,7 +25,7 @@
                         <br />
                         <span class="choose">Paint Color</span>
                         <br />
-                        <select name="vehiclePaint">
+                        <select name="vehiclePaint" class="topcoat-text-input--large">
                             @foreach (var p in Model.Products)
                             {
                                 @if (p.Name == "Paint")
@@ -41,7 +41,7 @@
                         <br />
                         <span class="choose">Rims</span>
                         <br />
-                        <select name="vehicleRims">
+                        <select name="vehicleRims" class="topcoat-text-input--large">
                             @foreach (var p in Model.Products)
                             {
                                 @if (p.Name == "Rims")
@@ -57,7 +57,7 @@
                         <br />
                         <span class="choose">Interior</span>
                         <br />
-                        <select name="vehicleInterior">
+                        <select name="vehicleInterior" class="topcoat-text-input--large">
                             @foreach (var p in Model.Products)
                             {
                                 @if (p.Name == "Interior")
@@ -69,14 +69,14 @@
                         </select>
                         <br />
                         <span class="choose">Autopilot</span>
-                        <ul class="list-autopilot">
+                        <ul class="list-autopilot align-content-start">
                             <li>Navigate on Autopilot</li>
                             <li>Auto Lane Change</li>
                             <li>Autopark</li>
                             <li>Summon</li>
                             <li>Smart Summon</li>
                         </ul>
-                        <select name="vehicleAutopilot">
+                        <select name="vehicleAutopilot" class="topcoat-text-input--large">
                             @foreach (var p in Model.Products)
                             {
                                 @if (p.Name == "AutoPilot")
@@ -88,8 +88,8 @@
                         </select>
                         <br />
                         <span class="choose">Full Self-Driving Capability</span>
-                        </br />
-                        <select name="vehicleFullSelfDriving">
+                        <br />
+                        <select name="vehicleFullSelfDriving" class="topcoat-text-input--large">
                             @foreach (var p in Model.Products)
                             {
                                 @if (p.Name == "FullSelfDriving")
@@ -101,7 +101,7 @@
                         </select>
                         <br />
                         <center>
-                            <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info choose"><i class="fa fa-car"></i> Order Your @ViewBag.ModelName</button>
+                            <button type="submit" asp-Model="@ViewBag.ModelName" class="btn btn-info choose mt-2"><i class="fa fa-car"></i> Order Your @ViewBag.ModelName</button>
                         </center>
                     </form>
                 </td>

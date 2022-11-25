@@ -16,14 +16,14 @@
         }
     </nav>
     <nav class="float-right right">
-        <span class="float-left navigation">
+        <span class="float-left align-middle">
             @await Component.InvokeAsync("CartSummary")
         </span>
-        <span class="navigation">
+        <span class="align-middle">
             @await Component.InvokeAsync("AccountMenu")
         </span>
-        <span class="float-right navigation">
-            <a class="navbar-content" href="" id="menuButton">Menu</a>
+        <span class="float-right navigation align-middle">
+            <span id="menuButton">Menu</span>
         </span>
     </nav>
 </header>

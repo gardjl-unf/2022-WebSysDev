@@ -3,47 +3,113 @@
 <script type="text/javascript" src="~/js/pay.js"></script>
 <script type="text/javascript" src="~/lib/jquery.payment/jquery.payment.min.js"></script>
 
+<h4 class="mb-3">Payment</h4>
+
+<div class="d-block my-3">
+    <div class="custom-control custom-radio">
+        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="">
+        <label class="custom-control-label" for="credit">Credit card</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input">
+        <label class="custom-control-label" for="debit">Debit card</label>
+    </div>
+    <div class="custom-control custom-radio">
+        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input">
+        <label class="custom-control-label" for="paypal">PayPal</label>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6 mb-3">
+        <label for="cc-name">Name on card</label>
+        <input type="text" class="form-control" id="cc-name" placeholder="">
+        <small class="text-muted">Full name as displayed on card</small>
+        <div class="invalid-feedback">
+            Name on card is required
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <label for="cc-number">Credit card number</label>
+        <input type="text" class="form-control" id="cc-number" placeholder="">
+        <div class="invalid-feedback">
+            Credit card number is required
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3 mb-3">
+        <label for="cc-expiration">Expiration</label>
+        <input type="text" class="form-control" id="cc-expiration" placeholder="">
+        <div class="invalid-feedback">
+            Expiration date required
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <label for="cc-cvv">CVV</label>
+        <input type="text" class="form-control" id="cc-cvv" placeholder="">
+        <div class="invalid-feedback">
+            Security code required
+        </div>
+    </div>
+</div>
+<hr class="mb-4">
+
+
+
 <div class="container centerwrapper animated fadeInRight">
-    <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
-        <div class="col-sm-6 col-md-6 col-lg-6 mt-1">
-            <h1>Make Deposit</h1>
+    <div class="row mt-1">
+        <div class="col-sm-5 col-md-5 col-lg-5 mt-1 order-summary">
+            <div class="ibox-title">Make Deposit</div>
             <h2>Due Today @Model.ComputePaymentOption()[0].ToString("c")</h2>
             <h2>Due Later @Model.ComputePaymentOption()[1].ToString("c")</h2>
-            <div class="col align-items-start mt-1">
+        <div class="row mt1 form-group">
+            <div class="col-form-label">
                 <label class="mr-1">Name on Card</label>
-                <input type="text" class="topcoat-text-input--large" placeholder="Name on Card">
+                    <input type="text" class="topcoat-text-input--large form-control" placeholder="Name on Card">
             </div>
-            <div class="col align-items-start mt-1">
+        </div>
+            <div class="row mt1">
+            <div class="col">
                 <label class="mr-1">Card Number</label>
-                <input type="text" class="topcoat-text-input--large" placeholder="1234 5678 1234 5678">
+                    <input type="text" class="topcoat-text-input--large form-control" id="cardNumber" placeholder=" 1234 5678 1234 5678">
             </div>
-            <div class="col align-items-start mt-1">
+            </div>
+            <div class="row mt1">
+            <div class="col">
                 <label class="mr-1">CVV</label>
-                <input type="text" class="topcoat-text-input--large" placeholder="000">
+                <input type="text" class="topcoat-text-input--large" id="CVV" placeholder="000">
                 <i class="fa fa-cc-visa"></i>
                 <i class="fa fa-cc-mastercard"></i>
                 <i class="fa fa-cc-amex"></i>
             </div>
-            <div class="col align-items-start">
-                <label>Expiration Date</label>
             </div>
-            <div class="col align-items-start mt-1">
-                <select class="topcoat-text-input--large">
-                    <option value="01">January</option>
-                    <option value="02">February </option>
-                    <option value="03">March</option>
-                    <option value="04">April</option>
-                    <option value="05">May</option>
-                    <option value="06">June</option>
-                    <option value="07">July</option>
-                    <option value="08">August</option>
-                    <option value="09">September</option>
-                    <option value="10">October</option>
-                    <option value="11">November</option>
-                    <option value="12">December</option>
-                </select>
+            <div class="row mt1">
+
+                <div class="col">
+                    <label>Expires</label>
+                </div>
+                <div class="col mt-0">
+                    <select class="topcoat-text-input--large">
+                        <option value="01">January</option>
+                        <option value="02">February </option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
             </div>
-            <div class="col align-items-start mt-0">
+            <div class="row">
+                <div class="col">
+                    <label></label>
+                </div>
+            <div class="col mt-1">
                 <select class="topcoat-text-input--large">
                     <option value="22"> 2022</option>
                     <option value="23"> 2023</option>
@@ -57,14 +123,36 @@
                     <option value="31"> 2031</option>
                 </select>
             </div>
-            <div class="row col-sm-12 col-md-12 col-lg-12 align-items-center mt-1">
-                <button type="submit" class="btn btn-primary">Complete Order</button>
+            </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <div class="col-sm-auto col-md-auto col-lg-auto">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-money-bill"></i> Make Deposit</button>
+            </div>
             </div>
         </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 mt-1">
-            <h1>Pay in Full</h1>
+        <div class="col-sm-6 col-md-6 col-lg-6 mt-1 order-summary">
+            <div class="ibox-title">Pay in Full</div>
+            <h2>Due @Model.ComputePaymentOption()[1].ToString("c")</h2>
+        <div class="col mt-1">
+            <label class="mr-1">Name</label>
+            <input type="text" class="topcoat-text-input--large" placeholder="Name on Account">
         </div>
+        <div class="col mt-1">
+            <label class="mr-1">Account Number</label>
+            <input type="text" class="topcoat-text-input--large" id="cardNumber" placeholder=" 000000000">
+        </div>
+        <div class="col mt-1">
+            <label class="mr-1">Routing Number</label>
+            <input type="text" class="topcoat-text-input--large" id="CVV" placeholder="0000000">
+        </div>
+            <div class="row d-flex justify-content-center mt-2">
+                <div class="col-sm-auto col-md-auto col-lg-auto">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-money-bill"></i> Make Deposit</button>
+                </div>
+        <div/>
     </div>
+</div>
+</div>
 </div>
 
 

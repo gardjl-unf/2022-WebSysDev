@@ -47,7 +47,10 @@
     {
       "library": "jquery.payment@3.0.0",
       "destination": "wwwroot/lib/jquery.payment",
-      "files": [ "jquery.payment.min.js" ]
+      "files": [
+        "jquery.payment.min.js",
+        "jquery.payment.min.js.map"
+      ]
     }
   ]
 }
