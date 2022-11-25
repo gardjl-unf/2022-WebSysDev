@@ -1,0 +1,74 @@
+﻿@model CartIndexViewModel
+
+@{
+    Layout = "_Layout";
+}
+
+<p> <h3> <br />
+    Payment due today <br />
+</h3> </p>
+
+@if (Model.Cart.CartItems() != 0)
+{
+    decimal merchSubTotal = 0;
+    decimal merchShipping = 0;
+    decimal merchTax = 0;
+    decimal merchTotal = 0;
+    decimal vehicleSubTotal = 0;
+    decimal vehicleShipping = 2500;
+    decimal vehicleDeposit = 250;
+    decimal vehicleTax = 0;
+    decimal vehicleTotal = 0;
+
+    @foreach (var line in Model.Cart.Lines)
+    {
+        @if (line.Product.Category != "Car")
+        {
+
+            merchSubTotal = merchSubTotal + line.Product.Price;
+        }
+        else if (line.Product.Category == "Car")
+        {
+            vehicleSubTotal = vehicleSubTotal + line.Product.Price;
+
+        }
+    }
+
+    @if (merchSubTotal > 0)
+    {
+        @if (merchSubTotal < 50)
+        {
+            merchShipping = 10;
+        }
+
+        merchTax = Convert.ToDecimal(.075 * Decimal.ToDouble(merchSubTotal + merchShipping));
+        merchTotal = merchSubTotal + merchShipping + merchTax;
+       <h4>
+        <p> Merchandise:</p>
+        <p> Merchandise Total - @merchSubTotal.ToString("c")</p>  
+        <p> Merchandise Shipping - @merchShipping.ToString("c")</p>
+        <p> Merchandise Tax - @merchTax.ToString("c")</p> <br />
+        <p> Total Merchandise charge today - @merchTotal </p> <br/>
+        </h4>
+    }
+
+
+    @if (vehicleSubTotal > 0)
+    {
+
+        vehicleTax = Convert.ToDecimal(.075 * Decimal.ToDouble(vehicleSubTotal + vehicleShipping));
+        vehicleTotal = vehicleSubTotal + vehicleShipping + vehicleTax;
+        <h4>
+            <p> Vehicle:</p>
+            <p> Vehicle cost - @vehicleSubTotal.ToString("c")</p>
+            <p> Vehicle Shipping - @vehicleShipping.ToString("c")</p>
+            <p> Vehicle Tax - @vehicleTax.ToString("c")</p> <br />
+            <p> Total vehicle cost - @vehicleTotal.ToString("c") </p>
+            <p> Depost due today - $250
+        </h4> <br />
+    }
+
+    <h3> Enter your credit card infomation </h3>
+
+
+}
