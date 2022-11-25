@@ -1,0 +1,72 @@
+﻿@model Cart
+
+<script type="text/javascript" src="~/js/pay.js"></script>
+<script type="text/javascript" src="~/lib/jquery.payment/jquery.payment.min.js"></script>
+
+<div class="container centerwrapper animated fadeInRight">
+    <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
+        <div class="col-sm-6 col-md-6 col-lg-6 mt-1">
+            <h1>Make Deposit</h1>
+            <h2>Due Today @Model.ComputePaymentOption()[0].ToString("c")</h2>
+            <h2>Due Later @Model.ComputePaymentOption()[1].ToString("c")</h2>
+            <div class="col align-items-start mt-1">
+                <label class="mr-1">Name on Card</label>
+                <input type="text" class="topcoat-text-input--large" placeholder="Name on Card">
+            </div>
+            <div class="col align-items-start mt-1">
+                <label class="mr-1">Card Number</label>
+                <input type="text" class="topcoat-text-input--large" placeholder="1234 5678 1234 5678">
+            </div>
+            <div class="col align-items-start mt-1">
+                <label class="mr-1">CVV</label>
+                <input type="text" class="topcoat-text-input--large" placeholder="000">
+                <i class="fa fa-cc-visa"></i>
+                <i class="fa fa-cc-mastercard"></i>
+                <i class="fa fa-cc-amex"></i>
+            </div>
+            <div class="col align-items-start">
+                <label>Expiration Date</label>
+            </div>
+            <div class="col align-items-start mt-1">
+                <select class="topcoat-text-input--large">
+                    <option value="01">January</option>
+                    <option value="02">February </option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </div>
+            <div class="col align-items-start mt-0">
+                <select class="topcoat-text-input--large">
+                    <option value="22"> 2022</option>
+                    <option value="23"> 2023</option>
+                    <option value="24"> 2024</option>
+                    <option value="25"> 2025</option>
+                    <option value="26"> 2026</option>
+                    <option value="27"> 2027</option>
+                    <option value="28"> 2028</option>
+                    <option value="29"> 2029</option>
+                    <option value="30"> 2030</option>
+                    <option value="31"> 2031</option>
+                </select>
+            </div>
+            <div class="row col-sm-12 col-md-12 col-lg-12 align-items-center mt-1">
+                <button type="submit" class="btn btn-primary">Complete Order</button>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-6 col-lg-6 mt-1">
+            <h1>Pay in Full</h1>
+        </div>
+    </div>
+</div>
+
+
+
+

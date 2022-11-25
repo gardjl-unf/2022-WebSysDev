@@ -5,68 +5,83 @@
 }
 <script type="text/javascript" src="~/lib/country-region-selector/crs.min.js"></script>
 
-<div class="container center">
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-            <h1 class="center">Checkout</h1>
-        </div>
-        <div asp-validation-summary="All" class="text-danger"></div>
-        <form asp-action="Checkout" method="post">
-            <div class="row col-sm-12 col-md-12 col-lg-12">
-                <div class="col-sm-6 col-md-6 col-lg-6">
-                    <span>Name: </span><input asp-for="Name" class="form-control topcoat-text-input--large" />
-                </div>
-            </div>
-        </form>
+<div class="container centerwrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <h1 class="center">Checkout</h1>
     </div>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <form asp-action="Checkout" method="post">
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-1 col-md-1 col-lg-1 mt-1">
+                <label class="mr-1">Name</label>
+            </div>
+            <div class="col-sm-11 col-md-11 col-lg-11 mt-1">
+                <input type="text" asp-for="Name" class="topcoat-text-input--large" placeholder="Full Name" />
+            </div>
+        </div>
+        <div class="row col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-1 col-md-1 col-lg-1 mt-1">
+                <label class="mr-1">Email</label>
+            </div>
+            <div class="col-sm-11 col-md-11 col-lg-11 mt-1">
+                <input type="text" asp-for="Email" class="topcoat-text-input--large" placeholder="Email Address" />
+            </div>
+        </div>
+
+        <div class="row col-sm-12 col-md-12 col-lg-12  mt-1">
+            <div class="col-sm-1 col-md-1 col-lg-1">
+                <label class="mr-1">Street</label>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <input type="text" asp-for="Line1" class="topcoat-text-input--large" placeholder="Line 1" /><br />
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1">
+                <label class="mr-1">Zip</label>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <input asp-for="Zip" class="topcoat-text-input--large" placeholder="Zipcode" />
+            </div>
+        </div>
+
+        <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
+            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <input type="text" asp-for="Line2" class="topcoat-text-input--large" placeholder="Line 2" /><br />
+            </div>
+            <div class="col-sm-1 col-md-1 col-lg-1">
+                <label class="mr-1">City</label>
+            </div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <input asp-for="City" class="topcoat-text-input--large" placeholder="City" />
+            </div>
+        </div>
+
+        <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
+            <div class="col-sm-1 col-md-1 col-lg-1"></div>
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <input type="text" asp-for="Line3" class="topcoat-text-input--large" placeholder="Line 3" /><br />
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <label class="topcoat-checkbox">
+                    <input type="checkbox" asp-for="GiftWrap">
+                    <div class="topcoat-checkbox__checkmark"></div>
+                    Giftwrap Items
+                </label>
+            </div>
+        </div>
+
+        <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
+            <div class="col-sm-6 col-md-6 col-lg-6 mt-1">
+                <select asp-for="Country" class="crs-country topcoat-text-input--large" data-region-id="crs-region" data-preferred="US,CA,MX" data-default-value="US" data-value="shortcode"></select>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6 mt-1" col-lg-4">
+                <select asp-for="State" class="topcoat-text-input--large" id="crs-region" data-default-value="AL" data-value="shortcode"></select>
+            </div>
+        </div>       
+        @await Component.InvokeAsync("Checkout")
+        <div class="row col-sm-12 col-md-12 col-lg-12 mt-2">
+            <input class="btn btn-primary" type="submit" value=" Complete Order" />
+        </div>
+    </form>
 </div>
 
-
-
-
-<h2>Check out now</h2>
-<p>Please enter your details, and we'll ship your goods right away!</p>
-<div asp-validation-summary="All" class="text-danger"></div>
-<form asp-action="Checkout" method="post">
-    <h3>Ship to</h3>
-    <div class="form-group">
-        <label>Name:</label>
-        <input asp-for="Name" class="form-control topcoat-text-input--large" />
-    </div>
-    <h3>Address</h3>
-    <div class="form-group">
-        <label>Line 1:</label>
-        <input asp-for="Line1" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="form-group">
-        <label>Line 2:</label>
-        <input asp-for="Line2" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="form-group">
-        <label>Line 3:</label>
-        <input asp-for="Line3" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="form-group">
-        <label>City:</label>
-        <input asp-for="City" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="form-group">
-        <label>State:</label>
-        <select asp-for="State" class="form-control topcoat-text-input--large" id="crs-region" data-default-value="AL" data-value="shortcode"></select>
-    </div>
-    <div class="form-group">
-        <label>Zip:</label>
-        <input asp-for="Zip" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="form-group">
-        <label>Country:</label>
-        <select asp-for="Country" class="form-control crs-country topcoat-text-input--large" data-region-id="crs-region" data-preferred="US,CA,MX" data-default-value="US" data-value="shortcode"></select>
-    </div>
-    <div class="form-group">
-        <label>E-Mail:</label>
-        <input asp-for="Email" class="form-control topcoat-text-input--large" />
-    </div>
-    <div class="text-center">
-        <input class="btn btn-primary" type="submit" value=" Complete Order" />
-    </div>
-</form>

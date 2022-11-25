@@ -43,6 +43,25 @@ namespace Tuskla.Models
         public virtual decimal ComputeShippingValue() => ComputeSubtotalValue() > 40000M ? 2500M : ComputeSubtotalValue() > 50M ? 10M : 0;
         public virtual decimal ComputeTaxValue() => ComputeSubtotalValue() * 0.07M;
         public virtual decimal ComputeTotalValue() => ComputeSubtotalValue() * 1.07M + ComputeShippingValue();
+        public virtual List<decimal> ComputePaymentOption()
+        {
+            bool containsCar = false;
+            List<decimal> totals = new List<decimal> { 0.0M, 0.0M };
+            foreach (var line in lineCollection)
+            {
+                if (line.Product.Category == "Car" && !containsCar)
+                {
+                    containsCar ^= true;
+                    totals[0] += 250M;
+                }
+                else
+                {
+                    totals[0] += line.Product.Price * 1.07M;
+                }
+            }
+            totals[1] = ComputeTotalValue() - totals[0];
+            return totals;
+        }
         public virtual int CartItems() { return lineCollection.Count; }
         public virtual void Clear() => lineCollection.Clear();
         public virtual IEnumerable<CartLine> Lines => lineCollection;

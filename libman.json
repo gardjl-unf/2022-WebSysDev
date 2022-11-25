@@ -42,7 +42,12 @@
     {
       "library": "country-region-selector@0.5.1",
       "destination": "wwwroot/lib/country-region-selector",
-      "files": ["crs.min.js"]
+      "files": [ "crs.min.js" ]
+    },
+    {
+      "library": "jquery.payment@3.0.0",
+      "destination": "wwwroot/lib/jquery.payment",
+      "files": [ "jquery.payment.min.js" ]
     }
   ]
 }
