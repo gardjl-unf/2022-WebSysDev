@@ -1,56 +1,95 @@
 ﻿@model Cart
 
+<link rel="stylesheet" asp-href-include="~/lib/jquery/jquery.min.js" />
 <script type="text/javascript" src="~/js/pay.js"></script>
-<script type="text/javascript" src="~/lib/jquery.payment/jquery.payment.min.js"></script>
 
 <h4 class="mb-3">Payment</h4>
 
 <div class="d-block my-3">
     <div class="custom-control custom-radio">
-        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="">
-        <label class="custom-control-label" for="credit">Credit card</label>
+        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" value="ccPayment" checked="">
+        <label class="custom-control-label" for="credit">Credit Card</label>
     </div>
+    <!-- IF VEHICLE, add some text for Deposit, Amnt, Pay in full -->
     <div class="custom-control custom-radio">
-        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input">
-        <label class="custom-control-label" for="debit">Debit card</label>
-    </div>
-    <div class="custom-control custom-radio">
-        <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input">
-        <label class="custom-control-label" for="paypal">PayPal</label>
+        <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" value="bankPayment">
+        <label class="custom-control-label" for="bank">Bank Transfer</label>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-6 mb-3">
-        <label for="cc-name">Name on card</label>
-        <input type="text" class="form-control" id="cc-name" placeholder="">
-        <small class="text-muted">Full name as displayed on card</small>
-        <div class="invalid-feedback">
-            Name on card is required
+<div class="ccPayment box">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on Card</label>
+            <input type="text" class="form-control" id="cc-name" placeholder="Full Name">
+            <small class="text-muted">Full Name as Displayed on Card</small>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="cc-number">Credit card number</label>
+            <input type="text" class="form-control" id="cc-number" placeholder="1234 5678 1234 5678">
         </div>
     </div>
-    <div class="col-md-6 mb-3">
-        <label for="cc-number">Credit card number</label>
-        <input type="text" class="form-control" id="cc-number" placeholder="">
-        <div class="invalid-feedback">
-            Credit card number is required
+    <div class="row">
+        <div class="col-md-2 mb-3">
+            <label for="cc-expiration">Expiration Month</label>
+            <select class="form-control">
+                <option value="01">January</option>
+                <option value="02">February </option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div class="col-md-2" mb-3>
+            <label for="cc-expiration">ExpirationYear</label>
+            <select class="form-control">
+                        <option value="22"> 2022</option>
+                        <option value="23"> 2023</option>
+                        <option value="24"> 2024</option>
+                        <option value="25"> 2025</option>
+                        <option value="26"> 2026</option>
+                        <option value="27"> 2027</option>
+                        <option value="28"> 2028</option>
+                        <option value="29"> 2029</option>
+                        <option value="30"> 2030</option>
+                        <option value="31"> 2031</option>
+                    </select>
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="cc-cvv">CVV</label>
+            <input type="text" class="form-control" id="cc-cvv" placeholder="000">
+            <small class="text-muted">Located on Reverse of Card</small>
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-3 mb-3">
-        <label for="cc-expiration">Expiration</label>
-        <input type="text" class="form-control" id="cc-expiration" placeholder="">
-        <div class="invalid-feedback">
-            Expiration date required
+<div class="bankPayment box">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="cc-name">Name on Account</label>
+            <input type="text" class="form-control" id="acct-name" placeholder="Full Name">
+            <small class="text-muted">Full on Account</small>
+        </div>
+        <div class="col-md-6 mb-3">
+            <label for="cc-number">Account Number</label>
+            <input type="text" class="form-control" id="acct-number" placeholder="123456789012">
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <label for="cc-cvv">CVV</label>
-        <input type="text" class="form-control" id="cc-cvv" placeholder="">
-        <div class="invalid-feedback">
-            Security code required
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            <label for="cc-name">Routing Number</label>
+            <input type="text" class="form-control" id="acct-route" placeholder="123456789">
         </div>
-    </div>
+        <div class="col-md-6 mb-3">
+            <label for="cc-number">Verify Account Number</label>
+            <input type="text" class="form-control" id="acct-number-verify" placeholder="123456789012">
+        </div>
+    </div>  
 </div>
 <hr class="mb-4">
 
