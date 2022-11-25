@@ -40,36 +40,39 @@
     <div class="navigation">@Html.ActionLink("Merchandise", "List", "Product", null, null)</div>
     <div class="navigation">@Html.ActionLink("Check Orders", "Find", "Order") </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/Contact.html")">Contact Us</a>
+        @Html.ActionLink("Contact Us", "DisplayInfo", "Info", new { document = "Contact" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/FAQs.html")">FAQs</a>
+        @Html.ActionLink("FAQs", "DisplayInfo", "Info", new { document = "FAQs" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/Ordering.html")">Ordering</a>
+        @Html.ActionLink("Safety", "DisplayInfo", "Info", new { document = "Saftey" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/Warranty.html")">Warranty</a>
+        @Html.ActionLink("Ordering", "DisplayInfo", "Info", new { document = "Ordering" }, null)
+    </div>
+    <div class="navigation">
+        @Html.ActionLink("Warranty", "DisplayInfo", "Info", new { document = "Warranty" }, null)
+    </div>
+    <div class="navigation">
+        @Html.ActionLink("AutoPilot", "DisplayInfo", "Info", new { document = "AutoPilot" }, null)
     </div>
     <div class="menu-category">Charging</div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/Charging.html")">Fast Charging</a>
+        @Html.ActionLink("Fast Charging", "DisplayInfo", "Info", new { document = "Charging" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/WallCharging.html")">Wall Charging</a>
-    </div>
-    <div class="navigation">
-        <a href="@Url.Content("../docs/AutoPilot.html")">AutoPilot</a>
+        @Html.ActionLink("Wall Charging", "DisplayInfo", "Info", new { document = "WallCharging" }, null)
     </div>
     <div class="menu-category">Corporate Information</div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/CorporateInfo.html")">Company</a>
+        @Html.ActionLink("Company", "DisplayInfo", "Info", new { document = "CorporateInfo" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/Financial.html")">Financial Report</a>
+        @Html.ActionLink("Financial Reports", "DisplayInfo", "Info", new { document = "Financial" }, null)
     </div>
     <div class="navigation">
-        <a href="@Url.Content("../docs/MasterPlan.html")">Master Plan</a>
+        @Html.ActionLink("Master Plan", "DisplayInfo", "Info", new { document = "MasterPlan" }, null)
     </div>
     @if (User.Identity.IsAuthenticated)
     {
