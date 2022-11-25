@@ -4,10 +4,8 @@
 <script type="text/javascript" src="~/js/pay.js"></script>
 
 @{
-    ViewBag.paymentAmount = Model.ComputeTotalValue();
-    ViewBag.shortAmount = Model.ComputePaymentOption()[0];
-    ViewBag.PaymentAmount = ViewBag.paymentAmount.ToString("c");
-    ViewBag.ShortAmount = ViewBag.shortAmount.ToString("c");
+    ViewBag.PaymentAmount = Model.ComputeTotalValue().ToString("c");
+    ViewBag.ShortAmount = Model.ComputePaymentOption()[0].ToString("c");
     ViewBag.ShortRemaining = Model.ComputePaymentOption()[1].ToString("c");
 }
 
@@ -25,10 +23,14 @@
             </div>
         </div>
         <div class="col-md-6 mb-3">
-            <div class="custom-control custom-checkbox">
-                <label class="custom-control-label" for="Deposit">Pay a Deposit</label>
-                <small class="text-muted">Pay $250.00 now, and pay @ViewBag.ShortRemaining on delivery.</small>
-            </div>
+            @if (ViewBag.paymentAmount != ViewBag.shortAmount)
+            {
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="Deposit">
+                    <label class="custom-control-label" for="Deposit">Pay a Deposit</label>
+                </div>
+                <small class="text-muted">Pay $250.00 for your vehicle now, and pay @ViewBag.ShortRemaining on delivery.</small>
+            }
         </div>
     </div>
 </div>
@@ -107,10 +109,10 @@
         </div>
     </div>  
 </div>
-@{
-    ViewBag.PaymentAmount = Model.ComputeTotalValue().ToString("c");
-    ViewBag.ShortAmount = Model.ComputePaymentOption()[0].ToString("c");
-    ViewBag.ShortRemaining = Model.ComputePaymentOption()[1].ToString("c");
-}
+<div class="paymentDeposit">
+    <button class="btn btn-primary btn-lg btn-block" type="submit"><i class="fa fa-money-bill"></i> Pay @ViewBag.ShortAmount</button>
+</div>
+<div class="paymentFull">
     <button class="btn btn-primary btn-lg btn-block" type="submit"><i class="fa fa-money-bill"></i> Pay @ViewBag.PaymentAmount</button>
+</div>
 <hr class="mb-4">
