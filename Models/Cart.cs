@@ -46,6 +46,7 @@ namespace Tuskla.Models
         public virtual List<decimal> ComputePaymentOption()
         {
             bool containsCar = false;
+            // Total with Deposit, Remaining Balance
             List<decimal> totals = new List<decimal> { 0.0M, 0.0M };
             foreach (var line in lineCollection)
             {
@@ -59,6 +60,7 @@ namespace Tuskla.Models
                     totals[0] += line.Product.Price * 1.07M;
                 }
             }
+            totals[0] += containsCar ? 0.0M : ComputeShippingValue();
             totals[1] = ComputeTotalValue() - totals[0];
             return totals;
         }

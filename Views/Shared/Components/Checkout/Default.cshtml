@@ -91,109 +91,12 @@
         </div>
     </div>  
 </div>
+@{
+    ViewBag.PaymentAmount = Model.ComputeTotalValue().ToString("c");
+    ViewBag.ShortAmount = Model.ComputePaymentOption()[0].ToString("c");
+    ViewBag.ShortRemaining = Model.ComputePaymentOption()[1].ToString("c");
+}
+    <button class="btn btn-primary btn-lg btn-block" type="submit"><i class="fa fa-money-bill"></i> Pay @ViewBag.PaymentAmount</button>
+    Amount for Deposit @ViewBag.ShortAmount
+    Amount for Rest @ViewBag.ShortRemaining
 <hr class="mb-4">
-
-
-
-<div class="container centerwrapper animated fadeInRight">
-    <div class="row mt-1">
-        <div class="col-sm-5 col-md-5 col-lg-5 mt-1 order-summary">
-            <div class="ibox-title">Make Deposit</div>
-            <h2>Due Today @Model.ComputePaymentOption()[0].ToString("c")</h2>
-            <h2>Due Later @Model.ComputePaymentOption()[1].ToString("c")</h2>
-        <div class="row mt1 form-group">
-            <div class="col-form-label">
-                <label class="mr-1">Name on Card</label>
-                    <input type="text" class="topcoat-text-input--large form-control" placeholder="Name on Card">
-            </div>
-        </div>
-            <div class="row mt1">
-            <div class="col">
-                <label class="mr-1">Card Number</label>
-                    <input type="text" class="topcoat-text-input--large form-control" id="cardNumber" placeholder=" 1234 5678 1234 5678">
-            </div>
-            </div>
-            <div class="row mt1">
-            <div class="col">
-                <label class="mr-1">CVV</label>
-                <input type="text" class="topcoat-text-input--large" id="CVV" placeholder="000">
-                <i class="fa fa-cc-visa"></i>
-                <i class="fa fa-cc-mastercard"></i>
-                <i class="fa fa-cc-amex"></i>
-            </div>
-            </div>
-            <div class="row mt1">
-
-                <div class="col">
-                    <label>Expires</label>
-                </div>
-                <div class="col mt-0">
-                    <select class="topcoat-text-input--large">
-                        <option value="01">January</option>
-                        <option value="02">February </option>
-                        <option value="03">March</option>
-                        <option value="04">April</option>
-                        <option value="05">May</option>
-                        <option value="06">June</option>
-                        <option value="07">July</option>
-                        <option value="08">August</option>
-                        <option value="09">September</option>
-                        <option value="10">October</option>
-                        <option value="11">November</option>
-                        <option value="12">December</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <label></label>
-                </div>
-            <div class="col mt-1">
-                <select class="topcoat-text-input--large">
-                    <option value="22"> 2022</option>
-                    <option value="23"> 2023</option>
-                    <option value="24"> 2024</option>
-                    <option value="25"> 2025</option>
-                    <option value="26"> 2026</option>
-                    <option value="27"> 2027</option>
-                    <option value="28"> 2028</option>
-                    <option value="29"> 2029</option>
-                    <option value="30"> 2030</option>
-                    <option value="31"> 2031</option>
-                </select>
-            </div>
-            </div>
-            <div class="row d-flex justify-content-center mt-2">
-                <div class="col-sm-auto col-md-auto col-lg-auto">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-money-bill"></i> Make Deposit</button>
-            </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-md-6 col-lg-6 mt-1 order-summary">
-            <div class="ibox-title">Pay in Full</div>
-            <h2>Due @Model.ComputePaymentOption()[1].ToString("c")</h2>
-        <div class="col mt-1">
-            <label class="mr-1">Name</label>
-            <input type="text" class="topcoat-text-input--large" placeholder="Name on Account">
-        </div>
-        <div class="col mt-1">
-            <label class="mr-1">Account Number</label>
-            <input type="text" class="topcoat-text-input--large" id="cardNumber" placeholder=" 000000000">
-        </div>
-        <div class="col mt-1">
-            <label class="mr-1">Routing Number</label>
-            <input type="text" class="topcoat-text-input--large" id="CVV" placeholder="0000000">
-        </div>
-            <div class="row d-flex justify-content-center mt-2">
-                <div class="col-sm-auto col-md-auto col-lg-auto">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-money-bill"></i> Make Deposit</button>
-                </div>
-        <div/>
-    </div>
-</div>
-</div>
-</div>
-
-
-
-

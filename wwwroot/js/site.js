@@ -1,4 +1,24 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿const openMenu = () => {
+    document.querySelector('.backdrop').className = 'backdrop active';
+    document.querySelector('aside').className = 'active';
+}
 
-// Write your Javascript code.
+const closeMenu = () => {
+    document.querySelector('.backdrop').className = 'backdrop';
+    document.querySelector('aside').className = '';
+}
+
+document.getElementById('menuButton').onclick = e => {
+    e.preventDefault();
+    openMenu();
+    
+}
+
+document.querySelector('aside button.close').onclick = e => {
+    closeMenu();
+    
+}
+
+document.querySelector('.backdrop').onclick = e => {
+    closeMenu();
+}
