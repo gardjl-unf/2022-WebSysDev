@@ -26,30 +26,29 @@
                                 </div>
                                 @foreach (var line in Model.Cart.Lines)
                                 {
-                                    <div class="row">
+                                    <div class="row mb-2">
                                         <div class="col-sm-2 col-md-2 col-lg-2">
                                             <div class="cart-product-imitation">
                                                 <!-- INSERT IMAGES -->
                                             </div>
                                         </div>
-                                        <div class="text-center desc col-sm-4 col-md-4 col-lg-4"><h3><a href="#" class="text-navy">@line.Product.Name</a></h3></div>
-                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Product.Price.ToString("c")</div>
-                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Quantity</div>
-                                        <div class="text-center col-sm-2 col-md-2 col-lg-2"><h4>@((line.Quantity * line.Product.Price).ToString("c"))</h4></div>
-                                    </div>
-                                    <div class="row col-sm-12 col-md-12 col-lg-12 mt-1">
-                                        <div class="small col-sm-8 col-md-8 col-lg-8">Product Description: @line.Product.Description</div>
-                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                        <div class="text-left desc col-sm-4 col-md-4 col-lg-4">
+                                            <h3><a href="#" class="text-navy">@line.Product.Name</a></h3>
+                                            <div class="small">Product Description: @line.Product.Description</div>
                                             @if (line.Product.Category != "Car" || line.Product.Name.StartsWith("Model"))
                                             {
                                                 <form asp-action="RemoveFromCart" method="post">
                                                     <input type="hidden" name="ProductID" value="@line.Product.ProductID" />
                                                     <input type="hidden" name="returnUrl" value="@Model.ReturnUrl" />
-                                                    <button type="submit" class="text-muted"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
+                                                    <button type="submit" class="text-muted mt-0"><i class="fa fa-trash" aria-hidden="true"></i> Remove</button>
                                                 </form>
                                             }
                                         </div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Product.Price.ToString("c")</div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2">@line.Quantity</div>
+                                        <div class="text-center col-sm-2 col-md-2 col-lg-2"><h4>@((line.Quantity * line.Product.Price).ToString("c"))</h4></div>
                                     </div>
+                                    <hr />
                                 }
                             </div>
                     </div>
