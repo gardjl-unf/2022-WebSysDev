@@ -1,32 +1,36 @@
 ﻿@model IEnumerable<string>
 
 <center>
-    <div class="mb-2">
-        <div class="float-left">
-            Current Category:  
-            @if (ViewBag.SelectedCategory == null) 
-            { 
-                <span>None</span>
-            } else 
-            { 
-                @ViewBag.SelectedCategory
-            }
-        </div>
-        <div class="topcoat-button-bar">
-            <div class="topcoat-button-bar__item">
-                <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category=@null asp-route-page="1">All</a>
-            </div>
-            @foreach (string category in Model)
-            {
-                @if (category != "Car")
-                {
-                    <div class="topcoat-button-bar__item">
-                        <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category="@category" asp-route-page="1">
-                            @category
-                        </a>
-                    </div>
+    <div class="container category-bar mb-2">
+        <div class="row">
+            <div class="col d-flex float-left">
+                <h3>Current Category:&nbsp;&nbsp;</h3>  
+                @if (ViewBag.SelectedCategory == null) 
+                { 
+                    <h4>None</h4>
+                } else 
+                { 
+                    <h4>@ViewBag.SelectedCategory</h4>
                 }
-            }
+            </div>
+            <div class="col d-flex float-right mb-0">
+                <div class="topcoat-button-bar">
+                    <div class="topcoat-button-bar__item">
+                        <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category=@null asp-route-page="1">All</a>
+                    </div>
+                    @foreach (string category in Model)
+                    {
+                        @if (category != "Car")
+                        {
+                            <div class="topcoat-button-bar__item">
+                                <a class="topcoat-button-bar__button--large" asp-action="List" asp-controller="Product" asp-route-category="@category" asp-route-page="1">
+                                    @category
+                                </a>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
         </div>
     </div>
 </center>
