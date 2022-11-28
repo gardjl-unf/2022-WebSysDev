@@ -48,20 +48,31 @@ namespace Tuskla.Models
             bool containsCar = false;
             // Total with Deposit, Remaining Balance
             List<decimal> totals = new List<decimal> { 0.0M, 0.0M };
+            decimal shippingSubtotal = 0.0M;
             foreach (var line in lineCollection)
             {
-                if (line.Product.Category == "Car" && !containsCar)
+                if (line.Product.Category == "Car")
                 {
-                    containsCar ^= true;
-                    totals[0] += 250M;
+                    if (!containsCar)
+                    {
+                        containsCar ^= true;
+                        totals[0] += 250M;
+                        totals[1] += line.Product.Price * 1.07M - 250M;
+                    }
+                    else
+                    {
+                        totals[1] += line.Product.Price * 1.07M;
+                    }
                 }
                 else
                 {
                     totals[0] += line.Product.Price * 1.07M;
+                    shippingSubtotal += line.Product.Price;
                 }
             }
             totals[0] += containsCar ? 0.0M : ComputeShippingValue();
-            totals[1] = ComputeTotalValue() - totals[0];
+            if(containsCar) { totals[1] += 2500M; }
+            else { totals[1] += shippingSubtotal > 50M ? 10M : 0M; }
             return totals;
         }
         public virtual int CartItems() { return lineCollection.Count; }
