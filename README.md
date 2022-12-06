@@ -1,4 +1,4 @@
-1.  Unzip EVehiclesB.zip to the root of the source\repo directory in your home directory
+1.  Unzip Tuskla.zip to the root of the source\repo directory in your home directory
 
 2.  Open it with Visual Studio
 
@@ -19,13 +19,13 @@ Update-Database (ignore validation error concerning price)
 
 expand (localdb)MSSQLLocalDB...
 expand Databases
-expand EVehiclesB
+expand Tuskla
 expand Tables
 click on dbo.Products but do not select anything
 Underneath the label "SQL SERVER Object Explorer" there are three icons
 Select the one to the left for new query
 
-I have the insert statements to load the initial file in the EVehiclesB
+I have the insert statements to load the initial file in the Tuskla
 main folder named dbo.Products.data.sql.  Open that file with notepad 
 and copy the contents.  Then then paste it into the window. 
 Then simply click the green error to execute.  
@@ -49,7 +49,7 @@ Logout it broke login.  To get around that I created a seperate method Logout2
 and changed most of the blue buttons to point to that.  May have missed a couple,   
 
 
-* Add a link on the product pages to pop up a display all model stats like Tesla has. Javascript
+* Add a link on the product pages to pop up a display all model stats like Tuskla has. Javascript
 
 * Add images on the add screens for the products, model, paint, rims, etc.
 
@@ -80,13 +80,13 @@ Then re-added the data
 
 At that point there was no Admin User.  
   - Just went back to an old solution and created one
-  - Below is the create statement for it in users and created admin@evehicles.com password Temp01# 
+  - Below is the create statement for it in users and created admin@Tuskla.com password Temp01# 
   
   INSERT INTO [dbo].[AspNetUsers] ([Id], [UserName], [NormalizedUserName], [Email], 
   [NormalizedEmail], [EmailConfirmed], [PasswordHash], [SecurityStamp], [ConcurrencyStamp], 
   [PhoneNumber], [PhoneNumberConfirmed], [TwoFactorEnabled], [LockoutEnd], [LockoutEnabled], 
   [AccessFailedCount]) VALUES (N'f70230f5-aae7-4357-96b3-08dac66fa512', N'admin', N'ADMIN', 
-  N'admin@evehicles.com', N'ADMIN@EVEHICLES.COM', 0, 
+  N'admin@Tuskla.com', N'ADMIN@Tuskla.COM', 0, 
   N'AQAAAAEAACcQAAAAELmEcW2NLu61UhgG/X6uZQcThxGmkN0ySoVt3+O/rkizpw6UGJrknH6/UeOrcxpyKw==', 
   N'JP7FUQ5ZKICTBGHF5GHZW5TGXO2GY7AO', N'f6d3c77a-cbda-4518-b64c-22e30b62a428', 
   NULL, 0, 0, NULL, 1, 0);
