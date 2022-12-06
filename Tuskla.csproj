@@ -65,7 +65,7 @@
      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
    </Content>
-   <Content Update="wwwroot\img\logos\tesla-logotext-2200x2800.png">
+   <Content Update="wwwroot\img\logos\Tuskla-logotext-2200x2800.png">
      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
    </Content>

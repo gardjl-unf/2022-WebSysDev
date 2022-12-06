@@ -305,8 +305,8 @@ namespace Tuskla.Models
                             Id = new Guid("f70230f5-aae7-4357-96b3-08dac66fa512"),
                             UserName = "admin",
                             NormalizedUserName = "ADMIN",
-                            Email = "admin@evehicles.com",
-                            NormalizedEmail = "ADMIN@EVEHICLES.COM",
+                            Email = "admin@Tuskla.com",
+                            NormalizedEmail = "ADMIN@Tuskla.COM",
                             EmailConfirmed = false,
                             // Temp01#
                             PasswordHash = "AQAAAAEAACcQAAAAELmEcW2NLu61UhgG/X6uZQcThxGmkN0ySoVt3+O/rkizpw6UGJrknH6/UeOrcxpyKw==",
