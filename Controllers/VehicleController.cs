@@ -48,7 +48,7 @@ namespace Tuskla.Controllers
             return View(new ProductsListViewModel
             {
                 Products = repository.Products
-                    .Where(p => p.Category.StartsWith("Car") && p.isActive == true)
+                    .Where(p => p.Category.StartsWith("Car") && p.isActive)
                     .OrderBy(p => p.ProductID)
             });
         }

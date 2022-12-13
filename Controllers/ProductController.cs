@@ -16,7 +16,7 @@ namespace Tuskla.Controllers
             repository = repo;
         }
         [Authorize]
-        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true));
+        public ViewResult Index() => View(repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive));
         public ViewResult List(string category, int page = 1)
         {
             if (category != null) {
@@ -24,7 +24,7 @@ namespace Tuskla.Controllers
                     new ProductsListViewModel
                     {
                         Products = repository.Products
-                            .Where(p => p.Category == category && p.isActive == true)
+                            .Where(p => p.Category == category && p.isActive)
                             .OrderBy(p => p.ProductID)
                             .Skip((page - 1) * PageSize)
                             .Take(PageSize),
@@ -32,8 +32,7 @@ namespace Tuskla.Controllers
                         {
                             CurrentPage = page,
                             ItemsPerPage = PageSize,
-                            TotalItems = repository.Products
-                                .Where(p => p.Category == category && p.isActive).Count()
+                            TotalItems = repository.Products.Count(p => p.Category == category && p.isActive)
                         },
                         CurrentCategory = category
                     });
@@ -43,7 +42,7 @@ namespace Tuskla.Controllers
                     new ProductsListViewModel
                     {
                         Products = repository.Products
-                            .Where(p => !p.Category.StartsWith("Car") && p.isActive == true)
+                            .Where(p => !p.Category.StartsWith("Car") && p.isActive)
                             .OrderBy(p => p.ProductID)
                             .Skip((page - 1) * PageSize)
                             .Take(PageSize),
@@ -51,7 +50,7 @@ namespace Tuskla.Controllers
                         {
                             CurrentPage = page,
                             ItemsPerPage = PageSize,
-                            TotalItems = repository.Products.Where(p => !p.Category.StartsWith("Car") && p.isActive == true).Count()
+                            TotalItems = repository.Products.Count(p => !p.Category.StartsWith("Car") && p.isActive)
                         },
                         CurrentCategory = category
                     });
