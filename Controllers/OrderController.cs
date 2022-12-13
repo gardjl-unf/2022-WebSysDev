@@ -89,7 +89,7 @@ namespace Tuskla.Controllers
         [HttpPost]
         public IActionResult Checkout(Order order)
         {
-            if (cart.Lines.Count() == 0)
+            if (!cart.Lines.Any())
             {
                 ModelState.AddModelError("", "Sorry, your cart is empty!");
             }
